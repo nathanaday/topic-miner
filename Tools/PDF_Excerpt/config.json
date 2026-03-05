@@ -1,0 +1,16 @@
+{
+    "input_pdf": "/Users/nathanaday/Documents/USC/EE450/Textbook/Kurose-Text-8-1.pdf",
+    "output_dir": "/Users/nathanaday/Documents/USC/EE450",
+    "make": {
+        "1": {
+            "title": "Kuros 1.1",
+            "page_start": 100,
+            "page_end": 120
+        },
+        "2": {
+            "title": "Kuros 1.2",
+            "page_start": 121,
+            "page_end": 140
+        }
+    }
+}
