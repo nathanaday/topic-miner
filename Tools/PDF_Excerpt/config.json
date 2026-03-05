@@ -2,15 +2,110 @@
     "input_pdf": "/Users/nathanaday/Documents/USC/EE450/Textbook/Kurose-Text-8-1.pdf",
     "output_dir": "/Users/nathanaday/Documents/USC/EE450",
     "make": {
+        "0": {
+            "title": "Kuros-1.1",
+            "page_start": 13,
+            "page_end": 20
+        },
         "1": {
-            "title": "Kuros 1.1",
-            "page_start": 100,
-            "page_end": 120
+            "title": "Kuros-1.2",
+            "page_start": 20,
+            "page_end": 32
         },
         "2": {
-            "title": "Kuros 1.2",
-            "page_start": 121,
-            "page_end": 140
+            "title": "Kuros-1.3",
+            "page_start": 33,
+            "page_end": 45
+        },
+        "3": {
+            "title": "Kuros-1.4",
+            "page_start": 46,
+            "page_end": 57
+        },
+        "4": {
+            "title": "Kuros-1.5",
+            "page_start": 58,
+            "page_end": 64
+        },
+        "5": {
+            "title": "Kuros-2.1",
+            "page_start": 93,
+            "page_end": 106
+        },
+        "6": {
+            "title": "Kuros-2.2",
+            "page_start": 106,
+            "page_end": 126
+        },
+        "7": {
+            "title": "Kuros-2.3",
+            "page_start": 127,
+            "page_end": 133
+        },
+        "8": {
+            "title": "Kuros-2.4",
+            "page_start": 134,
+            "page_end": 147
+        },
+        "9": {
+            "title": "Kuros-2.5",
+            "page_start": 148,
+            "page_end": 153
+        },
+        "10": {
+            "title": "Kuros-2.7",
+            "page_start": 164,
+            "page_end": 175
+        },
+        "11": {
+            "title": "Kuros-3.1",
+            "page_start": 193,
+            "page_end": 197
+        },
+        "12": {
+            "title": "Kuros-3.2",
+            "page_start": 198,
+            "page_end": 205
+        },
+        "13": {
+            "title": "Kuros-3.3",
+            "page_start": 205,
+            "page_end": 210
+        },
+        "14": {
+            "title": "Kuros-3.4",
+            "page_start": 211,
+            "page_end": 237
+        },
+        "15": {
+            "title": "Kuros-3.5",
+            "page_start": 238,
+            "page_end": 244
+        },
+        "16": {
+            "title": "Kuros-4.3",
+            "page_start": 351,
+            "page_end": 357
+        },
+        "17": {
+            "title": "Kuros-6.1.1",
+            "page_start": 463,
+            "page_end": 464
+        },
+        "18": {
+            "title": "Kuros-6.2.3",
+            "page_start": 470,
+            "page_end": 472
+        },
+        "19": {
+            "title": "Kuros-6.4.1",
+            "page_start": 489,
+            "page_end": 501
+        },
+        "20": {
+            "title": "Kuros-6.7",
+            "page_start": 523,
+            "page_end": 528
         }
     }
 }
