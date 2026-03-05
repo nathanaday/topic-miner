@@ -1,0 +1,6 @@
+{
+    "source_files": "/Users/nathanaday/Documents/USC/EE450/Content/Exams/*.pdf",
+    "output_files": "/Users/nathanaday/Documents/USC/EE450/Content/ConvertedExams/",
+    "max_limit": 40,
+    "workers": 2
+}

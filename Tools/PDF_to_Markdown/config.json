@@ -1,0 +1,6 @@
+{
+    "source_files": "/Users/nathanaday/Documents/USC/EE450/Content/PDF Reading Excerpts/*.pdf",
+    "output_files": "/Users/nathanaday/Documents/USC/EE450/Content/Converted Reading Excerpts/",
+    "max_limit": 40,
+    "workers": 2
+}
