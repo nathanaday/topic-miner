@@ -72,3 +72,9 @@ The pipeline produces `topic_map.json` -- a single canonical JSON file containin
 ## Configuration
 
 Edit `material_config.yaml` to set course name, directory-to-material-type mappings, scoring weights, and LLM parameters.
+
+
+### Known Issues
+
+The topic_map.json contains duplicate subtopic IDs (same node appears under multiple parents). Only 1158 of 4149 nodes have unique IDs. 80% of links (3270/4099) target duplicate IDs
+
