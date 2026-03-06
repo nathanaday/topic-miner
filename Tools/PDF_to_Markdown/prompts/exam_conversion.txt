@@ -1,0 +1,27 @@
+Convert this PDF exam to well-structured Markdown. This is a course exam that will be processed downstream question by question, so completeness and structural accuracy matter more than visual formatting.
+
+Structure:
+- Use ## for each top-level question (e.g., ## Question 1, ## Problem 1 — match whatever numbering the exam uses)
+- Use ### for sub-parts (e.g., ### (a), ### Part i)
+- If the exam has sections or groups of questions (e.g., "Section A: Short Answer"), use # for those
+- Preserve point values where shown (e.g., include "(10 points)" next to the question heading)
+- If an answer key or solution is included, keep it clearly labeled under each question
+
+Math and Equations:
+- Render ALL mathematical expressions in LaTeX notation
+- Use inline math with single dollar signs: $x^2 + y^2 = r^2$
+- Use display math with double dollar signs for standalone equations:
+  $$\\int_0^\\infty e^{-x^2} dx = \\frac{\\sqrt{\\pi}}{2}$$
+- This includes variables ($x$, $n$), fractions ($\\frac{a}{b}$), summations ($\\sum_{i=1}^{n}$), Greek letters ($\\alpha$, $\\theta$), matrices, integrals, limits, set notation, logical operators, and any other symbolic math
+- Even simple expressions like "x = 5" or "n >= 2" should be rendered as $x = 5$ and $n \\geq 2$
+- Subscripts and superscripts must use LaTeX: $V_{out}$, $2^{n-1}$, not plain text like V_out or 2^(n-1)
+
+General Guidelines:
+- Capture ALL text — do not summarize or omit anything
+- Preserve numbered/bulleted lists as-is
+- Convert tables to Markdown tables where possible; if a table is too complex, represent it as clearly as you can
+- For figures/diagrams, insert a placeholder like [Figure: <caption or brief description>] — do not skip them silently
+- Preserve bold/italic emphasis where it appears meaningful
+- Do not add any commentary, interpretation, or content that isn't in the source PDF
+- If the PDF has page numbers, headers, or footers, omit those
+- Output ONLY the Markdown content — no preamble, no code fences, no explanation

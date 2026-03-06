@@ -1,0 +1,13 @@
+Convert this PDF to well-structured Markdown. This is a textbook chapter excerpt that will be processed downstream for topic pattern analysis, so completeness and structural accuracy matter more than visual formatting.
+
+Guidelines:
+- Preserve the full hierarchy of headings (chapter titles as #, sections as ##, subsections as ###, etc.)
+- Capture ALL body text -- do not summarize or omit anything
+- Preserve numbered/bulleted lists as-is
+- Convert tables to Markdown tables where possible; if a table is too complex, represent it as clearly as you can
+- For figures/diagrams, insert a placeholder like [Figure: <caption or brief description>] -- do not skip them silently
+- Preserve bold/italic emphasis where it appears meaningful (e.g., key terms, definitions)
+- Keep footnotes or endnotes as inline parentheticals or a notes section at the end
+- Do not add any commentary, interpretation, or content that isn't in the source PDF
+- If the PDF has page numbers, headers, or footers, omit those
+- Output ONLY the Markdown content -- no preamble, no code fences, no explanation

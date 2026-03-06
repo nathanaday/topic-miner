@@ -12,20 +12,7 @@ import anthropic
 
 load_dotenv(Path(__file__).parent / ".env")
 
-PROMPT = """Convert this PDF to well-structured Markdown. This is a textbook chapter excerpt that will be processed downstream for topic pattern analysis, so completeness and structural accuracy matter more than visual formatting.
-
-Guidelines:
-- Preserve the full hierarchy of headings (chapter titles as #, sections as ##, subsections as ###, etc.)
-- Capture ALL body text -- do not summarize or omit anything
-- Preserve numbered/bulleted lists as-is
-- Convert tables to Markdown tables where possible; if a table is too complex, represent it as clearly as you can
-- For figures/diagrams, insert a placeholder like [Figure: <caption or brief description>] -- do not skip them silently
-- Preserve bold/italic emphasis where it appears meaningful (e.g., key terms, definitions)
-- Keep footnotes or endnotes as inline parentheticals or a notes section at the end
-- Do not add any commentary, interpretation, or content that isn't in the source PDF
-- If the PDF has page numbers, headers, or footers, omit those
-- Output ONLY the Markdown content -- no preamble, no code fences, no explanation
-"""
+PROMPTS_DIR = Path(__file__).parent / "prompts"
 
 
 def load_config():
@@ -37,7 +24,7 @@ def load_config():
     with open(config_path) as f:
         config = json.load(f)
 
-    for key in ("source_files", "output_files", "max_limit"):
+    for key in ("source_files", "output_files", "max_limit", "prompt"):
         if key not in config:
             print(f"Error: config.json missing required key '{key}'.")
             sys.exit(1)
@@ -45,7 +32,18 @@ def load_config():
     return config
 
 
-def convert_pdf(client, pdf_path):
+def load_prompt(prompt_name):
+    prompt_path = PROMPTS_DIR / prompt_name
+    if not prompt_path.exists():
+        print(f"Error: prompt file not found: {prompt_path}")
+        available = [f.name for f in PROMPTS_DIR.iterdir() if f.is_file()]
+        if available:
+            print(f"Available prompts: {', '.join(sorted(available))}")
+        sys.exit(1)
+    return prompt_path.read_text().strip()
+
+
+def convert_pdf(client, pdf_path, prompt):
     pdf_bytes = pdf_path.read_bytes()
     pdf_b64 = base64.standard_b64encode(pdf_bytes).decode("utf-8")
 
@@ -66,7 +64,7 @@ def convert_pdf(client, pdf_path):
                     },
                     {
                         "type": "text",
-                        "text": PROMPT,
+                        "text": prompt,
                     },
                 ],
             }
@@ -82,9 +80,12 @@ def main():
     output_dir = Path(config["output_files"])
     max_limit = config["max_limit"]
 
+    prompt = load_prompt(config["prompt"])
+
     print("Loaded config.json")
     print(f"Source pattern: {source_pattern}")
     print(f"Output directory: {output_dir}")
+    print(f"Prompt: {config['prompt']}")
     print(f"Max limit: {max_limit}")
     print()
 
@@ -137,12 +138,27 @@ def main():
         print(f"\nProcessing {len(pending)} PDFs with {workers} workers...\n")
 
     max_retries = 3
+    # Throttle: only allow one API request to start per this interval (seconds).
+    # Prevents multiple large PDFs from hitting the per-minute token limit together.
+    request_interval = config.get("request_interval", 60)
+    last_request_time = [0.0]  # mutable container for sharing across threads
+    throttle_lock = threading.Lock()
+
+    def throttled_convert(client, pdf_path):
+        with throttle_lock:
+            now = time.time()
+            elapsed = now - last_request_time[0]
+            if elapsed < request_interval:
+                wait = request_interval - elapsed
+                time.sleep(wait)
+            last_request_time[0] = time.time()
+        return convert_pdf(client, pdf_path, prompt)
 
     def process_one(item):
         _, pdf_path, md_path, label = item
         for attempt in range(max_retries):
             try:
-                markdown = convert_pdf(client, pdf_path)
+                markdown = throttled_convert(client, pdf_path)
                 md_path.write_text(markdown, encoding="utf-8")
                 with print_lock:
                     print(f"{label}  {pdf_path.name} -- success")
