@@ -145,18 +145,47 @@ OUTPUT SCHEMA: Return a JSON object with this structure:
 Every topic node at every level must have: topic, level, description, source_refs, importance_signals, subtopics (empty array for leaves).
 """
 
-MERGE_PROMPT = """You are a topic tree merger. You will receive two topic trees (Tree A and Tree B) extracted from course materials. Your job is to produce a single unified tree.
+MERGE_PROMPT = """You are a topic tree merger. You will receive two topic trees (Tree A and Tree B) extracted from course materials. Your job is to produce a single unified tree that is COMPACT and well-organized.
 
 MERGE RULES:
-1. DEDUPLICATION: If both trees contain the same concept, subtopic, or learning outcome (even if worded differently), merge them into a single node. Use your judgment -- "Iterative DNS Resolution" and "DNS Iterative Queries" are the same topic.
-2. ACCUMULATE REFERENCES: When merging duplicate nodes, combine their source_refs arrays and importance_signals arrays. Do not discard any references.
-3. PRESERVE HIERARCHY: If Tree A has a topic as a subtopic of "DNS" and Tree B has the same topic as a subtopic of "Networking Fundamentals," use your judgment about the most appropriate parent. Prefer the more specific, standard grouping.
-4. CHOOSE THE BEST NAME: When merging equivalent topics with different names, choose the name that is most precise, standard, and descriptive.
-5. KEEP THE BEST DESCRIPTION: When merging, keep whichever description is more complete and accurate, or synthesize a better one from both.
-6. DO NOT DROP TOPICS: Every topic from both trees must appear in the output. If a topic from one tree has no counterpart in the other, include it as-is.
-7. MAINTAIN LEVELS: Ensure the level field (concept/subtopic/learning_outcome) remains appropriate after merging.
+1. AGGRESSIVE DEDUPLICATION: If both trees contain the same concept, subtopic, or learning outcome (even if worded differently), merge them into a single node. Use your judgment broadly -- "Iterative DNS Resolution" and "DNS Iterative Queries" are the same topic. "Network Fundamentals" and "Computer Network Fundamentals" are the same concept.
+2. CONSOLIDATE RELATED CONCEPTS: If two top-level concepts are closely related (e.g., "Circuit Switching" and "Circuit Switching vs Packet Switching"), merge them under a single, broader concept. Prefer fewer, well-organized top-level concepts over many narrow ones.
+3. ABSORB SMALL TOPICS: If a top-level concept has 0-1 children and clearly belongs as a subtopic of another concept, demote it. For example, "DHCP Protocol" with 1 child should be a subtopic under "Network Protocols" or "IP Addressing", not its own top-level concept.
+4. ACCUMULATE REFERENCES: When merging nodes, combine their source_refs and importance_signals arrays. Never discard references.
+5. PRESERVE HIERARCHY: If Tree A has a topic as a subtopic of "DNS" and Tree B has the same topic as a subtopic of "Networking Fundamentals," use your judgment about the most appropriate parent. Prefer the more specific, standard grouping.
+6. CHOOSE THE BEST NAME: When merging equivalent topics with different names, choose the name that is most precise, standard, and descriptive.
+7. KEEP THE BEST DESCRIPTION: When merging, keep whichever description is more complete and accurate, or synthesize a better one from both.
+8. DO NOT DROP LEARNING OUTCOMES: Every specific learning outcome and its source_refs must appear somewhere in the output. But you MAY restructure the concept/subtopic hierarchy to be more compact. The goal is fewer top-level concepts, not fewer total nodes.
+9. MAINTAIN LEVELS: Ensure the level field (concept/subtopic/learning_outcome) remains appropriate after merging.
+
+QUALITY TARGET: A well-organized course typically has 15-40 top-level concepts, not 50+. If your output has more than 40 top-level concepts, look harder for opportunities to consolidate.
 
 OUTPUT: A single merged topic tree as a JSON array of topic nodes (same schema as the input trees' "topics" arrays). No markdown, no commentary -- valid JSON only."""
+
+
+CONSOLIDATE_PROMPT = """You are a topic tree organizer. You will receive a list of top-level concept names and descriptions from a course topic tree. Many of these are duplicates, near-duplicates, or subtopics that were incorrectly promoted to top-level.
+
+Your job is to produce a CONSOLIDATION PLAN that maps every input concept to its correct place in a cleaner structure.
+
+For each input concept, output one of:
+- KEEP: This is a genuine top-level concept. Optionally rename it.
+- MERGE INTO <target>: This concept should be merged into <target> (another concept you are keeping). Combine their subtrees.
+- DEMOTE UNDER <target>: This concept should become a subtopic of <target>.
+
+Rules:
+- Every input concept must appear in exactly one action (KEEP, MERGE, or DEMOTE).
+- Never drop concepts entirely -- they must end up somewhere.
+- A well-organized course has 15-40 top-level concepts.
+- Use standard academic terminology for concept names.
+
+Respond with a JSON array of objects:
+[
+  {"input_topic": "...", "action": "keep", "new_name": "..." },
+  {"input_topic": "...", "action": "merge", "target": "..." },
+  {"input_topic": "...", "action": "demote", "target": "..." }
+]
+
+No markdown, no commentary -- valid JSON only."""
 
 ENRICH_PROMPT_TEMPLATE = """You are a study prioritization assistant. You will receive a complete course topic tree with accumulated importance_signals and source_refs on each node.
 

@@ -29,6 +29,13 @@ def main():
         choices=["markdown", "checklist"],
         help="Optional rendered outputs: markdown, checklist",
     )
+    parser.add_argument(
+        "--from-phase",
+        type=int,
+        choices=[0, 1, 2, 3],
+        default=0,
+        help="Resume from a specific phase (loads intermediate results from disk)",
+    )
     args = parser.parse_args()
 
     logging.basicConfig(
@@ -44,6 +51,7 @@ def main():
         config_path=args.config,
         output_path=args.output,
         render=args.render,
+        from_phase=args.from_phase,
     )
 
 
