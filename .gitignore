@@ -7,3 +7,5 @@ phase2_results.json
 topic_map.json
 topic_map.md
 topic_map_checklist.md
+map_output/
+bad_json_*.txt

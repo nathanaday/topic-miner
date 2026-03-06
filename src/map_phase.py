@@ -1,4 +1,5 @@
 import json
+import os
 import re
 import asyncio
 import logging
@@ -9,12 +10,46 @@ from .prompts import COMMON_PREAMBLE, MATERIAL_PROMPTS, TOPIC_SCHEMA_INSTRUCTION
 
 logger = logging.getLogger(__name__)
 
+CHECKPOINT_DIR = "map_output"
+CHECKPOINT_LOG = os.path.join(CHECKPOINT_DIR, "completed.txt")
+
 
 def strip_markdown_fences(text: str) -> str:
     text = text.strip()
     text = re.sub(r"^```(?:json)?\s*\n?", "", text)
     text = re.sub(r"\n?```\s*$", "", text)
     return text.strip()
+
+
+def init_checkpoint_dir():
+    os.makedirs(CHECKPOINT_DIR, exist_ok=True)
+    if not os.path.exists(CHECKPOINT_LOG):
+        with open(CHECKPOINT_LOG, "w") as f:
+            pass
+
+
+def load_completed() -> set[str]:
+    if not os.path.exists(CHECKPOINT_LOG):
+        return set()
+    with open(CHECKPOINT_LOG, "r") as f:
+        return {line.strip() for line in f if line.strip()}
+
+
+def mark_completed(doc_id: str):
+    with open(CHECKPOINT_LOG, "a") as f:
+        f.write(doc_id + "\n")
+
+
+def save_map_result(doc_id: str, result: dict):
+    path = os.path.join(CHECKPOINT_DIR, f"{doc_id}.json")
+    with open(path, "w") as f:
+        json.dump(result, f, indent=2)
+
+
+def load_map_result(doc_id: str) -> dict:
+    path = os.path.join(CHECKPOINT_DIR, f"{doc_id}.json")
+    with open(path, "r") as f:
+        return json.load(f)
 
 
 def build_map_prompt(doc: dict) -> tuple[str, str]:
@@ -88,6 +123,9 @@ async def extract_topics_async(doc: dict, client: anthropic.AsyncAnthropic,
 
                 text = strip_markdown_fences(response.content[0].text)
                 result = json.loads(text)
+
+                save_map_result(doc["doc_id"], result)
+                mark_completed(doc["doc_id"])
                 logger.info("  Done:    %s [%s]", doc["filename"], doc["doc_id"])
                 return [result]
 
@@ -127,15 +165,31 @@ async def run_map_phase(documents: list[dict], config: dict) -> list[dict]:
     max_tokens = config["llm"]["max_tokens_map"]
     concurrency = config["llm"]["concurrency"]
 
+    init_checkpoint_dir()
+    completed = load_completed()
+
+    cached_results = []
+    docs_to_process = []
+    for doc in documents:
+        if doc["doc_id"] in completed:
+            logger.info("  Cached:  %s [%s]", doc["filename"], doc["doc_id"])
+            cached_results.append(load_map_result(doc["doc_id"]))
+        else:
+            docs_to_process.append(doc)
+
+    if completed:
+        logger.info("Resuming: %d cached, %d remaining", len(cached_results), len(docs_to_process))
+
     async_client = anthropic.AsyncAnthropic(api_key=config["api_key"])
     semaphore = asyncio.Semaphore(concurrency)
 
     tasks = [
         map_document(doc, async_client, model, max_tokens, semaphore)
-        for doc in documents
+        for doc in docs_to_process
     ]
     nested_results = await asyncio.gather(*tasks)
 
-    topic_trees = [r for batch in nested_results for r in batch]
-    logger.info("Phase 1 complete: %d topic trees from %d documents", len(topic_trees), len(documents))
-    return topic_trees
+    new_results = [r for batch in nested_results for r in batch]
+    all_results = cached_results + new_results
+    logger.info("Phase 1 complete: %d topic trees from %d documents", len(all_results), len(documents))
+    return all_results
