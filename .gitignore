@@ -2,3 +2,8 @@
 *.DS_Store
 *.env
 **/.venv
+phase1_results.json
+phase2_results.json
+topic_map.json
+topic_map.md
+topic_map_checklist.md

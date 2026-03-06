@@ -1,0 +1,35 @@
+course_name: "EE450 Computer Networks"
+semester: "Spring 2026"
+
+file_overrides: {}
+
+directory_rules:
+  "lectures/": "lecture"
+  "lecture/": "lecture"
+  "readings/": "textbook"
+  "textbook/": "textbook"
+  "homework/": "homework"
+  "exams/": "exam"
+  "exam/": "exam"
+  "discussion/": "discussion"
+  "notes/": "student"
+  "student/": "student"
+
+seed_topics: []
+
+scoring_weights:
+  exam_appearance: 30
+  instructor_emphasis: 25
+  homework_problem: 15
+  frequency: 15
+  discussion_covered: 8
+  self_flagged: 5
+  depth_coverage: 2
+
+llm:
+  model: "claude-sonnet-4-20250514"
+  temperature: 0
+  max_tokens_map: 8192
+  max_tokens_reduce: 16384
+  max_tokens_enrich: 16384
+  concurrency: 2
