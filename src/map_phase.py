@@ -1,10 +1,18 @@
 import json
+import re
 import asyncio
 import logging
 
 import anthropic
 
 from .prompts import COMMON_PREAMBLE, MATERIAL_PROMPTS, TOPIC_SCHEMA_INSTRUCTION
+
+
+def strip_markdown_fences(text: str) -> str:
+    text = text.strip()
+    text = re.sub(r"^```(?:json)?\s*\n?", "", text)
+    text = re.sub(r"\n?```\s*$", "", text)
+    return text.strip()
 
 logger = logging.getLogger(__name__)
 
@@ -37,13 +45,9 @@ async def extract_topics_async(doc: dict, client: anthropic.AsyncAnthropic,
     system_prompt, user_prompt = build_map_prompt(doc)
 
     async with semaphore:
+        logger.info("  Mapping: %s", doc["filename"])
         for attempt in range(max_retries):
             try:
-                logger.info(
-                    "Phase 1 [%s] %s (attempt %d)",
-                    doc["doc_id"], doc["filename"], attempt + 1
-                )
-
                 response = await client.messages.create(
                     model=model,
                     max_tokens=max_tokens,
@@ -52,23 +56,17 @@ async def extract_topics_async(doc: dict, client: anthropic.AsyncAnthropic,
                     messages=[{"role": "user", "content": user_prompt}],
                 )
 
-                text = response.content[0].text
+                text = strip_markdown_fences(response.content[0].text)
                 result = json.loads(text)
-                logger.info("Phase 1 [%s] success", doc["doc_id"])
+                logger.info("  Done:    %s", doc["filename"])
                 return result
 
-            except (json.JSONDecodeError, KeyError) as e:
-                logger.warning(
-                    "Phase 1 [%s] malformed JSON (attempt %d): %s",
-                    doc["doc_id"], attempt + 1, e
-                )
+            except (json.JSONDecodeError, KeyError):
+                logger.warning("  Retry:   %s (bad JSON, attempt %d/%d)", doc["filename"], attempt + 1, max_retries)
             except anthropic.APIError as e:
-                logger.warning(
-                    "Phase 1 [%s] API error (attempt %d): %s",
-                    doc["doc_id"], attempt + 1, e
-                )
+                logger.warning("  Retry:   %s (API error, attempt %d/%d)", doc["filename"], attempt + 1, max_retries)
 
-        logger.error("Phase 1 [%s] failed after %d retries", doc["doc_id"], max_retries)
+        logger.error("  FAILED:  %s", doc["filename"])
         return None
 
 
@@ -87,8 +85,5 @@ async def run_map_phase(documents: list[dict], config: dict) -> list[dict]:
     results = await asyncio.gather(*tasks)
 
     topic_trees = [r for r in results if r is not None]
-    logger.info(
-        "Phase 1 complete: %d/%d documents processed",
-        len(topic_trees), len(documents)
-    )
+    logger.info("Phase 1 complete: %d/%d documents succeeded", len(topic_trees), len(documents))
     return topic_trees

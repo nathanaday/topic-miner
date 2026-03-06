@@ -3,6 +3,8 @@ import logging
 
 import anthropic
 
+from .map_phase import strip_markdown_fences
+
 from .prompts import ENRICH_PROMPT_TEMPLATE
 
 logger = logging.getLogger(__name__)
@@ -25,8 +27,6 @@ def run_enrich_phase(merged_tree: list[dict], config: dict,
 
     for attempt in range(max_retries):
         try:
-            logger.info("Phase 3 enrich (attempt %d)", attempt + 1)
-
             response = client.messages.create(
                 model=model,
                 max_tokens=max_tokens,
@@ -35,7 +35,7 @@ def run_enrich_phase(merged_tree: list[dict], config: dict,
                 messages=[{"role": "user", "content": user_prompt}],
             )
 
-            text = response.content[0].text
+            text = strip_markdown_fences(response.content[0].text)
             enriched = json.loads(text)
 
             if isinstance(enriched, dict) and "topics" in enriched:

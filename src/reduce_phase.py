@@ -3,6 +3,8 @@ import logging
 
 import anthropic
 
+from .map_phase import strip_markdown_fences
+
 from .prompts import MERGE_PROMPT
 
 logger = logging.getLogger(__name__)
@@ -22,8 +24,6 @@ def merge_two_trees(tree_a: list[dict], tree_b: list[dict],
 
     for attempt in range(max_retries):
         try:
-            logger.info("Phase 2 merge (attempt %d)", attempt + 1)
-
             response = client.messages.create(
                 model=model,
                 max_tokens=max_tokens,
@@ -32,7 +32,7 @@ def merge_two_trees(tree_a: list[dict], tree_b: list[dict],
                 messages=[{"role": "user", "content": user_prompt}],
             )
 
-            text = response.content[0].text
+            text = strip_markdown_fences(response.content[0].text)
             merged = json.loads(text)
 
             if isinstance(merged, dict) and "topics" in merged:
@@ -61,7 +61,7 @@ def pairwise_reduce(topic_trees: list[list[dict]], client: anthropic.Anthropic,
     round_num = 0
     while len(current_round) > 1:
         round_num += 1
-        logger.info("Phase 2 round %d: merging %d trees", round_num, len(current_round))
+        logger.info("  Round %d: %d trees remaining", round_num, len(current_round))
         next_round = []
 
         for i in range(0, len(current_round), 2):
