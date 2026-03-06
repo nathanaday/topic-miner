@@ -1,0 +1,2293 @@
+[Auto-generated transcript. Edits may have been applied for clarity.]
+Good morning, everybody, and welcome to epoch 50.
+
+I'm glad you all are safe and healthy. Uh, let's start with, uh, we spend about ten minutes on the course administration.
+
+All of the charts have been, uh, posted on our website.
+
+Uh, first of all, the course is for 50 Introduction to Computer Networks.
+
+My name is Professor Zahid. My office hours is a Tuesday and Thursday, 10 to 1045 after the class and 1 to 2:30 p.m., I forgot to write to the office.
+
+We actually. Powell Hall of Engineering for one.
+
+Powell Hall of continuing for one for the office.
+
+Hours are both in-person and, uh, on zoom.
+
+This is the zoom link for the duration of the semester.
+
+The. We do have two sections of E450 this semester.
+
+The first section is this one is from 8 to 950, all in Hall of Engineering 100 D.
+
+This is in-person and webcast, both in-person and webcast.
+
+The second session Tuesday and Thursday, 11 to 12:50 p.m. at Kapor Hall of Humanity.
+
+That's at the end of the campus day for all of humanity to ten visits in-person only.
+
+The two lectures are identical. And the what?
+
+When I say identical, I don't mean word by word. The content is identical.
+
+You can attend any of these two sessions you would like.
+
+The. The only problem is that the second session is closed, so I don't know the sides of the room.
+
+There are 60 students India, so I don't know the sides of the room yet.
+
+I will see you today, but uh, yeah.
+
+About both sessions. Have access to the webcast.
+
+My email is Azad at qic that edu.
+
+Don't hesitate to email me at anytime. Weekends.
+
+Weekdays. At anytime. Morning. Afternoon at night.
+
+Doesn't matter. I will reply to you very quickly. Our website is on brightspace that you will see that we do.
+
+Everybody have access to the website. Everybody okay.
+
+But Brightspace said that you are seeing that Ed.
+
+Pardon me. Professor, do you mind moving your mic up a little bit on the shirt?
+
+Uh, a little bit on my shirt. Yeah. Mike up.
+
+Okay. Okay. Thank you very much. Perfect.
+
+Thank you so much. Okay, good. And we have also two discussion sessions.
+
+One of them is on Friday from 2 to 250.
+
+This I, by the way, this is in person and webcast.
+
+All in all, I've been hearing 132. All I wanted to to is an outside the studio.
+
+Outside outdoor studio. Uh, and on Wednesday, 5 to 5:50 p.m. DMC.
+
+I have no idea what DMC is. I have to check the room.
+
+DMC 100 discussion sections are also identical.
+
+The only difference is that you will see differently. We have two things for the course.
+
+One will handle the Friday section. One will handle the Wednesday.
+
+But the material is identical. I give them the material.
+
+I give them the material to discuss on the discussion session, and they just come and present it to you.
+
+Discussion sections are used to discuss homework problems.
+
+Projects. Labs. Material discussed in the class that needs further elaboration.
+
+You will also be responsible for any material presented in these discussion sections, regardless on whether they were discussed in the lecture or not.
+
+Some material we will not discuss in the lecture, but they will discuss in the discussion section.
+
+An example of which is some application like Hypertext Transfer Protocol or SMTp, Simple Mail Transfer Protocol, and so on and so forth.
+
+These will be discussed in the discussion section. You are responsible for them, whether they are discussed in the class or not.
+
+So it is very important to attend these sessions. Get familiar with your case.
+
+Again, as I told you, in my mind, my welcoming message is I will be guiding you along the way with homeworks,
+
+with labs, and most important, with your project. Yes, sir.
+
+Right. Raise your voice. Are we responsible for both discussion?
+
+No, no. Both sessions are identical. I am talking about the material.
+
+The content of the discussion session might not be covered in the lecture,
+
+but you are responsible for the material discussed in both of these discussion sessions.
+
+And identical. It's the same set of charts. Actually, they already posted the first set of charts, which is an introduction they get.
+
+They get to tell you about the procedure, it's a project and so on and so forth.
+
+By the way, discussion section will start this week. So this Wednesday we have a discussion session.
+
+And this Friday we also have a discussion session. I forgot to mention.
+
+My office hours starts from this week.
+
+But the office hours of it starts next week.
+
+Not this week. Next week, but my office hour starts this one.
+
+Okay. The prerequisite of the course is a programing skills C C plus plus.
+
+They will tell you that they will tell you in the discussion searching what language are they going to be using and so on and so forth.
+
+But from prior from prior offering of E for 50 we use C, C plus plus.
+
+They might want to use Python or whatever other language and so on and they will let you know more.
+
+So probably it will be c c plus plus.
+
+I already posted a tutorial on C plus, plus and network socket programing which is the topic of your project on our website.
+
+It's when you go to the website, first of all you need to click on content.
+
+Then you scroll down, you will see a folder which is called programing tutorials and so on, so forth.
+
+And they will also dedicate to discussion sections to review basic concepts of C, C plus plus, Unix and Linux and so on and so forth.
+
+This course is not about programing, so if you want to take a course in programing, the course is C s for 55, C s for anybody taking CSS for 55.
+
+None of you anyway CS4 55 is a course in programing.
+
+This course is on network but we need a programing to deal with the bright clear.
+
+But there will be no questions like for example in the midterms and so on and so forth.
+
+On programing. The programing is specifically only for the black.
+
+Course textbook is Computer Networking, the eighth edition by Caruso and Ross.
+
+I already posted a copy of it in our website.
+
+Don't tell anybody, otherwise I will be in trouble. Uh.
+
+This is the most widely used textbook in the United States across universities.
+
+It's a good book. I was very clear in its presentation and so on and so.
+
+And I also posted a couple of recommended books out on the on our website.
+
+Uh, you might want to check them out. Currently we have only two tickets.
+
+By the way, the department have not yet assigned graders for me and maybe another teacher or a mentor and so on and so on.
+
+But for the time being, we have two days the first day as Mr. Rodrigo Barajas, DHHS office hours.
+
+This is the zoom link. Are office hours. It's also both in person and on zoom.
+
+So this digital zoom link and it's his office hours on Monday Wednesday from 1 to 2 p.m.
+
+The other. One very hard way to pronounce its name is Boku.
+
+People could show up at the teachers office hours and the zoom links this way.
+
+I. Chances are, I will get one more day, or one more mentor and a couple of great times a day.
+
+They are still discussing these issues and the department.
+
+What is the responsibility? The responsibility.
+
+They conduct the weekly discussion section again, as I told you a moment ago.
+
+I gave them the discussion section. They they come prepared it and they come and present it to you and engage in discussion.
+
+Maintaining the course website Andy Piazza. Are you familiar with Piazza?
+
+Okay. They are going to be monitoring the piazza or maintaining the Piazza discussion board.
+
+The Piazza discussion board. We will create it at the end of next week, because I have to wait until the registration is closed.
+
+And so that we make sure that the entire group of students are in the discussion board.
+
+They conduct office hours and they are open to both session.
+
+In a minute I would show you after sorry, after the first week or two from this semester.
+
+We are going to divide the class into two groups. Each state will handle one group.
+
+However, during their office hours they are open to all the students.
+
+So whether the T.A. office hour at 58 is your designated day or not, your designated day, you can still go and see them at during their office hours.
+
+The only way that you need to only contact your designated date is via email.
+
+So if you want to email your question or whatever you need only to what email your designated date.
+
+But their office hours is open to both sides. To all the students.
+
+They will be designing. They designed the project.
+
+I only give some thumbs up or thumbs down. That's their baby, not mine.
+
+So they will design this programing project.
+
+They will guide you along the way and they will grade the programing project for you at the end of the semester every year designated.
+
+I will grade his, uh, portion of the, uh, of the other projects.
+
+But each one of them will get a portion of the project.
+
+They will assist you with your homework, with your labs, with your project, and so on and so forth.
+
+The grading of the homework and the labs. I'm hoping that they will assign me some greater.
+
+So they will not. Incorrect. I will not grade the homework or the labs, but they will grab the project.
+
+The grade that will a grade, the homework and the labs. No, always make it up.
+
+If you want to attach your to your designated day via email.
+
+Always CC the email to me. CC the email to me.
+
+Two reasons. One reason is that I need to make sure that they respond to you in a timely fashion.
+
+I don't want your email to sit there without a response.
+
+And second, which is even more important, I want to make sure that the response is a clear, crisp and to the point.
+
+In other words, they answered your question. They don't go around circles without answering your question.
+
+If I see if their response is not very clear.
+
+I will add my explanation to the to the to the to the email.
+
+Clear so far. Clear? Of course.
+
+Workflow. We are going to have one midterm and one final.
+
+These are the dates. If you cannot make those dates.
+
+Drop the class. Take a turn this summer. E450 is open every semester.
+
+We are going to have two exam midterm on Friday, March 13th.
+
+This is, by the way, the day before your spring break.
+
+So hopefully you do well in the exam and you enjoy your spring break.
+
+March 13th, 430 to 640 at 630 and 7 to 9 p.m.
+
+Your choice. You choose whichever slot.
+
+It's the same exam. It's the same exam, but it's offered in two timeslots.
+
+Your choice. You want to take this slot? Fine with me.
+
+You want to take this slot? Fine with me. Clear?
+
+Same thing with the final exam. It's on Friday. Both of them are on Friday, May 8th.
+
+430 to 630 and 7 to 9 p.m. And again, it's your choice.
+
+I am going to repeat this one more time. If you cannot make those dates for any reason, you are traveling, you are.
+
+You are getting married. You are dying. I don't care.
+
+I do not get make up exam. Interrupt the course if you cannot make those.
+
+The midterm and the final will be in person and on campus, at four on campus and local ten student local ten students,
+
+which means those students who are within the a larger metropolitan area and Los Angeles metropolitan area, they need to come to the campus.
+
+Then will how about will organize the midterm and the final four remote locations for then will take care of the.
+
+Again, there is absolutely no makeup exemption no matter what your reasons are.
+
+We are going to have roughly five, 4 to 5 homeworks.
+
+Every other week we are going to.
+
+I'm going to assign homework, go to school, create a drop box on uh, on uh on brightspace and do, uh, the due date of the drop box will be specified.
+
+Clear. Once the drop box closes, which means your homework will not be accepted.
+
+So make sure you don't wait till the last minute. Project.
+
+A water project will be on the client server network socket programing, which is again the purpose of the course here.
+
+The client server network programing. Not an art project.
+
+Not a art project. However, it requires time.
+
+You all have written codes before. That's it.
+
+Work the first time never works the first time. You will have to wait.
+
+You have to keep. By the way, the case will not debug your program for you.
+
+This is not a course on the programing. They will guide you, but they will not debug you.
+
+In other words, you don't go to the day and tell them. Can you see what the problem with my program?
+
+Where is the bug? They will tell you what. Go and buy a sprite.
+
+They are not going to do what debugging for you. Keep that in mind.
+
+The project will be posted at the end of the first month, and it will be due a week before the end of the semester,
+
+a week before the end of semester, so you will have roughly two months to do the project.
+
+Don't wait till the last minute. Do not wait.
+
+Once the project is posted. Uh, you need to start, uh, working on clear.
+
+Lab assignment. These are not physical labs. These are virtual labs.
+
+You are going to run it on your computer or on your laptop or whatever.
+
+They are counted as extra credit. Which means what if you don't want to do them?
+
+You don't have to do it. If you think that you will do very well in the midterm and the final and you don't need any help, you don't need to join.
+
+Believe me, you will need to do it. You will need to do so.
+
+We are going to have 4 or 5 labs. 4 or 5 labs total.
+
+It's a 20 points maximum to be added to your midterm score, not to your final score to your midterm score.
+
+So for example, suppose in the midterm you've got 90 and you submit all the labs and they are perfect.
+
+Your midterm will be what, 110. Not 100 or 110.
+
+Did you get it. It will be added to your midterm not to the final.
+
+Nothing will be added to the final. Final as a standalone entity.
+
+The labs deals with a protocol analysis tools called Wireshark, which is one of the most widely used tool in the industry.
+
+You need to learn how to use it and also network simulation using many.
+
+Also, another tool that provides you knowledge about how to simulate networks.
+
+Again, 4 to 5 labs depending on the time.
+
+Clear the workload. As I told you in my welcoming message.
+
+E450 is not an art class.
+
+It's not an art class. Anybody have taken my pottery?
+
+None of you take a point. No no no no. Five four, three is on probability and random variables and so on.
+
+This is not a hot clutch. The only problem with this class it's a big class.
+
+Which means what a lot of what a lot of work.
+
+And you cannot procrastinate. You procrastinate.
+
+The material will begin to pile up and you will lose track of clear.
+
+And I'm not an easy instructor. I don't give easy exams, so you need to prepare from day one.
+
+Clear. Any questions on the workload?
+
+Any questions? Oh, good. There is absolutely no curve in the clutch.
+
+If you are looking for a course that gives you a curve e450 in the summer.
+
+The professor usage occurs. I don't. So this is.
+
+But I give you the maximum of the following options. 35% on the midterm.
+
+35% on the final. 10% on the homework.
+
+And 20% on the project. Or 3040.
+
+Then 20 clear most of the time from prior experience.
+
+This audience will get the first one. Why? Because when you get those extra credit, add it to your midterm score.
+
+Your midterm score will go. What will go up? Which means what?
+
+You will get the higher percentage on the midterm. Clear.
+
+These are the grading scales. For the cause, I don't care.
+
+The only way I give an F in the course is that if I catch you plagiarizing your work,
+
+or attempting to cheat in the midterm or whatever the case might be.
+
+Don't embarrass yourself. Clear.
+
+Oh, I expect again, as I told the course, it's not hard, so I expect everyone to get a very good grade and the course.
+
+As long as you work hard, you dedicate yourself and again, do not procrastinate along the way.
+
+Every time you have difficulties, you drop by my office and don't hesitate to drop by my office.
+
+I'm there to help you. But same thing with the. Do I have undergraduate students here?
+
+Undergraduate. All of you graduate. Undergraduate student.
+
+Drop by my office during the first week or so and let me get to know your your schedule.
+
+The reason I worry about undergraduates, undergraduate students, they take too many units.
+
+I don't know how many units are you taking, but they take too many graduate level courses.
+
+They only take eight units, which is two courses. So please drop by my office.
+
+Let's chat a little bit to see, uh, how you are going to do in the course.
+
+Okay, now all of the charts, the homework solutions and so on and so forth will be announced on our website.
+
+So please do check the website regularly. Also along the way along this semester I will be broadcasting multiple emails.
+
+Why? When a student asked me a question via email and I feel that the question will help the entire class.
+
+I will broadcast my response, but without including the name of the students or asking the question.
+
+So the students will still be anonymous, but I will be broadcasting the response.
+
+You want to read them? Fine. You don't want to read them? It's up to you.
+
+You could also, by the way, post your questions on Piazza, as I will tell you.
+
+And either one of us will and will respond to you in a timely fashion.
+
+So again, our website, it's a brightspace is not a blackboard.
+
+So keep that in mind. And the Piazza discussion board will be created in about a week or so.
+
+All emails. All emails.
+
+Concerning the lecture notes, the text material or general networking questions in general about networking or whatever lecture,
+
+whatever we discussed during the lecture, whatever we whatever the textbook material you will need to address it to me only do
+
+not include the t h the t h do not know what is going to happen during the lecture,
+
+so you need to address it to me on all emails concerning the homeworks.
+
+The labs and the project should be addressed to your designated day.
+
+And again, don't forget to CC me so that I make sure that they respond to you in a timely fashion.
+
+They could also be posted on Piazza. By the way, if you are, if you become very active on Piazza, especially when the project is paused,
+
+which means what you contribute to answering other students questions and so on, so forth.
+
+At the end of this semester, I will give me a list of the students who contributed heavily to Piazza,
+
+and I will keep them extra clear, uh, based on that.
+
+But you need to be you need to be active, uh, on Piazza.
+
+Again, this one here depends on whether they are going. I hope they will assign me a graders.
+
+Uh, they will be responsible for the homework and the grading.
+
+We will. I will update the set of charts as soon as they give me the the arrangements.
+
+Okay, now, one last thing before we start solutions to the midterm and the white and the graded midterm will be posted.
+
+So I will watch the solutions to the midterm. I will return the midterm to you as well.
+
+However, neither the solution nor the graded final will be returned to you.
+
+But you are most welcome to drop by my office.
+
+Spend as much time as you want to review your paper and the solution, but I will not return it to you.
+
+I need to keep some souvenirs that reminds me of you.
+
+Clear? So keep that in mind. This applies, by the way, for both on campus and then students.
+
+Solutions of course with your homework will be posted. No solution to the labs.
+
+Labs? You not absolutely clear? Labs, by the way.
+
+It will be a learning experience for you.
+
+These Wireshark and the and the many that and so on and so forth.
+
+The only thing that is the labs, by the way, I forgot to mention, are individual and similarly to the project.
+
+Project is also individual. Clear at the labs needs to be typed.
+
+No, no lab will be accepted. Handwritten. It has to be done when the time comes.
+
+I will tell you all the rules of the lab submissions and so on.
+
+So. Clear. I'm gonna.
+
+Clear. One more time. Clear.
+
+Okay. Don't hesitate again. If I forgot something.
+
+Don't hesitate to email me, uh, your questions or drop by my office and we can discuss.
+
+Okay, now let's this one also. By the way, esports is set up under the folder which it's called week one, week one.
+
+And I want our website overview. Let's by the way from the name.
+
+It's just by the way look at just the overview.
+
+It's about 100 or 20 page overview.
+
+And that's why I told you for 50 again one more time.
+
+It's not that hard. Plus it is so much fun. It is so much fun.
+
+But the word introduction is a little bit misleading. We will go into detail into issues regarding networking and so on so forth.
+
+Performance measures, installation, maintaining and so on, sample programing and so on.
+
+So. So let's see what we are going to be covering.
+
+And this car did just by the way I divided into parts.
+
+But that does not mean that we start with one part and then what?
+
+We finish it, we go to the next one. And so they are intertwined.
+
+Clearly they are intertwined. The first part is some introduction to data communication, basic concepts and networking.
+
+The first question that we need to answer in about five minutes.
+
+Why do we need the network? Why do we need the network?
+
+Why we cannot do without the network. And because if we cannot answer that question, what is the purpose of the course?
+
+If you don't need the network, we need. So the, uh, typical introductory, uh, material on data communications, basic concepts and network.
+
+The second part, which to me is most important, is the networking protocol, how these devices are going to be talking with each other on a device,
+
+for example, connected to what connected to your AC network is talking with another device connected to the Google network.
+
+How do they talk with each other? How do they talk to each other?
+
+Imagine. Listen to imagine. I come to the class and I start talking in a language which is not English.
+
+You do not recognize it? Nothing will get you through.
+
+Nothing will get through. Even though I am talking. But no information is being transmitted.
+
+We need a protocols, protocols, a set of rules, the set of rules agreed upon.
+
+We have to agree on a set of rules to enable us to communicate with each other.
+
+These are referred to as protocols. Our interest will be on the Internet protocol suite, which is called TCP IP.
+
+Notice. By the way, throughout this semester we are going to learn a lot of these acronyms.
+
+These are called acronyms. Your head will explode from these acronyms, but they are very important.
+
+So for example and interviews and so on so forth. I don't want when the interview tell you what is TCP IP, you tell them what.
+
+Could you wait a second. Let me check my dictionary. I don't want that.
+
+I want you to be very quick. And your feet on your feet. Anybody TCP.
+
+Anybody? Transportation has no transportation.
+
+Transportation is like a car. It is a transport control protocol layer or transmission control protocol IP.
+
+Internet Protocol. Internet protocol. This is a sweet and sweet.
+
+Means what? A collection of protocols. But the two most important protocols in that suite is a DCP IP.
+
+So they referred to this with all suite as http ip.
+
+We are going to be covering wide area networks. We are designated by ones from the name.
+
+These networks cover a wide geographical area.
+
+They could be global, like the internet or the telephone network.
+
+They could be natural networks like cable networks and so on, so clear.
+
+But they cover a wide geographical area. We call them ones.
+
+On the other side, we have what is known as Lance.
+
+Lance stands for what local area networks? Which from the name covers local areas.
+
+Local limited geographical area like for example, the network at your home or a network and the office and so on.
+
+So. When we discuss lands, our interests will be mainly on two technologies.
+
+One of them is called the internet, which is the wire plan, and the other one is the wireless LAN.
+
+The white van, the 8 or 2 that 11 Wi-Fi.
+
+And we study each one of them in detail and each one of them, by the way, you will have, uh.
+
+Uh, assignment, club assignment on each one of them, wired network and, uh, three wired LAN and wireless LAN.
+
+Internet working devices. What are these? We cannot have just isolated network, in other words.
+
+Let me ask you a question. Suppose you have a network at home.
+
+All of you have networks at home. Unplug the router from the rest of the world.
+
+Unplug your router from the rest of the world, which means what?
+
+You become isolated from the rest of the world. Do you still have a network at home?
+
+You still have a network at home. You can still communicate with your roommates, but you will not have access to the rest of the room.
+
+Interesting or not interesting? Not interesting how you want to communicate with your roommates.
+
+Go and talk with them. Why do you use a network?
+
+Just talk with them. Oh. You need. We need those devices to enable the networks one network to be attached to another network.
+
+A third network support network, and so on. So all these devices, we refer to them as internal networking devices.
+
+Our major interest in the course will be on the routers and switches.
+
+We are also UWB. We are also what is known as gateways.
+
+We will study each one of these devices and watch how they work in detail.
+
+Transport layer protocols. These are the protocols that prepare the message to be transmitted.
+
+Over what? Over the network. You cannot just send the message that is clear.
+
+You need to prepare it in exactly the same way as you send mail.
+
+If you want to send the mail, what do you need to do? You need to create, first of all, the the object of the mail.
+
+You need to put it in an envelope on the envelope.
+
+You need to put an address and so on and so forth. You need to put the stamp and so on and so forth.
+
+Clear. You need to prepare the mail in such a way that it will be transported to the other side.
+
+This is the transport layer protocol. Network applications, we are going to study multiple network applications.
+
+Some of them will be discussed in the discussion section only.
+
+Some of them I will take the responsibility of discussing them in the class.
+
+First one that we will, I will discuss in the class, for example, is what is the first look at DNS?
+
+DNS stands for Domain Name System, Domain Name System.
+
+This is the system responsible of translating a hostname like w w w that you AC that edu to what?
+
+To an IP address IP address. Routers along the internet.
+
+They don't know what w w w that you are c that edu it.
+
+They go by what they go by an address and IP at.
+
+That's it. And. And so on. And so. So some applications I will handle them.
+
+Some applications the DEA will handle. The last part of the course will be on network security at separate core.
+
+I say associates, if you are interested in network security, the course is CSE 530.
+
+But we will go into some overview about the basic building blocks of network security, including encryption,
+
+including data integrity, including authentication, including VPN, virtual private networks, including firewalls, and so on.
+
+But all of them on on uh, overview away without going into too much what into too much detail.
+
+This is a separate course. Of course, our focus throughout the course will be on the public and.
+
+We stop here for just a second. We learn and you want, which is what public.
+
+What is a public network? When we say this network is public, what does that mean?
+
+It means the resources available in the network.
+
+It's open to everybody. It's open to everybody.
+
+You want to access the internet? You don't need to take permission from anyone.
+
+It's a public network. As opposed to what? As opposed to a private network.
+
+Your network at home. Your Wi-Fi at home.
+
+It's a private network. I cannot access it without you giving me permission to access that.
+
+It's called a private network. Lans are private networks ones.
+
+Some of them are private, but most of them are what public, like the telephone network or the internet and so on.
+
+Some. Clear so far. Okay. This is what we are going to be discussing in the course.
+
+Now. And the first question that we need to answer is, why do we take this course?
+
+Why? What is. A popular quote, one of the most popular courses in the department over the year.
+
+Why? Because there is demand one in every aspect.
+
+Look, let me jump a little bit and look at what? Look at the industry here.
+
+The multimedia company. These are the wireless industry the laptop, the smartphone and so on, so forth.
+
+A computer hardware software company, telecommunications company, telephone company, ISP,
+
+ISP stands for White Internet service provider a voice, audio, prerecorded, streamed and so on and so forth.
+
+Voice over IP making voice calls over the internet.
+
+Uh, e-commerce, like Amazon and so on, or eBay or whatever.
+
+Uh, computer software, financial, e-commerce, broadcasting, radio and so on, so forth.
+
+All of the data transfer emails and so on, so forth.
+
+Video, uh, streaming videos, Netflix do all those.
+
+And so the gaming industry, all of these industries require what required networking.
+
+And so they you look for what they you look for engineers who have solid foundation and networking in every aspect of the networking,
+
+whether it's hardware, whether it's software and so on and so forth.
+
+Clear. The internet actually began as a prank, according to the internet, but it what it became, what evolved.
+
+Evolve. Evolved until it became the behemoth.
+
+Right? It's right now. And again, companies need a professional to plan to acquire, to install, operate, manage.
+
+A program and so some. Clear. Oh.
+
+Now let's look at the definition. Simple definition of a computer.
+
+But why did I put a question mark here? Why?
+
+When you hear the word computer network you get an idea.
+
+Or you get the false idea that the devices have to be computers.
+
+Have to be computers like laptops or desktops and so on.
+
+So that's not the case. Currently, there is a lot of devices which have nothing to do with computer.
+
+They are just used to communicate information over the internet like the older smartphone.
+
+Like let me see if I'm good.
+
+I bring it with me up here. No, next time I'm sure all of these.
+
+See, you have all heard about the IoT IoT, which stands for one Internet of Things.
+
+Devices that have nothing to do with the computer or the furniture rater sensors, watches and so on and so forth.
+
+All of these devices are what I can communicate across or what across the internet.
+
+So that's why the question mark is the. A computer network.
+
+Let's understand the definition is a set of notes we learn and you work here.
+
+And no I want you to see these.
+
+Each one of these is referred to as end node.
+
+These, the one encircle are called hosts, which are the end systems.
+
+They are also notes. They are genetically referred to them as a note.
+
+But why do we call them horsemen? Because that is where the application is going to run the application.
+
+Run only at the host. Application do not run in the white in the.
+
+Are anger outbursts clear? The application is running only at the end, not in the what needs a transit, not in.
+
+So. A computer network. It's a set of nodes such as routers, switches.
+
+Host all of them. Generically, we refer to them as not.
+
+They are interconnected. They are interconnected via transmission facilities.
+
+Transmission facilities are these facilities.
+
+They could be one copper, they could be cable, they could be fiber in the internet, by the way, the service provider, ISP,
+
+all of their networks are work fiber based because the demand for higher bandwidth will talk about bandwidth in a couple of lectures is huge,
+
+and copper and cable might not be able to one might not able to support that.
+
+Right. Fiber is. So all of the they could be white copper cable fiber satellite radio, microwaves and so on.
+
+So all of these are called transmission facilities.
+
+Now let's distinguish two types. The first one is the transmission facilities that interconnect routers that interconnect routers.
+
+These are shared resources. Why do we call them share.
+
+That is what all the all the all the users of the internet are going to share these facilities.
+
+They are referred to as trunks. This is the technical word for trunks.
+
+When you hear about trunk, what do you think about. Either the trunk of your car or the trunk of the elephant, or the trunk of what?
+
+A big tree and so on. So that tells you what these facilities having huge capacity, they can't support billions.
+
+Would they be of future traffic? Clear. They refer to them as trunks.
+
+We call them share the resources. As opposed to what?
+
+As opposed to dedicated resources.
+
+Dedicated resources are those transmission facilities that are dedicated to a single way, to a single user, to a single device.
+
+You follow me on that. Which means what? This is not a shared facility.
+
+So for example, if you do have just an example, if you do have a fiber getting into your home.
+
+That fiber is what dedicated to you. Clear.
+
+I, on the other hand, have cable access.
+
+The cable. It's a shared facility. I am not the only one connected to the cable.
+
+My neighbor on this side, my neighbor on this side, are connected to the same kit.
+
+Your telephone. If you do have a telephone line, your telephone line is dedicated to you.
+
+It's not shared. Dedicated means you are the only one who can use shared means.
+
+What group of people or billions of people can use clear.
+
+Of course, common sense tells me what the capacity of the shared resources must be much higher than the capacity of what?
+
+Dedicated resources because they are supporting.
+
+Billions of users, rather than what rather an individual user.
+
+Clear. Did you want to share the difference between shared and dedicated?
+
+No. Good. Now let's see. Why do we need a network?
+
+Why do we need a network? Let's take a simple example.
+
+Very simple example. Actually, it's a silly example, but from it we can get an idea.
+
+Let's assume we do have six devices here. Telephones or PC?
+
+Doesn't matter. And I decided to connect with them in a fully connected topology.
+
+Another expression we learned today. Fully connected topology.
+
+Topology is the physical arrangement of the notes, how they are arranged.
+
+Fully connected means every device is connected to every other device via a dedicated facility.
+
+This. Do you see? This one is dedicated to the traffic between this device and this device.
+
+Did you understood what? Fully connected me? Fully connected.
+
+Every device is connected to every other device via dedicated facility, not share.
+
+Dedicate. Okay. How many links do we need?
+
+Each one of them, by the way, we refer to them as links. How many?
+
+How many devices do we have? Six devices.
+
+Everyone needs to be connected to how many other devices?
+
+Five devices, for a total of what? Six times five.
+
+Which is how many? 30 links. Now I'm assuming that the links are full.
+
+Let me jump a little bit. I'm sorry about that. I need to show you one thing before.
+
+Sorry, I'm not done. Lincoln duplicity.
+
+Link. Duplicity. Simplex.
+
+What does it mean? One side is a transmitter.
+
+The other side is a receiver. They cannot change.
+
+They are wrong. One is always transmitting.
+
+The other one is always what we see. We refer to them as one simplex.
+
+An example of a simplex link is a radio link or television.
+
+Television broadcasting. That's simplex.
+
+Half duplex HD x amp. Duplex.
+
+Both sides can transmit, but only one at a time.
+
+So if I am transmitting, you are receiving.
+
+If you are transmitting, I am receiving. We cannot change.
+
+We cannot transmit at the same time. It's one at a time.
+
+And you have all seen this, by the way, when you get into a taxicab and you see the taxi driver, uh, using a what?
+
+A small device. Push a button, speak or release a button.
+
+Pretty clear. That is called app duplex.
+
+Full duplex FDX. Both sides.
+
+Can you transmit at the same time? Both sides?
+
+So we are. That's the arrow is what is in both direction.
+
+They both can transmit and receive at the same time.
+
+Clear. Our interest in this course will be on the full duplex.
+
+Did you get it? Oh, let's go back to here. So let's assume the links are full complex.
+
+Which means what? Don't count them twice. So how many links do we need?
+
+Six times five divided by two.
+
+Why? Divided by two? Because you don't count them twice.
+
+They are found on. How many links do we need?
+
+15 links. 15 lengths.
+
+Now you say so. What is so special about 15 lengths or what it looks like?
+
+The only thing that does not look nice is the file.
+
+Do we have only six devices? Think about it this way.
+
+Do you only know six people in the world?
+
+You know these, by the way, in the diagram.
+
+What am I assume? I'm assuming all these devices are located in the vicinity of each other, which means very close to each other.
+
+So you can connect them. By what? By short lengths.
+
+But in reality, these could be what? Miles and thousands of miles away from each other.
+
+How are you going to connect every device to every other device via a dedicated link?
+
+I said the cost, by the way, is prohibitive to create a network.
+
+There are two industries involved a computer industry and the telecommunications industry.
+
+Who do you think is more expensive, the computer industry or the telecommunications industry?
+
+There is no comparable telecommunications industry.
+
+It's much more expensive than the computer and that computers are getting cheaper and cheaper.
+
+Telecommunications are getting what more expensive are you?
+
+My ISP, which is spectrum, the cable company.
+
+They keep raising my rates and I cannot say anything about I cannot say no.
+
+They tell me one free go and choose another thing.
+
+What do I chose? I think it's very limited and very limited, whereas computers are all over the place.
+
+So to have what all of these dedicated, you need to ask how your by the way not only the length, the ports, the ports is the what.
+
+It's a point where you are going to interface your device with the physical.
+
+Like how many ports. That's that's one need. He needs, what, five ports?
+
+He needs five ports in his five point total number of ports is what, 30 ports?
+
+And you need to ask yourself the following question. How often is this one going to communicate with this one?
+
+How often? This is dedicated. Which means what if he is not communicating with this one?
+
+This link is wasted. Clear.
+
+It's wasted. It's very clear. Nobody else can use it.
+
+Now look at the alternative. I changed this topology into a switch topology.
+
+I change the fully connected topology to a switch topology.
+
+A network switch. Not. These are the devices.
+
+How many ports total? How many points do I need?
+
+I need only six ports. Yes. Okay.
+
+How many links do I need? I think it's only six length.
+
+And they are, by the way, relatively short length because this is what the switch that you are connected to,
+
+it's the one that is closest to your home. They refer to them actually as the last mile clear, which means what does not exceed one mile.
+
+Now it's this one connected to this one. No it's not.
+
+They are connected to this witch. But can they request connectivity?
+
+Can they request another one? Think about this as a teleport.
+
+Let's look at the network one more time. This is you.
+
+This is me. And think about this as a telephone network.
+
+Forget about the internet. Telephone network. Out.
+
+We connected. Am I connected to you?
+
+No, we are not. Remember when I tell you are we connected?
+
+Means what? Are we connected via Dedicatedly? No, we are not.
+
+You follow me on. But can you request connection? How do you request contacts?
+
+You pick up your phone. You hear a what? A dial tone.
+
+A dial tone is an indication from the network that they realize that you are asking for a connection.
+
+What do you need to do? You dial a number, that number, the telephone number, by the way.
+
+And the telephone network is equivalent to an IP address in the internet, to an IP address in the internet, in the telephone network.
+
+You will need to dial a number. What happens.
+
+The network will wait. What? Reserve a circuit.
+
+We will. We will study. What does it mean by saying at circuit?
+
+The circuit. It will create a circuit across the network.
+
+Do you? Then what will the network send you?
+
+I send you a ringing tone, a ringing tone.
+
+It's an indication that there is an incoming call.
+
+You pick up the phone. A circuit is set.
+
+You start talking. For how long? For how long?
+
+And the telephone network? For how long can you talk?
+
+You can talk forever. The telephone network will not come and tell you.
+
+You talk too much. You go and study for 50.
+
+No, they will not. The circuit is set.
+
+It's reserved for you for the duration of the call, for the duration of the call, no matter how long your call takes, the circuit is reserved for you.
+
+It's not dedicated. It's reserved. When do they take it away from you?
+
+They take it away from you when you hang up.
+
+When you hang up, this is an indication that you no longer require their services.
+
+The circuit is taken away from you, given to somebody else.
+
+Did you get it? Yes or no. That is the telephone network in the internet.
+
+Totally different. Why? It is totally different in the internet that is, you know, reservation of resources is everything.
+
+It's what? Shift. You follow me on.
+
+Which means what if you don't have. Packets.
+
+We will. I will explain to what you mean by back and short if you don't have any package to send.
+
+The resources are given to somebody else. That's not one reservation.
+
+Nothing is wasted. Nothing is wasted.
+
+Clear. Let me ask you a question just to make sure you got my point.
+
+Very clear. Suppose we make a call.
+
+I make a call over the telephone network. And we are talking and I felt hungry.
+
+I will tell you why I need to go and fix myself a sandwich.
+
+I put my handset on the table. You put your handset on the table.
+
+We go and have some sandwich and then come back.
+
+Is the circuit still there? Circuit installed there.
+
+Did anybody use it during that time?
+
+You know, when you use it, it's reserved to you for the duration of the call.
+
+That is not the case in the internet and the internet there is no reservation.
+
+So if you do not have a package to send. The resources are given to somebody else.
+
+It's first come, first serve. Whoever has something to say and I will suck.
+
+The ISB will, sir. I will, sir. You don't.
+
+You don't get any. I'm not quite sure why.
+
+The internet. It's how long? On the average?
+
+On the average. How long does it take you?
+
+During a phone call, not an internet call upon call.
+
+Right. Using the telephone network on the average. How long?
+
+About five minutes. You follow me or not? Which means the circuit is going to be reserved for you.
+
+For how long? On the average, five minutes.
+
+Clear. On the internet on the average.
+
+How long does it take you when you sit in front of your computer and you wait, do some browsing, whatever, googling what up?
+
+On the average? How long do you think? About 45 minutes to 1 hour.
+
+So the internet, they said what? We are going to reserve resources for 45 to 1 hour for every customer.
+
+Forget it. Let them. Sure. Are you following me on or not yet?
+
+There is no reservation. Are you? You have something that outdoors.
+
+Will you stand the light by way? Everything. Stand alone.
+
+Clear. You arrive at every router.
+
+We'll discuss these details short at every router.
+
+The. It's a buffer. Buffer. The packets will arrive to the buffer.
+
+You wait in line. Wait for how all the packets that are ahead of you get served.
+
+Then it's your turn. In exactly the same way as when you go to, for example,
+
+to a movie or when you go to the Department of Motor Vehicles or something like you stand a line when your turn comes, they will serve you.
+
+And then what? Go by the way you stand a line here, then in line here and one line here and so on.
+
+So. Clear. Okay, now what is another difference?
+
+Big difference between the telephone network and the internet.
+
+In the telephone network when the circuit is set.
+
+All of your messages are going to follow the same path, the same route from the source to destination.
+
+So for example, if this is a circuit. All of your messages is going to go here.
+
+If something goes wrong in the circuit. Your call will be what?
+
+Disconnected. And you need to establish it all over again.
+
+Did you get my point or not? If your if something goes wrong in the node and sometimes you need to what?
+
+Establish the call again which means what you need to dial again.
+
+Create and use certain. In the internet, there is no guarantee that your packets won't follow the same white route.
+
+So let's assume this is a host A and this is host B, and I have five packets to send to be five packets five messages.
+
+Think about that. Even though the source and the destinations are the same, there is no guarantee that your packets will follow the same.
+
+What will follow the same route? Some packets will go this way.
+
+Some packets might go this way. Clear.
+
+No response. Clear. Is there a guarantee that they are going to arrive in order?
+
+How I just told you that they go.
+
+What? They can go into different. What? Right. So suppose, just for the sake of argument.
+
+Suppose your packet. Come in here. Now, remember what I told you a moment ago when a packet arrives to our router.
+
+You have to stand a line. Is it possible this whopper is what?
+
+Its fault. Which means what? You have to wait.
+
+What longer? Whereas this one is not that fault.
+
+Are you following me so far? Is it possible the packets are right out of order?
+
+Possible or not possible. Possible. The transport layer protocol that we talked about a moment ago will put them back in order.
+
+Before delivering it to the end user.
+
+Clear. Clear that will not happen.
+
+And the telephone network and the telephone network.
+
+Everything will be in white in autumn because they are all going to follow the same one, same ground from the source to is clear.
+
+But we will discuss this in detail shortly.
+
+Now, did we answer the question? Do we need the network?
+
+Or we need a network without a network for you. And we are not going to be able to create fully connected one fully connected.
+
+By the way, is this fully connected? Look at when Aqua is fully connected.
+
+Of course not. Never. It's never fully connected.
+
+The only way you will have a fully connected network.
+
+Is that if you don't have in your home 3 or 4 devices sitting there close to each other.
+
+You can connect them via a fully connected network.
+
+But in reality, there is not fully connected networks.
+
+Did you get it or not? It just got a lot of money to work to build a fully connected network.
+
+Clear. Oh. Yeah.
+
+Next, let's try to get familiar with some terminologies that we are going to be using throughout this semester.
+
+And that's what the clients, the servers and the peers.
+
+What is it like when you hear these words? By the way, client, server and peers.
+
+They are all pieces of software. They are all pieces of software.
+
+So for example, in your machine, your browser is a client.
+
+It's referred to as a client. Did you get it or not?
+
+It's a software, but it's running in a machine.
+
+We call the machine the client machine because the client software is running in it.
+
+Clear. The client can only request services it cannot provide, services it cannot provide, so it can only request services.
+
+A server, on the other hand. When you talk about dedicated server, no dedicated server can only provide what services.
+
+It can only provide services upon white upon request from the client,
+
+which means what the clients request service the server provide the server descendants.
+
+Clear. We refer to them as a server. Again, it's a piece of software, but when it runs in a machine, we refer to the machine as a of virtual machine.
+
+Appear. On the other hand, it's a piece of software that kind of provide services and request services.
+
+It can do both. It kind provide services and request services.
+
+Of course, having a dedicated server is much more powerful than having a p y appear.
+
+Some of its resources will be used to request services a dedicated server.
+
+All what he does is what provide services. Clear.
+
+Oh, yeah, we will again. We will use all of these as we move up.
+
+Let's look at some type of server types. You are all familiar with these, but let's go over them a little bit.
+
+File servers instead of what? Instead of deploying a certain file in every machine you can deploy,
+
+or you can install that file in a server machine and let all the clients who wants to access that file access it through.
+
+Don't walk through the network. Clear that it's called the file server a principle.
+
+What is a principal? Who does not want a dedicated printer?
+
+And not. If I tell you your choice.
+
+Do you want a shared printer or a dedicated printer?
+
+You will tell me why. Of course I want a dedicated printer.
+
+Well, who is going to give you a dedicate at work?
+
+You go and ask your boss. I want a dedicated printer.
+
+It tells you what? Look at the door. Don't let him on your behind.
+
+After you. Really? What do you need a dedicated printer for?
+
+You need a printer only when you finish processing your document, and you want to print.
+
+The rest of the time it just sitting there. It just sitting there.
+
+And doing nothing. Clear. A print server is a what?
+
+Is a piece of software that allows multiple clients to share a physical server.
+
+Physical printer. Clear. Now, what do you. What do you sacrifice?
+
+You have to stand a lot. There is a print queue.
+
+Clear print queue. So if you are printing and somebody else is printing ahead of you, you have to wait a lot.
+
+That's a principle. Mail server. Do I need to be online?
+
+When you send me an email. Do I need to be online?
+
+I don't need to be online. So where is your mail going to go?
+
+Your email. You are sending me an email. Where does it go?
+
+It goes through multiple email servers. The first email server is your email server.
+
+Your email server will send it to. To my email server, where it remains there until I wait until I come online and download my what?
+
+Download my email. Clear. Download my email.
+
+Email is not a real time application. Clue. That's a mail server.
+
+Communication server, also known as a remote access server, right.
+
+Remote access. This one, by the way, was heavily, heavily used during the Covid year because all the people were working from home.
+
+They were not allowed to go to work and be in the office.
+
+So if they will be able to access resources in the company or remotely from their home,
+
+but they have to go through what authentication process to see whether you are allowed to access resources in the company.
+
+And so. We will talk about remote access servers when we get to the security issues.
+
+Web servers. These are the one. These are the, uh, the servers that runs the World Wide Web.
+
+All types of what? All types of servers, uh, allowing access via the internet.
+
+Internet? Uh, we we learned another word here. Internet.
+
+Internet is a public network. Internet is a private network, but uses the same protocol as the internet, which means they use Dhcp, IP, but internet.
+
+It's a private. It's within the wire, within the company itself.
+
+Clear within the enterprise intranet. Clear internet is a private.
+
+Internet is public. But can they talk with each other? They can talk with each other.
+
+Why? Because they use the same set of protocol.
+
+The nest. The one that I just told you a moment ago. That's another server that call a translate.
+
+Think about this a direct result if you want to call me and you don't know my phone number.
+
+What do you do? You want to call me, but you don't know my phone number?
+
+What do you do? You call what is referred to as the operator.
+
+A what do you call the operator? I want the phone number of the.
+
+It is a username. You follow me on. What do they do?
+
+They try to find a translation from a username to a telephone number.
+
+Same thing would be DNS. What is it for a DNS server mapping a hostname like www.google.com to a.
+
+What does an IP address? Now we will discuss this again in detail.
+
+There are different types of server. Yeah.
+
+Network applications. There are many, many network applications.
+
+Started again. First of all, started with email with the World Wide Web and then currently coming into what?
+
+Into all types of what all types of sophisticated application including networking game, including streaming audio, YouTube, Netflix,
+
+Hulu, about 80% 75 to 80% of the traffic that goes over the internet are generated by these companies the YouTube, Netflix, and so on.
+
+They are huge because they generate what a type of traffic that requires high, large capacity video.
+
+All of them are video clear. Now we will study Netflix and YouTube as case studies.
+
+Next lecture to see how they actually work. Voice over IP.
+
+Anybody made a voice call over the internet? Anybody?
+
+Nobody. How would you how was the quality compared to making a voice call over a telephone network?
+
+The LA. It depends on whether the internet is heavily congested or not.
+
+But in general, making a voice call over the telephone network is much superior than making a voice call over the internet.
+
+Why? Why? Let's understand what you remember a moment ago when I told you.
+
+In the telephone network, the circuit is reserved for the duration of the call.
+
+There is no waiting. There is no standing in line.
+
+It's reserved for the duration of the call, whereas the internet voice over IP is going to go over the internet.
+
+In the internet there is no reservation. So your voice packet has to stand in line just like any other data packet.
+
+You follow me on every router. You have to stand one and then being sent.
+
+And this means that delay will result in what?
+
+Degradation and the quality of your voice.
+
+You start talking. Talking and the other guy or the other person is not responding to you.
+
+You say, what's going on because he or she is not receiving the voice packets and not in a timely fashion,
+
+but you make a voice call over the telephone network. There is no delay.
+
+There is no delay. Very minimal delay. Clear.
+
+So why do we use the internet? Why?
+
+Why don't we use the telephone network? That. For all our application.
+
+The telephone network charges you on time and on what distance?
+
+Which means what? Making a phone call from here.
+
+To Beijing. It's not the same as making a phone call from here to San Francisco.
+
+Did you get it or not? And if you talk longer.
+
+The charges will what will force you into bankruptcy if you get it?
+
+Whereas the internet they charge you based on.
+
+How many volume? How many packets are you sending?
+
+How many packets are you sending? Not on the duration.
+
+And not on the distance. Why? Because there is no reserved resources.
+
+They all share resources. So they charge you based on what?
+
+Based on how many packets are you? What are you sent?
+
+Now you might tell me, professor. They charge me fixed charge.
+
+They don't ask me. How many packets are you sending or not?
+
+You are a small potato.
+
+If you follow me. What does that mean? Small potato. It means what?
+
+They are not going to make the money out of you. But USC or Microsoft or Google or Apple or whatever.
+
+The service provider, the internet service provider, they count how many packets you are going to want to send and they charge you accordingly.
+
+In your case, how many packets of you generating maybe one email per day?
+
+You follow me on so they don't haggle you on what?
+
+How many packets you are sending or not? You are just a small potato and they are not going to make money out of you.
+
+Did you get it or not? Clear. But the big companies, they what?
+
+They charge money. Oh, now what do you see, by the way?
+
+The e-commerce, the Amazon and so on top of the baker.
+
+I mean, everybody here right now is buying online.
+
+Actually, a lot of retail stores are closing doors because they cannot compete with what they cannot compete with these with these online services.
+
+And so of search engine social network, Facebook, Twitter.
+
+Change your name X. Clear.
+
+Clear. All of these applications, they have different requirements.
+
+For example, let's look at an example for voice.
+
+For once what is most important. For boys.
+
+It is very delay sensitive. Which means what if the delay goes high?
+
+The voice becomes what? Irritating. As I told you a moment ago, you start talking and no response from the other side.
+
+Clear? Accuracy. If you have made a phone call over the internet once in a while, do you hear some glitches?
+
+Good luck. No, no, you have not experienced this.
+
+What does that mean? Your packet got dropped.
+
+One of your voice packets got dropped in the internet. Now, you might say, why did it get it wrong?
+
+The buffer was full. Your packet arrive into a router, but the buffer is what is full of other packets.
+
+The router will tell you what part of the packet I don't have a place to put.
+
+But do you worry about it? You are making a phone call.
+
+Do you worry about these glitches? No. You don't worry about these glitches.
+
+Why? You will be able to tell. The content of the package that got dropped from the what, from the context of the conversation cleared so accurately.
+
+It's not that big a deal in the box, but Bill eight is a big deal.
+
+Other application like Hypertext Transfer Protocol web browser.
+
+Delay is not an issue. What is the issue?
+
+Accuracy. You want to make sure that what you receive is what we what?
+
+What was sent to you. Accuracy is most important.
+
+So dropping packets is a headache. You follow me?
+
+Not all of these different. By the way. Streaming.
+
+Anybody here has Netflix or Hulu or whatever.
+
+Once in a while you are watching a movie, by the way, right now.
+
+It's not that often, but before at the initial stages of Netflix, you are watching a movie and suddenly you get what?
+
+You get a cyclone. Have you seen the cyclone? What does that mean?
+
+What does that mean in video streaming? You are going to send your what?
+
+Your video package in your streams, one after the other.
+
+But there is no guarantee that they are going to follow the same white route, which means white.
+
+There is a possibility that a video stream comes before another video stream comes before a third one, and so on and so forth.
+
+Different times between the video streams. You they have to what they have to store it.
+
+Until what? Until they can deliver it to you in a constant rate, one after the other.
+
+You follow me on. So you are going to encounter that.
+
+What? That feeling. This is referred to as what Jeter bum Jeter is delay.
+
+Variation. One packet will experience a certain delay.
+
+Another packet will experience a different delay.
+
+Delay is not the same. The packets are going to be arrived.
+
+Not in a what? Constant rate. Clear.
+
+They were transmitted at a constant rate. But when they arrive, they arrive at a different rate.
+
+They need to be buffered at the receiver before they can deliver it to you at all.
+
+What kind of central?
+
+These days, by the way, you don't see that often because they have upgraded their transmission facilities and they got closer to the customer.
+
+I will explain to you when we get to the network. Raise.
+
+Raise your voice. Raise your voice. Um, so this relates back to the nodes, right?
+
+Like how there are multiple routes to like in the shared internet for like, information to get to you.
+
+And that's why sometimes it lives because like, it keeps constantly choosing.
+
+Yep. Because the actually is different. The delay is different.
+
+There is no guarantee that the package will follow one after the other, one after the other.
+
+Resources are not dedicated. They are not reserved.
+
+They are shared. So if they are, you are not the only one who is sending back millions of other people.
+
+So you have to wait. Wait a line, wait too long. Some packets will wait longer than others.
+
+So when the package arrived, the service provider needs to one buffer it.
+
+And then what? But when I say buffer, it means what? Introduce extra delay and then wait.
+
+Deliver it to you in a constant rate. So when it got displayed on your TV screen, you don't see what break and the action you don't see.
+
+Breaking the ad. When you see one video stream another video stream your stream.
+
+One update without the delay is not the same.
+
+The no reservation resources are not reserved.
+
+Clear? No. And when will we get again to the Netflix?
+
+Possibly next love. Throughput.
+
+What I. How many of you have used a dial up connection before?
+
+Dial up. Nobody had you dial up connection.
+
+I find this hard to believe. Fast or slow.
+
+Very slow. Ah, you cannot work, for example, in this webcast.
+
+You will not be able to watch it on a dialup connection. By the way, why is that a dial up connection?
+
+You are going to go over the telephone network, not open the internet, and the telephone network is not going to give you high throughput.
+
+It's not. They are only going to give you what is enough for a voice call.
+
+Not today to call. So when you make a data call or video call, you are going to get very little one very little throughput.
+
+Some applications cannot tolerate. They need high throughput application, the video application, heavily intensive data and so on.
+
+So. Number of participants.
+
+I hear I need also to jump. I'm sorry. Jump with me a little bit.
+
+Unicast multicast broadcast.
+
+What is the unicast? It's 1 to 1.
+
+So when you say unicast is what? 1 to 1. Broadcast one to all.
+
+Clear broadcasting across the internet is prohibited.
+
+You cannot broadcast across the internet. Imagine, by the way,
+
+imagine for a second you kind of broadcast over the internet every time one send something and you broadcast to billions of people across the globe.
+
+It's not. Broadcasting is allowed on your network.
+
+Your network. Which means what your home network. You can broadcast to your.
+
+Excuse me. To your roommates. Or broadcasting to another network.
+
+One network. Another network. But you cannot broadcast across the internet.
+
+Multicast one to selected group.
+
+They are selected group. Interested in receiving a multicast?
+
+Uh. And you are the only one who is going to receive one.
+
+They are the only ones who are going to receive your program or your messages, whatever you are sent.
+
+This one. We leave it to the advanced classes in the double E department is 555 and the C, S department is CS5 51.
+
+In our course we are going to be interested in the unicast and the broadcast.
+
+It could be different in architecture. Some of them as a client server, some of them as a peer to peer.
+
+I will show you what peer to peer means in just a second. Hierarchal or hybrid assumption.
+
+So all of these applications have different what different requirements different architecture and so on.
+
+So what do they have in common. Right.
+
+Huh. No no no no no.
+
+Not the protocol. Yeah. What do they have in common?
+
+They have in common is that they are all going to be what served over the same infrastructure, which is called the one in front.
+
+The internet is a shared infrastructure for any type of application, whether it's voice,
+
+whether it's video, whether it's what data, and so on and so forth.
+
+The internet does not discriminate, does not discriminate, does not say this is a video, this is a voice, this is data.
+
+All of them are going to what are going to share the resources over the segment that.
+
+That's not the same as a telephone network. Telephone network was designed primarily for voice traffic.
+
+You cannot send voice a video over telephone network. I just told you.
+
+You are not going to be able to see. Because the bandwidth they allocate to you, that circuit is limited to one.
+
+Only one voice call. Not a video call. Clear.
+
+These are special lights artwork for a special type of application.
+
+The beauty of the internet is that it can support what all types of application does not matter,
+
+as long as you don't understand that there is no what.
+
+Preservation of resources. It's first come, first serve, first come, first serve.
+
+You stand to look at every router along the way, along the way, at every router, you stand a lot.
+
+Clear. Right now, we will take all of these applications in just a second.
+
+I'm sorry. I was just a. Let's start. First of all, with a client server.
+
+Architecture. A client server. We have a client here.
+
+This is a watch. This is your smartphone, for example. And we don't have a server here.
+
+Now, I want you to explain this one briefly to you, which is what we are going to be discussing in a couple of like.
+
+This is called the layered architecture layers, layers.
+
+Every layer is responsible of doing some.
+
+Work. Not all of them are going to do the whole work.
+
+They divide. It's like listening to me. It's like you are working in a team, a project, and every one of you will take a certain task to do.
+
+Same thing. They communicate. By the way.
+
+Is that a wire connecting them? Look at the diagonal.
+
+Is that a wire connecting them? Of course not.
+
+They are not. How do they communicate? How does this one communicate with this one?
+
+Via protocols? Every one of these wires represent what certain set of protocols.
+
+They talk about. They understand the language of each other.
+
+They can talk with each. By the way, are they connected to the same network?
+
+Of course not. Look at the. This is a what? A connected, for example, to the wire wireless network.
+
+This is connected. To what? To a wire network. But they use the same set of what protocol?
+
+They can't communicate with each other. Now where is the application running?
+
+The application is running at the end system, not the intermediate router.
+
+Do you see those circles? Those are the intermediate routers.
+
+Do they. Are they aware of the application?
+
+Are very aware. And now though, when you send me an email.
+
+Do the routers in the internet know that you are sending me an email?
+
+No they don't. All what they see is the white envelope, which is a packet, and the packet is addressed.
+
+Exactly the same way as your mailman.
+
+This. Your mailman opened the envelope and read your letter against the law.
+
+You follow me on. You need to put your letter in an envelope, seal it, put an address and send.
+
+What does the mailman do? He look at the envelope.
+
+He look at the address. He figured out quite how to.
+
+What? How to deliver the package. Did you get it?
+
+They don't know the content of what?
+
+They don't know the content of the packet, whether the packet is holding voice or data or video, they have no idea.
+
+They just see an envelope which is referred to as a watch as the packet.
+
+Clear on the package. We are what the advocates who send the packet.
+
+Who received the packet clear. Oh, well, we'll see that in just a second.
+
+They communicate over the network. You need to write the programs, by the way, for both the client and the server.
+
+They communicate. No need to write software.
+
+For what network or devices. When we say core, mean means what?
+
+When you hear the word network core means inside the network, you don't read.
+
+You don't write the application. By the way, just imagine if you are an application developer, you develop an application.
+
+Every time you develop an application, you need to deploy it in every router across the globe.
+
+Oh, of course not. Are you following me or not?
+
+I router they don't care about the application. They.
+
+By the way, this diagram is not full. I wish the author made it full.
+
+If you see the layer architecture here of the router, you will see only three layers.
+
+You don't see application because you are a router. Don't care about the application.
+
+Clear routers from the name. They are just mailmen.
+
+They are just what? Interested in delivering the package?
+
+That's all. Network for devices do not run user application applications is running only at the ideal.
+
+Okay. Now clients are predictable. Who set up the.
+
+Who set up the session? Who will?
+
+Who starts the client or the server? The client starting.
+
+The server is sitting there listening to. This is the server.
+
+I open the door. That door. We are going to refer to it shortly as the socket.
+
+I open the door and I keep one sitting there waiting.
+
+Waiting. What am I waiting for? I am waiting for a client request to come so that I can serve that you follow me on.
+
+Oh, let's see if you can help me. The server is always on.
+
+Can you run a server? I don't. Can you run a server at home?
+
+Of course you can. A lot of people lay around so much at all.
+
+Some of them for businesses there. You run it at home, but you cannot turn it off.
+
+The server needs to be always on. You cannot go to sleep at night.
+
+You say what? Let me turn the server off. You turn the server off.
+
+Nobody can communicate with you. They have to have server room all the time.
+
+What else do they need? They need a permanent IP address, a permanent IP address.
+
+You cannot change the IP address of an IP address needs to be permanent.
+
+Everybody needs to know that IP address so that you can communicate with it.
+
+Now you might tell me how would that's different from a client.
+
+I am a client. I don't want to use the network.
+
+Which means when my computer is a standalone, I'm connected to the network, but I'm not accessing any resources.
+
+Do I need an IP address? I am not accessing what any resource.
+
+Do I need an IP address? What do I need an IP address for?
+
+I am not communicating with the outside world. I don't need an IP address.
+
+So does it make sense to you that you have the client have a permanent IP address?
+
+That's it makes sense to you or not. Does not make sense to you.
+
+A client will have what? The IP address.
+
+Dynamically assigned to you. Dynamically only when you need to access resources across the network.
+
+You don't want it. You. What do you need an IP address for? You don't need an IP address.
+
+You need an IP address when you want to communicate across a network.
+
+Now the question is what? Who will assign you that IP address?
+
+Who will assign that IP address? Yet another protocol which I will explain to you.
+
+Not that it is called the h CPE.
+
+Dynamic host configuration protocol.
+
+Dynamic host configuration protocol at your home.
+
+Your router will take care of that. Your router will take care of that.
+
+Did you follow me or not? That the ACP will assign you an IP address?
+
+Temporarily. For example, one hour.
+
+It's a least night. I go to the airport.
+
+I'll get to your question in a minute. Please give me one minute. I go to the airport.
+
+Can I access the internet from the airport? How?
+
+Tell me how I am connected to a different network, not my home network.
+
+It's the airport network. But at the airport network there is a Http server.
+
+Who assigns you an IP address for 1 or 2 hours.
+
+Why? Because they expect that travelers will stay in the airport for about 1 or 2 hours, most before they depart.
+
+On their on their trip clear. After two hours they will take the IP address from you.
+
+Dynamically at yet, so I'm just curious.
+
+Great work. So nice work. I'm just curious, on the client side, um, there's the Mac address state.
+
+We have not reached the Mac address yet. Deepak, did you use.
+
+Did you say Mac address? Be patient. We have not reached the Mac address yet.
+
+So I don't want to get all of these concepts jumbled together.
+
+We will get to it shortly and then it will be clear.
+
+Right now we are talking about IP address.
+
+Mac addresses have local significance only.
+
+You don't use Mac addresses when you want to communicate with the rest of the world.
+
+I want to communicate with Google. I don't need Google Mac address.
+
+I need Google what IP address? Not the Mac address.
+
+You follow me on. But please be patient. We'll get to it.
+
+I cannot jumble everything together.
+
+And then I will lose track of the of the issue here.
+
+We'll get to it shortly. So one more time the server needs to have a permanent IP address.
+
+You cannot assign dynamically an IP address to a server.
+
+Otherwise the client will not be able to what to tell what which is which.
+
+Clear. But the client. You don't need a what?
+
+A permanent IP address. Could they give you a permanent IP?
+
+If you give me a permanent IP address. I wouldn't say no, I wouldn't, but I don't care.
+
+Every time you boot up at home, at home, every time you boot up, your router might assign you your router.
+
+Your router at home might assign you a different IP address than the day before.
+
+But do you care? You don't care. What do you care?
+
+By the way, you don't even see it. But you cannot communicate across the network without an IP address.
+
+You need an IP at. You go to a restaurant. I go to a restaurant right away I ask.
+
+Not me. When I go to a restaurant, I never take what I know about.
+
+I want just to enjoy the food. But people go there.
+
+They ask what? They ask the waiter, can you give me the access number or something?
+
+Access. What to? There is a DHP server in the restaurant network that will assign you IP address.
+
+It's temporal. You go to Starbucks.
+
+Have you ever use it? Have you ever been to Starbucks and use their wiper?
+
+Yes or no. Oh, I sense you IP address. Who do you bring it with you or with the NCP?
+
+I do work at Starbucks. Well, I signed your IP address for one for one hour or so.
+
+Lease. It's like, please clear what we will talk about that short.
+
+IP addresses by the authority servers. When you want to scale, scaled means what build more powered servers,
+
+you will go into what is referred to as datacenter and I will show you datacenter shortly.
+
+Data centers. Like what? Like for example, Amazon or Google or Yahoo or YouTube or whatever, Netflix and so on.
+
+So they have a huge data centers where they have a huge number of servers providing services to all their customers.
+
+Clear those servers, by the way. Some of them are actually virtual servers.
+
+What is virtual servers mean? Virtual servers means what you are going to create multiple server instance within the same physical machine.
+
+How many of you have done virtual machine within the same physical machine?
+
+But you are creating what multiple virtual machines via software.
+
+You software that will do what some certain task to communicate with whatever isn't clear.
+
+But we'll talk about that when we get to the. To the cloud computing model.
+
+Shortly, clear clients do not communicate with each other.
+
+Why? Why they do not communicate with each other.
+
+A client request service. So your client talk with another client does not mean anything.
+
+Now you might say, what is a peer? Let me show you the peer architecture with an example, for example.
+
+This is a peer. Okay. This is the original Napster design.
+
+Napster is no longer with us, but they are the one that pioneered the peer to peer communication.
+
+Let's understand it a little bit. Let's.
+
+Let's see the players. Alice and Bob. We will meet them throughout the semester.
+
+Alice and Bob. Alice looks very young. Bob looks very old.
+
+Something completely wrong. They are interested in a music videos.
+
+They don't know each other. They are not peer. They do not know each other.
+
+There is a centralized directory server. This is not a DNS.
+
+This is not a DNS. This is a centralized directory server.
+
+Bob. Contact them. See number one. He gives them a list of the videos that he has a list.
+
+Not the actual videos, but a list of the video.
+
+So he tell them I have this video or this video or this video. Same thing with Alice.
+
+Oh. Same thing with Alice. Same thing with everyone.
+
+So what do they have? They have a database. Of what?
+
+List of videos. Alice contacted them and she told them, I am interested in a video.
+
+Music of what? Hey, Jude. You are too young to remember.
+
+Hey, dude is a very famous song of the Beatles.
+
+Clear? So she interrupted, and she doesn't.
+
+What do they send her? They sent her the white.
+
+The name. Of the person who has it.
+
+Then what does she do? She set up a connection.
+
+Peer connection. Peer connection. She requests videos from em.
+
+He request video from her. They became peer.
+
+If he knew Bob ahead of time. Does she need to contact this one?
+
+She doesn't need to contact this one. This is a directory centralized directory server that is not.
+
+Aware of the transaction. He just gave you what you tell them.
+
+I want this video. They will tell you why this person might have been.
+
+This person might have been. This person might. And you God going to establish your.
+
+But if you already know your peer, you don't need this one.
+
+You can establish connectivity and you can exchange videos.
+
+I send you videos, you send me videos, and so on in a peer to peer connectivity.
+
+Clear that's a peer to peer architecture. You could have what you could have just communicating with this.
+
+This one would communicate with your. When I say peer to peer that does not mean the client.
+
+The client. That means what a client pair is talking with a what?
+
+A server pier clear at one.
+
+This one is requesting. This one is acting as a white, as I said.
+
+Birds are intermittently connected, they change their IP addresses.
+
+What? Dynamically? Did you get it or not?
+
+I don't need a what? A permanent iPad? I only the only one who needs a permanent IP.
+
+Addresses are what are dedicated servers and routers across the internet?
+
+Routers across the internet. They have what dedicated IP addresses?
+
+Clear. Now. Why is that? Why can't we give a dedicated IP address to anybody?
+
+We will see shortly. The IP address is a 32 bit long adder.
+
+32 bit bit means what? Binary digit?
+
+0 or 1. 32. Which means what?
+
+How many IP addresses are there in the world? It will.
+
+Length of the IP advertise is 32 bit and every bit is either zero or a what.
+
+Or a one. How many IP addresses do we have?
+
+We have two to the 32. Which is roughly 4 billion.
+
+Now you might say, but this is a large number one.
+
+They designed IP which is mid-seventies.
+
+They thought they will never run out of what IP address.
+
+They say 4 billion is too much.
+
+Yes. But that was before the wireless and that was before the laptop portable.
+
+It was only computers were only desktops. Then it became the laptops.
+
+They were smartphones, the Internet of things, and so on.
+
+So upon. They found out that they are running out of what IP addresses very quickly.
+
+They cannot afford assigning a permanent IP address to a client.
+
+We only need an IP address when he or she wants to communicate across a wide across the network.
+
+Otherwise, what do we need an IP address for? Again, as I told you, I have a standalone PC at home, not part of my network.
+
+Do I need an IP address? What do I need an IP address. Clear.
+
+You need an IP address only when you want to communicate.
+
+With what? Across the network. Clear.
+
+Again, we will study peer to peer again as we move along.
+
+Now another model. So we have the client server architecture.
+
+We have the peer to peer yet. And third model which is the cloud computing model.
+
+The clock. Clear. What is it?
+
+I have first of all to make sure that you don't understand.
+
+Difference between the word the cloth. We have a network, a cloud, and we have a computing cloud.
+
+The network for its work by going. Why do we call it a cloud?
+
+Why do they call it a cloud? A cloud is a term that indicates that you.
+
+As an outsider, you have no idea what goes inside.
+
+So it looks to you as if it is a what a cloud.
+
+Can you see through a cloud? A cloud in the air.
+
+There is a thick cloud in the air. Can you see through it? You cannot see through.
+
+That is what is referred to as a cloud. Everything goes inside the cloud.
+
+You have no idea what goes inside. There is a networking cloud and there is a computing cloud.
+
+Who are the Networking Cloud?
+
+The networking cloud is your service provider, internet service provider, your ISP, the AT&T, Verizon, the T-Mobile, the spectrum cable, and so on.
+
+So. They are not the one that generates the content.
+
+They deliver it to you, but they are not the one who generates the content.
+
+They are not Netflix. They are not Amazon.
+
+They are not Apple. Whatever. Clear?
+
+But then what do they do? They have a huge footprint.
+
+You understand what footprint mean? Means they have their routers across the globe where they can deliver the content.
+
+From the one from the cloud provider to the user to user.
+
+So here, for example you want to enter one.
+
+Enter or access the A.W. as the Amazon Web Services.
+
+Yes. From your home. How? Will provide you access to the NWS.
+
+You are not. You are. Are you connected directly to the NWS?
+
+Of course not. By the way, some companies, big companies are connected directly to the Amazon, but they pay you what a huge amount of money.
+
+Regular customers like you and me are. I'm not going to connect myself to the NWS.
+
+So what am I connected to? I am connected to my service provider, which is spectrum.
+
+He texted me via. Eat for free or I have to pay.
+
+I have to pay is not free. And he they will take me to all of these.
+
+Now what do they provide? Those cloud providers. They provide you with different types of services.
+
+Let's briefly look at some of these services later. DTA.
+
+Software as a service. S a s software as a service.
+
+Those companies. Like Salesforce.com.
+
+By the way, I encourage you to look at your website.
+
+During the summer, they have internship opportunities and a lot of my students work there in the summer, so check them out.
+
+It's called Salesforce.com. What do they provide you?
+
+They develop this software. They. Not you.
+
+They develop their software. Most of them are.
+
+What? Custom business oriented software.
+
+Customer relations, relationship management, emails and so on.
+
+So forth. They tell the customers you don't have to install the software in your machines.
+
+You don't have to worry about updating it. You don't have to worry about licensing it.
+
+We are going to what rank it for you. It becomes like a utility.
+
+You use it. You pay for it. You don't use it.
+
+You don't pay for it. Did you get. Do you get an electricity bill?
+
+You get an electricity bill. Is it the same every month?
+
+No different. Depends. On what? Depends on usage.
+
+There is a meter that will count how many you want. How many electricity did you use?
+
+You follow me on something wonderful. One example is Salesforce.com G-mail.
+
+It's another software as a service. Now, you might tell me.
+
+Probably not. But, you know, it's a free. Do you know how many of you have Gmail?
+
+Do you pay? Why? You are.
+
+Never forget it. You are a small potato.
+
+Follow me on night. They are not going to wait. Try to chew on using Gmail.
+
+If you are going to send 1 or 2 emails at most per day.
+
+They said what? Free use it. But do you think they charge other companies?
+
+Big companies? Do they charge them on time now? Like you, I see.
+
+Of course they charge you. It depends on the bond you want.
+
+Remember, everything over the internet depends on the volume.
+
+You are not generating much free. Did you get it?
+
+But that's software as a service. Platform as a service.
+
+As those companies, they tell you what you develop in the software which you use.
+
+You develop the software. But you don't have the right platform to run your software or to test them and so on.
+
+So they will tell you what we will provide the platform for you.
+
+Like the Microsoft Azure, they provide the platform for you, but you develop the work.
+
+You develop the software yourself. Clear.
+
+Again. We will see that shortly. The third one.
+
+Which is what? Which is the major one? The infrastructure as a service I a as.
+
+These companies the Amazon, the Amazon AWS.
+
+It's a what? Infrastructure. Education. They tell you what we will provide you with computing.
+
+We will provide you with networking. We will provide you with the storage of everything.
+
+On the map. Which means what you want more you can what you can do with online.
+
+More more of this, more of that, more of this. Depend on what you are need.
+
+And you pay for. That's what Netflix did.
+
+We will look at Netflix next to Netflix.
+
+It's what at the beginning it was still is.
+
+It's a software based company. They are not very proficient in producing the what the videos in storage.
+
+And they don't have that capability. So they called Amazon.
+
+By the way they are competitor Amazon have their own Prime service and Netflix have their own.
+
+So they are competitor. But if you ask Amazon who is your best customer, they will tell you what Netflix, because of the huge volume,
+
+the revenue that they generate from Netflix and from the knowledge from that knowledge.
+
+Amazon came up with their Prime service. Netflix was before Amazon.
+
+Did you get it that. They are competitors, but if you ask them, they will tell you.
+
+I have Netflix as our best customer. Clear, by the way.
+
+Similarly, in form, if you, for example, if you open your your iPhone, you will see some chips that are manufactured.
+
+By what? By competitors of iPhone. Did you farm competitors of Apple?
+
+I for one help as long as as long as you pay.
+
+Claire. Okay, so we call it white infrastructure assets.
+
+You don't avoid buying servers. You don't have to worry about servers.
+
+You don't have to worry about what? Installation and so on.
+
+So maintaining all of the companies that are not they don't have enough technical support or, uh, solid technical support department.
+
+They said, what let's say what the cloud we pay them and as we need resources.
+
+Okay, I think I ran out of time. Next time I will show you the Netflix model and the YouTube.
+
+Uh, okay. That is clear. Clear.
+
+Oh. Any question? Oh, I will see you answered.
+

@@ -1,0 +1,2363 @@
+[Auto-generated transcript. Edits may have been applied for clarity.]
+I prefer. So you can begin when you're ready. Thank you very much. Good morning, everybody, and welcome to E450.
+
+I'm glad you all are safe and healthy. Uh, let's spend about two minutes reviewing what we learned last time before me.
+
+Moving on. We started, first of all, with a simple definition of a network.
+
+And we said the network consists of multiple nodes, different types of nodes.
+
+These, uh, circles here are referred to as the house orderly and systems.
+
+And these square or rectangular nodes are referred to as routers.
+
+These nodes are interconnected via transmission facilities such as fiber or copper or cable or satellite or microwave.
+
+Old types of transmission facilities.
+
+And the purpose of the network is to provide for the transfer of information and providing services to the end users or records.
+
+Again, as I told you, if you look at this one and if you look at this one, they are not directly connected.
+
+This one is connected to this router. This one is connected to this router.
+
+And then what. And then the packets will follow the from one router to another router and so on.
+
+And so. We looked at the separate, uh, concepts of the telephone network and the internet and the telephone network.
+
+You need to set up, first of all, a physical circuit between A and B before you start the transmission of information.
+
+Once the circuit is set, all the data will go through the same route.
+
+It goes through the same circuit, and the circuit is reserved for the duration of the call.
+
+L no matter how long your call takes, the circuit is therefore you.
+
+The circuit will be taken away from you only when you're hanged up.
+
+When you hang up. That's an indication that. Um.
+
+That you do not require service anymore. You.
+
+Excuse me. I want to show you one thing here.
+
+Uh. That's now the internet.
+
+How does the internet works? Let's we will look at this in detail shortly.
+
+I just want to show you what what what do I mean by the intent?
+
+What I wants to communicate with. Let's assume email.
+
+The email was broken into. How many packets? Look at these.
+
+Each one of them is packets, right?
+
+The packets are counted. There is no need to set up a what?
+
+A circuit. No need to set up a circuit. No need to set up a connection.
+
+You have packets to transmit. Go ahead and transmit them.
+
+But you need to make sure that every packet is addressed properly with two addresses.
+
+The first one is called the source IP address. The second one is called destination IP address.
+
+IP address is equivalent to a telephone number, just like a telephone number IP address.
+
+Clear. So the message was broken into.
+
+How many packets up for packets? The networking doesn't care.
+
+Internet doesn't care that these four packets belong to the same message.
+
+It doesn't care. It treats each packet as an individual independent unit by itself.
+
+Clear in exactly the same way as when you send me four letters.
+
+You need to create how many envelopes? Four envelopes on every envelope you need to put in the address.
+
+You need to put a stamp, whatever the case might be. So the first packet comes in here.
+
+What does he do? He stands a lot. Why he stand a lot?
+
+Because there might be other packets from other.
+
+He is not the only user. We have billions of views.
+
+This packet. Stand in line until your turn comes.
+
+The router decides by looking at the address and checking his table for routing table.
+
+That's why we call it a router. A router has a routing table from the routing table.
+
+He decides that he forward the packet to this, not to this route.
+
+Then came the other packet questioned by these two packets.
+
+Do they have the same addresses? These do these four packets.
+
+Do they have the same pair of addresses?
+
+Yes they do. Which is the source IP address, that's I gather.
+
+They are identical, but the network doesn't care.
+
+So for example, when packet number two came. This router decided to forwarded.
+
+When three came he decided to forward it here. Now I want you to tell me what they received in order.
+
+Look at the order. Look at the order they were transmitted.
+
+What they received in order. They were not received an order.
+
+It is the responsibility of the end host to put them back in order before delivering the email to the end user,
+
+before delivering the email to the end user. The networking stack, as we will see shortly in detail, will reorder load packets.
+
+Now are you following me so far? Everything is sent, nor reserved, nor reserved.
+
+They don't charge you on the what? On the distance. They don't charge you on the duration.
+
+They charge you on the what? On the volume. How many packets are you sent?
+
+Clear sofa in router. You need to wait the line before your turn comes.
+
+Wait the line before your turn comes. What does that result?
+
+Result? An increase of delight and delight.
+
+Just like you go to a movie. I you need to stand the light before you enter the theater.
+
+Same thing here. Also. The delay will go up.
+
+We will talk about the performance matrix.
+
+In short question. Is it possible they are received in order?
+
+Is it possible they are received in order? Most of the time it is that way most of the time, but there is no guarantee.
+
+The internet does not guarantee you anything. The protocol that is used in the internet, which is IP.
+
+He tells you what? I'm not going to guarantee anything. He does not.
+
+They do not even guarantee delivery. Question.
+
+Is it possible? Packet number four. Got to drop somewhere.
+
+If he dropped means what it means it reached a buffer where the buffer is full.
+
+There is no space to stand it. You follow me on.
+
+What does the router do? Drop the bucket.
+
+That's. He can't do the Outkast care.
+
+They don't care. They don't give you any guarantee of delivery.
+
+Now let's assume number three. What's lost?
+
+Just an example. Dropped. Well, he received number three.
+
+Or there will be a gap. Will there be a gap in the receiving packets?
+
+Gap. Gap means what he received one for.
+
+And what? Two? What will happen then?
+
+We will study this shortly in detail. This one?
+
+Well, I request this one to send him packet number three again.
+
+He tells him send me packet number three again.
+
+I did not receive it. There is a gap and packets one, four and two are not delivered to the user.
+
+Are stored and don't know what packet number three comes.
+
+Put them back in order and then what delivery to the end user.
+
+All of this done where at the end orders.
+
+Not in the internet. Not in the router. Routers do not care.
+
+Did you follow me, everybody? That's Ethan.
+
+Is that a reliable service or unreliable?
+
+It's unreliable service. But do we complain?
+
+Do we complain? We the end user. We rarely complain.
+
+When do we complain? We complain only when we feel that the internet is heavily congested.
+
+Why? Because the wait will be too long.
+
+It will be irritating. So, for example, I want to download a certain file and it's taking too long.
+
+Why is it taking too long? Because your packets are not the only packets.
+
+You have to stand your line. So during, for example, busy hours, a lot of packets in this internet and you have to wait a lot.
+
+The end user will feel the light will get a little bit irritated.
+
+Other than that, we don't complain. We don't complain.
+
+I we stay in front of our screen for an hour on the average, browsing the web, getting information and so on.
+
+So as long as we wait, as long as we don't pay for the duration, we don't pay for the distance.
+
+And again, as I told you, we as a customers, regular customers, me and you.
+
+We get what? Fixed charges? Almost fixed charges, regardless of the volume.
+
+Why? Because they do not expect us to generate they.
+
+Who is they? When I say they are they? They as the ISP, the internet service provider.
+
+The one who will carry our traffic. They do not expect too many packages generated by us.
+
+So they don't care about what? Counting on money packets.
+
+One. Two. Three. Four. Five. They don't care. They don't.
+
+We don't generate that many. But big corporations or educational institutes like you, I see.
+
+And so on and so forth. They have meters. I use me meters to count.
+
+How many? What? How many packets are they generating? And every time they go over, they charge them more.
+
+Clear they charge on the book. Now, we'll get to that in just a second.
+
+I just wanted to show you this. And I want you from now to understand.
+
+What do I mean by connection less. Connection less means what?
+
+Unlike the telephone network, where we need to set up a real physical connection between A and B, there is no connection in here.
+
+Exactly the same way as the mail service. You send me a letter.
+
+Do you need to contact me? You don't need to contact me.
+
+You create the envelope. You put an address, put it in the mailbox.
+
+Good bye. The mailman who is the realtor, will come pick up the mail delivered from one office to another office until it comes to me.
+
+That is the purpose of the. Or. That is the concept of the intent.
+
+And that is the one that we are interested in.
+
+No, not the telephone network. Clear telephone network is much more reliable.
+
+No comparison. But the problem with the telephone network is that they do not give us enough what resources to support all types of application,
+
+especially those applications that require a huge amount of capacity, huge amount of bandwidth, like big data.
+
+Like what? Like video, like 4K TV and so on.
+
+So all of this requires a huge amount of bandwidth, telephone network data logic.
+
+Tell you what, we are a network that were designed primarily for what voice you want to make a voice call.
+
+You don't need that much bandwidth. We give you a little bit, just a little bit for the voice.
+
+Did you get it, everyone? Oh, we'll get to that later on.
+
+I just wanted to show it to you from the beginning so that you get the idea.
+
+Uh, what is happening? Then we back to our review.
+
+Yes, sir. Also downside of rights.
+
+Your vote splits. What's what's the downside of a telephone?
+
+What is the downsides? Yeah. Downside like.
+
+What's bad about it compared to what is bad is that they don't give you enough bandwidth and they telephone all what they give you is this.
+
+Is as good or bad or ugly.
+
+You tell me. No, it's not bad. It's ugly. Ugly means what?
+
+It cannot support, by the way, K bits per second.
+
+K stands for what? A thousand? Yes, bits per second.
+
+Imagine. Listen to the white fight that you do at home.
+
+The white fight that you do at home can support the new generation can support 200mbps plus.
+
+Look at this and look at this. So if you tell me, listen to this.
+
+Just to make it clear to the gentleman, if you tell me, professor, I updated the Wi-Fi at home to the latest generation, and I get, what, 500mbps?
+
+And then I ask you, what type of connection do you have to your ISP?
+
+You tell me. I have a dial up connection. This is a dial up connection.
+
+I tell you what. You need to check into what?
+
+Into a medical facility or something. There is something wrong with you.
+
+Why? Because even though this is so fast, this will be the bottleneck.
+
+You understand the concept of a bottleneck. A bottleneck is the weakest link.
+
+So if you are not supporting your WIP by supporting 200 to 500mbps and you are on a dialup connection.
+
+It means what? You are not going to be downloading any video.
+
+Any data. Only what? Only what?
+
+Only bots. This is enough for bots. Or maybe a couple of files, short bio and so on.
+
+You know this webcast, anybody, by the way, seen the webcast?
+
+By the way, even if you attended, what if you attend the class life?
+
+It doesn't hurt to see the webcast. At least see the webcast.
+
+It cannot be supported at 64 second.
+
+It cannot. Which means what if you are watching the webcast?
+
+You will only hear me talking, but you will not see a what a picture I cannot support.
+
+Other than that, telephone network is perfect.
+
+It's perfect. Why? Resources? Are reserved for you.
+
+Who doesn't like that? Who doesn't like that? So, are you telling me?
+
+I'm going to give you a resource reserved for you only.
+
+Nobody else can use it. You only you will think what?
+
+Top of the line. But then they tell you what. This is all what you get.
+
+Clear. Clear. Oh, good. Now then we went into what?
+
+Into three, uh, types of software that we are going to be dealing with.
+
+And we referred to them as client servers. And per client is a piece of software that requests services at server.
+
+It's a piece of software that provide services appear on the other hand kind of provide services and request services.
+
+We went through different applications, and we saw that each one of these applications have different requirements.
+
+Some application cannot tolerate delay. What applications do not tolerate delay?
+
+Real time application. Real time application cannot tolerate the light.
+
+A delay becomes irritating like waterboys or three minute videos and so on.
+
+So for real time, let's not tolerate delay.
+
+Other than that, for example web browsing or email or something like that, they cannot tolerate wide losses.
+
+Some application requires a huge throughput. We will define what you mean by throughput shortly, like videos and so on.
+
+So some of them cannot tolerate jitter. Bank jitter is delay variation which means what I send you the four packets.
+
+Remember the four packets one packet will be delayed.
+
+Let's say one second. Another packet will be delay.
+
+Then second third one will be delayed two millisecond and so on, so forth.
+
+And although the delay is not the same, which means when the receiver receives the what receives the packets, he needs to buffer them.
+
+And then what? Replay again at a constant rate.
+
+Replay. Again. Clear. Otherwise, as I told you last time, if you have Netflix.
+
+Not. Not now. It's almost perfect. Netflix.
+
+Before original Netflix, you are watching a movie and suddenly you get one.
+
+You get to this loading thing. They are loading.
+
+Are you follow me or not? Why? Because they are. Using the internet, which means what they have standalone.
+
+Okay. So all of these Eddie the application could be unicast.
+
+Unicast means what. 1 to 1 or multicast one to many like games and so on so forth a broadcast and so on.
+
+So always remember broadcasting is not allowed in the internet.
+
+Broadcasting is allowed on your network or some other network, but not across the internet.
+
+If the architecture could be different, as we'll see in just a second.
+
+But they all have something in common. What do they have when they are transmitted?
+
+They do look like white packets. You will not be able to tell whether it's a voice packet, or whether it's a white data packet,
+
+or whether it's a video packet, a packet, it's an envelope.
+
+All what you see is that number. By the way, shortly we would see the packets need not be of the same length.
+
+They are short packets. They are what long packet.
+
+They don't need to be of the same length. Clear. Oh, but they all have something in common.
+
+Which is which? They are all going to be served or transported, supported by a single shared network public network referred to as the internet.
+
+They are all going to be transmitted over the internet regardless of the application.
+
+Now remember when you created a network application, you need to.
+
+You need to write programs to run in the end systems not in the one and the routers.
+
+The application do not run in the core elements.
+
+It run only the. Because again, imagine every time you develop an application, you need to go all over the world and put it into a router.
+
+Of course, a router is a mailman, and mailman doesn't care about what is inside the envelope.
+
+He only cares about what the address on the envelope.
+
+What is inside the envelope. He doesn't care. Clear.
+
+Same idea in here. So we don't need to write the software thing.
+
+We went through different architecture.
+
+So let's look at the client server architecture again.
+
+Server it means always worked on.
+
+You cannot turn off your server. You turn off your server.
+
+The clients cannot communicate with this server, so it's always up.
+
+It has to have a permanent IP address a permanent IP address.
+
+Now you might tell me, professor, who assigns this permanent IP address for that to that server or to that router.
+
+Router by the way, have permanent IP addresses and servers have permanent IP addresses.
+
+Just one comment here. Your router at home might not have a permanent IP address.
+
+Your router at home. Why? So when we talk about routers have permanent IP addresses.
+
+I am talking about routers in the internet not your router at home.
+
+I need you to understand. Just because the name is a router does not mean they are all the same.
+
+Your router at home is like a box of chocolate.
+
+How big is it? It's a box of chocolate. Routers in the internet are cabinet.
+
+Cabinet. It's like your kitchen cabinet or your closet and so on, so forth.
+
+Clear your routers at home might not have a permanent IP address.
+
+Routers in the internet have permanent IP address servers.
+
+Needs to have permanent IP address. You might tell me who assigns it.
+
+I'm the owner of the company. For example, at USC, the IT department.
+
+They have the responsibility of assigning permanent IP addresses.
+
+To the way to their servers. Now, you might tell me, professor, how do they get.
+
+How do the I get IP address get.
+
+We will talk about that shortly. They get it from your ISP.
+
+ISP is the one that will give you what block of IP addresses.
+
+And then what? Internally, the IT department will assign what IP addresses to the servers permanently.
+
+Again, why it is permanently. It's because so that the client can always be able to access a given server.
+
+If think about if if I am a server and if I keep changing my IP address, how are you going to keep track of it?
+
+How are you going to keep track of. You will need what? And the server needs to have a permanent IP address.
+
+Data center for scale. Let me show you what that data center look like prematurely, so that you understand what I'm talking about.
+
+You see this data? It looks like a library.
+
+Does it look like a library to you? Yes. It is. Huge buildings across the globe.
+
+The. We'll talk about Netflix in a minute. When they needed the help of Amazon.
+
+Amazon have all of these distributed across the globe.
+
+They call them what data centers? All of these DC, all of these cabinets.
+
+All of these are servers.
+
+And every physical server is actually virtualized, which means what you create multiple virtual machines within the same physical server.
+
+Within the same physical server, you are creating multiple virtual machines and so on.
+
+That's how they scale. That is how they scale their operations.
+
+Clear. So scaling is done. We'll get to that in a minute.
+
+Is scaling well done using data center. Clients.
+
+On the other hand, they don't need to have what IP addresses.
+
+Their IP addresses are dynamically assigned.
+
+What does dynamically assigned mean? Exactly the same as least.
+
+Right now you are living in an apartment. Is the apartment yours or you leasing it?
+
+You are leasing it. Let's assume you are leasing it for a year.
+
+After the year is over. Get. Can you request extending the lease?
+
+Yes you can. Can the owner refuse your request?
+
+Yes he can. If you are allowed the obnoxious, you don't pay in time.
+
+And so on, so forth. He or she will tell you what. No, we don't renew the lease.
+
+IP addresses are the same thing. Leasing.
+
+So, for example, you came to this room. The class time is two hours.
+
+It's two hours. You are able to access the web right now.
+
+How? They assign you IP address for how many hours?
+
+Two hours. Because they believe that after the two hours is gone, you are going to leave the classroom and another set of students will come.
+
+The other set of students will what will be assigned IP.
+
+And then once you leave this room, you don't need the what the IP address anymore.
+
+Clear who does that? A specialized server that we'll talk about shortly, which it's called what?
+
+DHB. Uh, excuse me.
+
+The Acpi stands for Dynamic Host Configuration Protocol.
+
+It's a protocol. It's an application protocol. Its function is to assign you IP addresses when you demand.
+
+When do you demand? When does the client needs an IP address?
+
+He needs an IP address only when he wants to communicate across the network.
+
+If you are not communicating across a network, if you have a standalone PC, I have a standalone PC at home.
+
+I don't use it, but it's standalone. I don't need an IP address for.
+
+When do I need an IP address for IP address? You need it only when you want to communicate with the rest of the world.
+
+Clear? Oh. Clients do not communicate with each other, and there is no point in them communicating with each other, right?
+
+None of them can provide what services?
+
+None of them can provide services. So in the client server architecture, for example, in your machine, the client software is running.
+
+What is the client software? It's your browser your web browser that is a client software.
+
+Who is he talking with? He is talking with a web server.
+
+Let's assume google.com. It's a well-served web server.
+
+They talk now. Are they running in different machines?
+
+Yes they are. They are running in different machines.
+
+So how do they communicate? They communicate.
+
+Oh thank you dear. They communicate via protocols.
+
+That's the TCP IP that I was telling you about in the first lecture.
+
+They come in, they understand the language. They understand the language.
+
+The web browser and the web server understand that even though they are running in different machine,
+
+your web browser could be on a laptop or on a what, an iPad or whatever the case might be, and the web server is on a bigger machine and so on.
+
+So but they are still able to communicate with each other because they use the same set of protocols.
+
+A peer to peer. On the other hand, we don't need a server that is always on.
+
+We don't need a server that is always on. But that is only the case when you know where your peer is.
+
+If you know if this one, know that this one it's peer, then you can what?
+
+You can communicate directly without involvement of a server.
+
+He can request server since he can't provide server since he cannot request services.
+
+He cannot provide services. Did you follow me or not?
+
+The question then become what if you don't know who your parents?
+
+You don't know. We are here at. I the example I showed you last time we had a what?
+
+A centralized directory server. This is not a DNS.
+
+Remember DNS stands for what domain name system.
+
+That's it system that translate a hostname to an IP address.
+
+That's not a Diana Rigg just a directory server. It's always on a server needs to be always on.
+
+Now what is where is involved? Every one of them.
+
+To Bob and Alice and other people. They sent him a list of, let's say, files or videos that they own.
+
+Bob tells them why I have this video. It's video and it's not the actual video.
+
+It just a what a menu, a menu, a list of videos that they had.
+
+So he sent them this, this once. And now if it's looking for a specific video, she will ask the server, does anyone who registered with you it?
+
+Does anyone have visited you? They tell them what? Yes Bob has.
+
+So she established connectivity with Bob. This is totally out of the picture, totally out of the picture and other they are not involved.
+
+The server is not involved with the contact with the actual video.
+
+They just provide you with the what a list of if she knows Bob already.
+
+No need for this. Clear.
+
+And we will again, we'll talk about the peer to peer model shortly and more detail.
+
+The third model that we looked at last time, it is what is what is referred to as the cloud computing model.
+
+Cloud compute. Companies decided that they don't have the capability to scale very fast.
+
+They don't have the right I.T. department. They are not able to manage their what their data and so on and so forth.
+
+Here come big companies, which are the big company, the Google, the the Amazon and so on and so forth into Facebook and so on and so forth.
+
+All of these, they have huge data centers located across the globe,
+
+and they took on the responsibility of the cloud to provide to you these companies, the cloud provider, we call them the cloud providers.
+
+They took the responsibility of providing you the services that you request, and you pay only when you use them, which means it becomes a what?
+
+A utility. Just like an electricity or water, you pay for electricity and water.
+
+The more you use, the more you pay. The less you use, the less you pay.
+
+You follow me so far is a cloud provider and they allow the user the capability of what?
+
+Smoothly adding what? Adding resources or reducing resources?
+
+Depends on the size. Depends on the need of the season.
+
+Are you following? Well, none. So, for example, let's assume Netflix had a new movie.
+
+It wants to distribute to a large number of locations very quickly.
+
+It's a new movie. You follow me or not?
+
+During that time, they request more services or more resources from Amazon, from Amazon.
+
+During that, after a while they might say, what?
+
+No, we don't need. So it depends. Or for example, tax preparation fees.
+
+When you are preparing your taxes mid April or something like that, accountant will be heavily, heavily overloaded with what with work and stuff.
+
+They use the cloud and your software during that season.
+
+After that, no, it goes down. You don't have to pay.
+
+So we saw last time that there are different types of cloud models.
+
+The first one is called say hey S has a S stands for Service Authority Software as a service and software as a service.
+
+They develop the software, not you. Another way in software as a service.
+
+You don't develop anything. You just need to pay. That is software as a service.
+
+Most of the software is what? Business oriented, the customer relationships management, email like Gmail and so on and so forth.
+
+From the user point of view. What are you getting from? You avoid the cost of installation on your own server.
+
+You don't need to install it on your own server.
+
+You don't have to worry about that. You don't have to worry about management.
+
+You don't have to worry about upgrading every time a new version come.
+
+You don't have to worry about upgrade. They will do that. They will do that.
+
+Most of the software as a service.
+
+One of the biggest companies is called salesforce.com.
+
+And again, as I told you last time, they do hire students from USC during the summer.
+
+So please do check them out if they have other opportunities.
+
+P. S. Platform as a service. Notice, by the way, in here the user does not have access in order.
+
+He cannot see the platform or the infrastructure.
+
+You cannot see them. What can you see here? The user.
+
+The user. You can see only the application. You can see only the application.
+
+You have no idea what the platform that it runs into.
+
+Why the software? It's not yours. So what do you care?
+
+You follow me or not? You don't see it. Here.
+
+Platform as a service. Any platform as a service.
+
+You develop the application. You use the user.
+
+You develop the application. But they will provide you with your what?
+
+With a platform. You can see the platform.
+
+You can see you can choose which platform your application is going to run.
+
+You can see you through your what through your browser.
+
+But you will not be able to see the what the infrastructure.
+
+Infrastructure is the what is the back end? Clearly you will not be able to see that.
+
+You will be able to see the platform clear. An example is Azure or Google App Engine and so on and so forth.
+
+Another one is the infrastructure as a service, infrastructure as a service.
+
+You can actually see the what.
+
+The infrastructure, the computing, the networking, the storage and so on, so databases and so on.
+
+So you can actually pick and choose.
+
+You can pick and choose. And we'll see in just a second you can pick and choose that.
+
+It's called the infrastructure as a service, an example of which is the Amazon uh web services that we'll talk about in just a second.
+
+What is the what is this what what benefits is this one giving you?
+
+You don't need to worry about servers. You don't need to worry about what?
+
+Managing the servers. Physical server. You don't need to worry about that.
+
+You don't worry about weight management. And you only need to.
+
+What? You only need to ask them. I need that many resources.
+
+I need that many resources. And it's elastic.
+
+You see. Elastic. What does elastic mean?
+
+Flexible. You can what? You can ask more.
+
+You can ask what for less. Throw your browser.
+
+Clear. Oh, right. Now I, by the way, look at the layout.
+
+This is the front. And that's the back end application, the platform and the what?
+
+And the infrastructure in here. Clear.
+
+You studied the the the the layout architecture and just.
+
+This is the data center that I was telling you about. I want you to understand again one more time, elastically, so you can expand.
+
+Or you can what contract contract means what reduce?
+
+Expand means what increase? It's a paper use.
+
+Pay per views per use. Did you get it or not?
+
+Pay per view. It's infrastructure on demand. You demand more, they give you more, and so on.
+
+Multi-tenancy. What is multi-tenancy mean? Uh, millions of customers are sharing.
+
+What? Sharing these resources. Multiple independent users.
+
+Where you provide the cloud provider claim that they provide you with what?
+
+Resource isolation.
+
+So even if your applications are running on the same physical machine but utilizing different virtual machines, they will provide you with what?
+
+Isolation so that your resources will not. What do not.
+
+There is no security breach and so on, so forth. I don't know what what other users and so on now.
+
+Oh, oh, uh, who handled the cost and other who is responsible for pay is shared and the infrastructure
+
+is all shared because every customer will pay what his share or share of whatever they use.
+
+Clear. Oh, no. And then you can use again the cloud.
+
+I want you to see this. Everything is running on the cloud.
+
+Shopping. The application documents, photos, videos, music and so on and so forth.
+
+All of these types of applications running in the cloud.
+
+This one is an interesting curve. I want you just to see it.
+
+Uh, actually it's a little bit outdated, but you can see.
+
+Do you see this one? This car. Oh, sorry.
+
+This curve first. This curve. This one is accessing the cloud services from your desktop.
+
+From your desktop. Which means what? Wired connection.
+
+Wired connection. Ethernet. Whereas this one is what.
+
+Accessing the resources via what? Your mobile device, your your smartphones on whatever.
+
+Which one is growing faster. This one is much faster than this one.
+
+This one is actually what it's actually saturating.
+
+What is one is growing much faster. This is like about ten years ago or so.
+
+And so but it's it's quite clear. Okay.
+
+Now, I think I showed you this last time when you hear the cloud, there are two sets of cloud.
+
+There is a network of cloud and there is the computing cloud.
+
+The cloud computing cloud.
+
+When you hear the word networking cloud, these are your ISP, your AT&T, your bar isn't your T-Mobile, your spectrum cable, and so on.
+
+So they are not involved in generating the content.
+
+They do not generate the content. So what do they provide?
+
+They provide connectivity. They provide connectivity.
+
+They provide what? Transformation facilities to take your packet from the user, with the user to the walk to the corporate.
+
+You're caught for it again, datacenters and so on and so forth, like Amazon and so on.
+
+So clear. Oh. So let's take a simple case, uh, study case so that we understand how how it is.
+
+Uh, how does this one works? And let's look at Netflix.
+
+Netflix wasn't what it created when they created Netflix, which in late 2000, 2008, 2007 around that area,
+
+around that time, their business watch what videos they mail you in the mail they Malibu videos.
+
+And in other words, they were competing actually with what with stores, retail stores that you can go and get video.
+
+They are always they are in the business of renting videos.
+
+But they are like they realized very quickly that this business is not going to what is not going to be sustainable.
+
+It's not going to be sustainable. It's not going to generate huge revenues.
+
+So they needed to change their what their architecture.
+
+But they did not have the capability of reaching a large number of customers across the globe.
+
+They did not have their data center.
+
+Their own data center was actually based on Oracle databases that failed once in a while, and once it fails, their business goes down.
+
+Their employees were all software minded.
+
+They were able to work to design the application, but they had no idea.
+
+They had no idea how to distribute the video.
+
+They don't have the footprint to distribute those videos all over the world.
+
+At the beginning. By the way, the videos they did not generate Netflix did not generate the video,
+
+the videos they took from other content providers like Disney or Dreamworks or whatever,
+
+all the companies that we see, Paramount or Universal and so on and so forth.
+
+The movies were not there is not original content, they just what?
+
+Random videos? They do. They realize that they are not going to.
+
+What? They are not going to sustain. This is not that sustainable.
+
+Uh, business plan. They did not have the what?
+
+The person up to handle all of these things. They wanted to focus only on the software and let somebody else handle what?
+
+All the other functions. Let and let them handle somebody.
+
+So what did they choose? They choose Amazon Web Services.
+
+Now you might say, professor, why didn't they choose, for example, Microsoft Azure or Google App and so on and so forth.
+
+Amazon had what huge amount of processing power.
+
+You follow me on that. Amazon started, by the way, with what? With books and and then what they started to what build up built up its footprint.
+
+So they had massive amount of sensing power storage power data centers across the globe.
+
+Unlike Microsoft Azure or Google App. I had a Google engine at that time, I backed that.
+
+So Netflix picked up the phone and called. What?
+
+Amazon. And they told them, we want to run our software.
+
+Our software. Who developed the software? Who developed the software?
+
+Netflix developed the software, not Amazon.
+
+We want to. We want you to host our software on your machines.
+
+On your machines. Amazon. By the way Amazon at that time, they were not in the video streaming business.
+
+They were not in the business. Prime video was not there yet.
+
+Amazon was delighted. Hey, you are going to pay millions of dollars.
+
+You pay. They pay. So what did they do?
+
+Uh, Netflix. They use em.
+
+Let me show you the the. They use Amazon's tools storage.
+
+They call it S3. S3 stands for simple.
+
+Simple. Storage.
+
+Service. They use EC2.
+
+Which is elastic. Compute.
+
+Cloud. First of all, it's simple storage service for storage capabilities.
+
+Thousands and thousands of terabytes worth were what they were able to store it on S3.
+
+EC2 computing transcoding.
+
+What was it transcoding? Me transcode.
+
+Once Netflix decided to get into the video streaming business, the video streaming business,
+
+they needed to generate different video formats of the same program,
+
+of the same movie, or of the same TV show, but it's a different what format depending on the what depending on the user.
+
+Equipment. Whether you are you, whether you are looking at Netflix through your work,
+
+your smartphone or your iPad or your desktop or your laptop or your game consoles and or support each one require different format of the video.
+
+Netflix did not know anything about generating what.
+
+Different formats of the video. They ask AWS, EC2, which is the Elastic Compute Cloud.
+
+They told them what generate this video for us, generate different types of videos for us.
+
+They use another one, which this diagram does not show you.
+
+Aurora. This is a database.
+
+Towards. All of these, by the way, are integrated.
+
+All of them are integrated within the what? Within Amazon Web Services.
+
+Within Amazon Web Services. They are integrated with.
+
+So I'm gonna start doing all of these things on their machines and so on and so forth.
+
+Netflix. They said what? We have another problem.
+
+How are we going to deliver these video streams to the end users?
+
+How? We need to have a what a big global footprint to allow us to stream videos to customers across the globe.
+
+Across the globe. We cannot do it. I, Madame, was not in the business.
+
+Of what? Delivering the content. And that's on what's in the delivery?
+
+In the business of what? Generating what different format types, storing them and so on.
+
+So. So what did Netflix do?
+
+It contracted what? It's known as what?
+
+CB and we learned a new acronym today.
+
+CBN. Stands for what?
+
+Content? Delivery.
+
+Networks. Content delivery networks.
+
+They are networks. They do not generate the content.
+
+They just what? Deliver it. These companies include.
+
+Akamai technologies include. Limelight technologies include level three networks and so on and so forth.
+
+These are big companies, by the way. They have nothing to do with Netflix.
+
+These are what these are independent companies. And they I want you to see they are sort of.
+
+Huh? Know what is. Yeah.
+
+They have CTN servers in South America and Europe and Asia and so on and so forth all over the place.
+
+Now, do they charge Netflix? They charge Netflix.
+
+Netflix was paying them a huge amount of money to deliver the content to the customer.
+
+Netflix says what's going on? It's not going to work.
+
+We are paying them a huge amount of money. Why don't we generate our own seed and our own seed and the content delivery network, our own seed?
+
+They did. They came up with what is known as Netflix Open connect.
+
+Network Netflix. Open. Connect. Open.
+
+Connect. The next question is what?
+
+Where do we place our appliances?
+
+By the way, what is an appliance? An appliance is a Netflix server.
+
+That caches all the videos that are generated by hook by W.S., A.W. and generate the video format.
+
+And then what? Netflix take it to those appliances.
+
+So the next question for Netflix what's what? Where do we put these appliances?
+
+Where do we put these appliances? At the beginning.
+
+They put the appliances. Do you see this appliance, by the way?
+
+It looks like a small box,
+
+but it's actually what it's actual capable of storing or catching thousands and thousands of videos in every one of these boxes you might have.
+
+What a complete Netflix library and. They said, what does Netflix where do we put?
+
+At the beginning. They put them at the edge of the ISP, at the edge of the ISP, and they at the peering point.
+
+When you see the word peering point means what?
+
+The point where they exchange information at the peering point, and then the ISP carry them all the way through the act to the customer.
+
+Did you follow me or not? Did you follow me or not?
+
+They said what? We can do better. They contracted with the ISP.
+
+They told them, we need to put our our means.
+
+What? Netflix, our appliances within your data centers,
+
+within the ISP data center so that the video stream does not have to go through what the entire what the entire network of the ISP,
+
+they make it the closer to the what. To the end user.
+
+Which means what? When the end user requests downloading a certain video.
+
+You don't have to go through what transit networks to download the what the video.
+
+The video will be downloading very close to you because Netflix positioned or placed the what the appliance appliances deep into the ISP network.
+
+Clear. And nobody pays the other anything.
+
+Netflix provided the appliances for free.
+
+Another works. Netflix is telling the ISP, we will give you our uplink.
+
+I remember when you heard about what appliance this is. What? Caching.
+
+Servers? Caching. What is? Catch me?
+
+Cache means what? Temporary memory I movies.
+
+By the way, if you do have Netflix, you will see sometimes on when you get the menu you will see.
+
+Sometimes it says what just added or will leave soon.
+
+In other words, they are not permanent. It depends on what depends on the user whether they are interested in these kind of movies or not.
+
+So they call it what caching servers. Netflix told the ISP we will give you the appliances for free.
+
+You just need to wait. You just need to download the video stream to the customer.
+
+Which is benefit for both the ISP and the what.
+
+And Netflix. What you might say, what is the ISP is getting out of it?
+
+The customers want to get video streams at a very high quality.
+
+The closer the what the appliance to the customer, the quality of the video becomes much better.
+
+Why? Because you are not going to be encountering large Goliath.
+
+Did you get it or not? It's very close to the customer. That does not have to go through the transit networks here.
+
+So from the ISP point of view, they get a lot more customers because most customer customers right now,
+
+they have in excess of 250 million Netflix, 250 million customers across more than 200 or 50 countries in the world.
+
+You follow me on? They contract the Netflix with the ISP.
+
+They told them why we give you the appliances for free.
+
+You're just need to worry about what the cooling, the air conditioning, whatever the heating and so on.
+
+Support and what and you provide provided the video stream.
+
+ISP said what? Okay, by the way, some ISP are fighting Netflix currently and Netflix is resisting some ISP.
+
+Tell them what? No, you need to pay us money. More money for the video streams.
+
+For the video streams, we are providing you with service.
+
+Netflix is trying to resist that. Of course they want to minimize their cost.
+
+They are operation cost. Clear. Super clear.
+
+Super. Oh. So currently, again, as I told you, most of the Netflix appliances are what are within the what within the ISP, very close to the customer.
+
+See this one? This one is on the edge, which means what it has to go through the ISP is until it reaches this.
+
+This one is on at the it. Clear?
+
+No. Then what Netflix needs is more from Amazon Web Services.
+
+One more from Amazon Web Services. They what they get what is known as a cloud.
+
+Front network. This is.
+
+Actually call it the cloud front network. This is not to do what the network that will provide you with the actual video stream.
+
+This network deals with what backend stuff like for example, subscription user subscriptions,
+
+management interfaces and machine learning algorithms and data analytics to try to study images when you see menus and so on and so forth.
+
+Who is providing those? Who is providing those?
+
+It's Amazon CloudFront network. They have what he ordered.
+
+Distribution of the data center for non video traffic, not video.
+
+Not the actual video stream but images taking what taking machine learning algorithms to work to figure out what is the user interest?
+
+You follow me or not? What is the user? What are you interested in? What kind of will be targeting those?
+
+Getting information about what kind of interfaces you have?
+
+What kind of equipment you have at home that you are using to watch Netflix, and so on and so forth, management and so on and so forth.
+
+All of these, they were taken, all of this responsibility were taken off from the CD and from the.
+
+Network open contract, allowing Netflix to concentrate only on what developing right now.
+
+They developed their own original content.
+
+If you look at how many of you have Netflix. Nobody has not.
+
+Oh, most of the program. They are original content. They they they generate the content.
+
+Clear. By the way, when I say they generate. They created.
+
+By the way, Netflix created a virtual studio.
+
+At Amazon. They created a virtual set at Amazon, and they allow all the artists and the innovators across the globe to collaborate,
+
+to collaborate using a virtual studio.
+
+Why do we call it virtual a studio? Is it a real studio?
+
+It's not a real schedule. It's running Amazon virtual machines clear, but it allows what artists from all over the world to collaborate from,
+
+for example, from the Far East, from South America, from Africa, and so on and so forth.
+
+They collaborate. What what does Amazon get out of these?
+
+Amazon get what, billions and billions and billions of dollars that enabled it enabled Amazon to create.
+
+They are what they they're huge data centers which are located across the globe.
+
+Who pays for it? Uh, and Netflix is paying for.
+
+But Amazon has the what has the capability of running?
+
+Netflix does not have to worry about what managing servers do not have.
+
+I by the way, if you look at Netflix, the number of employees they have is around 1000.
+
+And so which means what to think about it. It's not a huge what is not a huge company with a large number of employees,
+
+but all of them are what are concentrating on what generating content and then what
+
+huge bandwidth to distribute this content to the end user without having to wait,
+
+without having to contract these third companies, these independent companies, you ask somebody to deliver something for you you need to pay for.
+
+Now and Amazon when they went and when and Netflix said and use a CloudFront network to provide for the back end I think is seamless.
+
+Why? Because all of it belong to Amazon. So Amazon is what generating what different types of video,
+
+different kind of videos using their easy to they store it using their what S3 they deliver
+
+all of these back end functionality using front the front the cloud to front network.
+
+All of them belong to Amazon, so it's what seamless operation cost.
+
+You don't need to pay something. These and these services are all integrated together.
+
+Clear. Netflix concentrated on what concentrated on the delivery of the what of the video streams.
+
+If you have Netflix right now, rarely you see the what.
+
+This is the sidelines and very rarely, very rarely you see why?
+
+Because the delivery is coming from a data center, from an appliance located in a data center, very close to the very close to the customer.
+
+You don't have to go through what you don't have to go through the transit.
+
+Uh, I mean, you don't have to go through the transit.
+
+Uh. A transit. Uh, networks.
+
+So this is just a diagram. So this is your your multimedia player.
+
+Different types of players here. For example, this one is Silverlight where this is Netflix data center.
+
+This is the Amazon cloud. By the way do you see these servers.
+
+What do you notice on the servers or the storage. What do you notice written on it?
+
+Netflix servers. Do they belong to Netflix?
+
+They belong to Amazon. But what do they hold?
+
+They hold Netflix or they do everything. And not like.
+
+Generally they hold it in here. So when you click in, when you are clicking, for example, a play, what does it do?
+
+And this one will take you to the closest. CD to the closest CD, and from the way from the information that they are going to get from you.
+
+They will be able to figure out which data center is close to you so that they download the video stream, all from those samples.
+
+Clear. And it comes from behemoth. Netflix right now is huge, you know.
+
+Do they have competitors? Of course I don't have competition.
+
+They have Disney. They have its own. All of them are competitors with each other clear of.
+
+But they have what they are YouTube and so on, so forth.
+
+But actually Netflix right now is in the front.
+
+So yeah. And they again, as I told, they did not wait too long to figure out what to figure out that they are old model.
+
+It's not going to scale. It's not going to scale. They needed to change the model.
+
+Okay, now we will look at other case studies as we move along through the course so that you can see it very clear.
+
+Now let's look at the components. What makes a computer and networking computer?
+
+I have again it's I told you I about standalone PC at home.
+
+It's not a network computer. It's just a computer.
+
+What makes a networked computer? What makes a network computer is two types the software and the hardware.
+
+Now always remember this software. Look at me.
+
+The software runs over the hardware. The software is on the top.
+
+The hardware is on the bottom. When you are transmitting, the message will go from the software to the hardware.
+
+When you are receiving the message, you will go up.
+
+From where? From the hardware to the software.
+
+Did you get it? We will get that next time when we studied the layered architecture.
+
+We have three pieces of network software.
+
+The first one which is most important network operating system and or S and S transport network operating system.
+
+Notice. By the way, even if you are not a network computer, you still need an operating system.
+
+You need a piece of software that will manage the central processing unit, the CPU, the IoT devices, the memory.
+
+Who is going to manage those? We need what is referred to as an operating system here.
+
+In addition to these functionalities, we need to worry about shared resources.
+
+We need to worry about security issues. Why? Because the resources are open to anyone.
+
+To anyone on the network. Clear. So what do we have as the network operating system?
+
+Monitor the network resources and so on. So there are many network operating system.
+
+We are only going to be interested in our course on the Unix Linux network operating system.
+
+This, we are not going to get into it. This is what I told you.
+
+It's six. For auto widget operating system call.
+
+I don't need to repeat how important this course is, but it's not an easy code.
+
+This is not an easy call. 450 is not hard. This is a hard class.
+
+Requires a lot of time. But this is you take courses that will benefit you.
+
+Not that it is easy to get an A, so you get an A.
+
+So what? What you need to what you need to improve your knowledge.
+
+So we are not going to get into the software. Then we do have the.
+
+What? Uh, the client software. This is called the shell.
+
+The redirect or the requester? This is a piece of software that will decide whether the request is for network resources or for local resources.
+
+If I have a PC that is connected to the network, that's not mean that I only use network resources.
+
+I can also use what local resources clear local resources.
+
+If I use local resources, that client software will direct me to the white, to the local resources.
+
+Clear. But if I want to use network resources, I need another set of protocols, which is called what the networking protocol.
+
+And this is what we are going to be interested in. This is a protocol stack.
+
+We call them stack. What is that stack?
+
+And when you go to a department store or something, you see the clothes are what are assembled in stacks and so on.
+
+So this protocol stacks such as TCP, IP, which are the uh, open internet, uh, uh, protocol suite.
+
+There are other suites. They are all proprietary.
+
+You understand what what is the opposite of open?
+
+Opposite of open is a proprietary windows for example, is what proprietary software?
+
+Windows. Right. Unix on the other hand, or Linux is what is open.
+
+We are going to be only interested in. And that's all.
+
+What I'm trying to tell you is that there are other networking protocols that clear all of this, but we are only going to be interested.
+
+This is the only piece that we will introduce in this course.
+
+This is the only piece which is the networking protocol.
+
+How do we prepare our message? Remember the example I just showed you?
+
+We took a message. We broke it. Into what? Into packets.
+
+Oh, how do we do that? You follow me on that.
+
+That is the functionality of the networking protocol application.
+
+I'm sorry. The networking protocol suite. Now, what is the hardware?
+
+So we go into the software, then the hardware. What is the hardware?
+
+The hardware. Is the network interface.
+
+Scott. Nick. Nick. This is how it looks like.
+
+That's a Nick. Nick. You follow me on that?
+
+It's a card. Network interface card.
+
+Clear that is the hard way. Sometimes they call it.
+
+What? Adapter card. Adapter card.
+
+These are the same terminal adapter card or network interface card.
+
+Same thing. Same meaning. Clear these cards.
+
+Are not what we say. So, for example, if you do have a computer that has only an Ethernet card, you cannot connect it to a what a Wi-Fi network.
+
+You cannot. These cards are not compatible for every technology.
+
+You need a what? A separate card. Luckily for us, when you buy a what?
+
+When you buy a computer or a laptop,
+
+whatever it comes with what many of what network cards depend on whether you want to connect your network to a what to uh,
+
+uh, Ethernet or to a what a wife. How many of you at home have Ethernet cable?
+
+If you do understand, you can connect your laptop to the white to the Ethernet port of your router.
+
+And this is especially beneficial if you want to download huge amount of what huge amount of data and big files and so on and so forth.
+
+Because the Ethernet is more reliable than what?
+
+Than white light and faster. Did you get it or not?
+
+But you need Ethernet cable. You need an Ethernet cable.
+
+Clear. Oh, good. We will get to that shortly in detail.
+
+So where are these? So remember the software runs over the hardware.
+
+The software control the hardware. But on the bottom where is the hardware connected to the hardware.
+
+What? Use copper cables. Question.
+
+Did you hear something? Huh? Was that a question?
+
+No question. I heard something. I heard somebody talking.
+
+Anyway. That's fine. Uh, I'm getting old a little bit, so, uh.
+
+These networking cards communicate with sending and with signal sending signals through the media.
+
+What is the medium? I want you to look at this. These are all fibers.
+
+You follow me on this one coaxial cable.
+
+Yes. This one. Radio.
+
+White Wi-Fi radio antenna. Yes.
+
+Pigeon. It's a joke. Our our our author.
+
+Have nice sense of humor. Pigeon sending messages didn't get the message.
+
+Like Game of Thrones, and so it's always clear so far.
+
+Yes or no. Okay. Now. Premature.
+
+Premature statement. Every dose, every one of these cards are identified.
+
+Sorry, not or is identified by a uniquely global address called the Mac address.
+
+You follow me so far? This is a premature statement because we are going to get into it very shortly in detail.
+
+But I want you to get at the concept one. A mac address is a real physical address burned into your cart.
+
+So when you purchase the card, the Mac address is burned into your card.
+
+You cannot change it and it is portable.
+
+What is portable mean? If I have a PC in L.A. and I move to New York, I take my PC with me.
+
+The Mac address is not going to change.
+
+Did you get it or not? It's portable. God's with me.
+
+Unlike the IP address, IP address is not portable.
+
+Which means what? You move from one location to another location your IP address needs to what needs to change.
+
+Did you get it so far or not? Did you get it? Mac addresses.
+
+It's a flat addresses. What is a flat meet?
+
+If you tell me. What is your Mac address?
+
+I will tell you what. So. Which means what?
+
+What do I get out of it? I have no idea which network you are connected to.
+
+Because it identifies the Nic card only.
+
+If that's not identified, the host and it does not identify the network to which the host is connected to.
+
+Did you get it? Did you get it? IP address.
+
+If you give me your IP address. Assuming it's a public IP address, you might say what other type of IP address?
+
+We have what is known as a private IP address. We'll talk about private IP address shortly.
+
+If you give me your public IP address I will be able to figure out which network you are connected to.
+
+Of course not immediately, but searching. You follow me on not.
+
+I can search which network you are connected to. If you give me your IP address.
+
+Clear. You give me your address. Doesn't mean anything to me.
+
+Clean software. Clean. Super good Mac addresses are physical addresses.
+
+You cannot change it and they are burned into your what?
+
+Into your car. If you change your Mac address means what you change your cut clear.
+
+Now all of this, by the way, is premature, but I need you to get a brief idea about it.
+
+Before we get into the detail. Mac addresses have local significance only.
+
+What does that mean? If I want to communicate with the Google server, I need only the IP address of the Google server.
+
+I don't need the Mac address of the Google server.
+
+Did you get it? Did you get it? So what does local significance mean?
+
+If I want to communicate. Over my network to another device which is on my network.
+
+On my network. I need the Mac address of that device.
+
+In addition, of course, to the IP address. Did you get your.
+
+Did you get what local significance mean? Didn't get it right.
+
+Clearly, Obamacare is needed only when you want to communicate with another device on your own network.
+
+On your own network, not on a separate network.
+
+One more time, I go. I want to communicate with Google.
+
+I don't need the Mac address of Google Watch.
+
+Mac address. Do I need? I need the address of my router.
+
+Don't call it router by router. Router or router is the.
+
+Try new snake. I'm just teasing you. Don't call it router.
+
+Router. I need the address of my router because he is the one.
+
+By the way, is the router connected to my network? Yes he is.
+
+Otherwise, how am I communicating with him? Did you get it or not?
+
+I need the address of the router. Who will take me there?
+
+Clear a question. That's my router. Me the Mac address of Google rap.
+
+Sorry, of the Google server. No he doesn't. So what does he need?
+
+He need to what? The Mac address of the other router.
+
+The other router. Who needs the Mac address of the Google server?
+
+The router that is connected to the Google server network.
+
+Where the Google separates. Located the router that is connected to the same, uh, to the same network as a Google server.
+
+Mac addresses have local significance only.
+
+Did you get it? Okay. Now, the next question is upon.
+
+Listen to the question. Careful. Premature. All of this are premature.
+
+Actually, I might have made a mistake getting into it, but I want you to get the idea before.
+
+If I don't need the Mac address of the Google server.
+
+Quit my Mac address. Be the same as Google Mac address.
+
+I don't. I'm not going to use. I'm not. I don't need the Mac address of Google Server.
+
+Could my Mac address be the same as his Mac address?
+
+Theoretically speaking, could. But they did not want to get into a hassle that when you move from one network to another network,
+
+you don't have to worry about whether your Mac address is used by another device on that other network.
+
+Changing Mac addresses is not as easy as changing IP addresses.
+
+IP addresses, he adds. Up to what do you change in a Mac address?
+
+You need to open your computer, get to the card, replace it with another card.
+
+That's what we don't want to get into that trouble. We don't want to get into that.
+
+Did you get it or not? Okay, so theoretically speaking, Mac addresses are globally unique, but in actuality.
+
+The manufacture of these cards. They duplicate Mac addresses, but they ship it.
+
+When they ship it, they ship it to customers that are distributed all over the world.
+
+All over the world. Did you follow me on another?
+
+Your Mac address could be the same as a mac address of a device.
+
+In what? And let's say Beijing. What are they?
+
+Same chances of you moving. To what?
+
+To that network. It's almost nonexistent.
+
+They want to make money. So they what? They sometimes they duplicate Mac addresses agents responsibility, as we'll see shortly.
+
+It is the responsibility of the network administrator.
+
+Through what? Through the remote management of the network to figure out if there are any what duplicate Mac addresses on the network.
+
+You cannot have duplicate Mac addresses on the network on the same network on the same.
+
+You cannot clear software. Okay.
+
+Right now we're adding one more time. Uh, remember, software is running on top of what?
+
+On top of the hardware you transmit software to.
+
+What hardware receive hardware to what software?
+
+We'll see that in just a second. Clear software.
+
+IP addresses, by the way, are added in the software.
+
+Uh, Mac addresses in the hardware? Yes.
+
+How big is the huh? How big is the total allowable use?
+
+Um and Mark, again, I am very premature question.
+
+All of these details will study them in detail. But let me answer the gentleman's question.
+
+IP addresses are 32 bit long, 32 bit.
+
+Are you following this off? Mac addresses are 48 bit long, 48 bit long, and the way it is presented, it's different.
+
+IP addresses is represented like this a dot b that c that d.
+
+Every one of these is eight bits, and every eight bit is represented by a decimal digit decimal digit.
+
+So for example you have one 128.
+
+Just an example 125 three.
+
+Okay, just an example. That's an IP address.
+
+This is only for us for human consumption.
+
+Routers do not understand that. Routers need to know what.
+
+Need to look at the binary app. Okay.
+
+Clear. Okay. As long as you ask the question.
+
+IP address. Again premature.
+
+I'm jumping all over the place, but I just need you to get the idea.
+
+Consists of two parts. The net ID.
+
+Do you host ID? This is not a packet.
+
+This is only the what? The advert.
+
+In other words, this is 32 bit. Did you get it?
+
+What is the net I.D.? Net I.D. is the part of the IP address that identify the network to which you are connected to.
+
+To which you are connected to that part is called the net ID.
+
+Net IDs are globally unique.
+
+Which means what? No two networks have the same.
+
+Net ID. No two networks have the same net idea.
+
+Clear. Host ID part. Identify the identify the actual host.
+
+The interface. Actual interface. The host itself.
+
+Did you get it or not? Yes or no. This is assigned by your ISP.
+
+You cannot choose it. This one. You cannot say why I slept yesterday.
+
+And I dreamt of this and that I did. I like it.
+
+I'm going to use it. No you cannot. This is assigned by your ISP.
+
+This is assigned by the local administrator.
+
+Like you, I see you follow me on ISP give you.
+
+I see this and tell them what you decide on the host item.
+
+Clear. So let me ask you a question. See if you can respond to me correctly.
+
+Is it possible we have two devices on different networks, on different networks that have the same host ID?
+
+Possible or not possible. Possible. Are you following me or not?
+
+Why? Because they have different white neck I.D.
+
+IP addresses have to be globally unique.
+
+I want you to think about the IP address the same way as you think about your mailing address.
+
+Your mailing address. You follow me on.
+
+Can your mailing address be duplicated? You cannot.
+
+Why? The mailman will say. Huh? What do I do?
+
+I take it to hero. To you. Did you get it or not? When you move.
+
+Let's assume you moved from L.A. Uh, excuse me.
+
+To New York. Do you need to change your mailing address?
+
+Yes. You do. In the same way, you need to change your IP address.
+
+I want you to think about Mac addresses.
+
+I'm not sure all of you have that yet or not. I.
+
+I want you to think about your Mac addresses the same way as you think about your Social security number.
+
+Are you familiar with sorts of? Most of you might not have it yet.
+
+Once you got the job, you need to get a Social Security number.
+
+If I moved to New York right now, how do I change my Social Security number?
+
+No, I take it with me. That's the Mac address. Did you get it?
+
+Okay, if you tell me your Social Security number, I will not be able to tell which state you are.
+
+Will I, if you give me just your Social Security number, I will not know where you live in California or New York, or I will not be able to clear.
+
+Oh, good. I don't think I finished answering your question.
+
+Did you? Andrew? So the IP address. IP addresses are globally unique.
+
+I am talking about public IP addresses. You might say, what is there other than public IP?
+
+What is there is a private IP addresses.
+
+Private IP addresses are not allowed to be used across the public internet.
+
+They are not allowed to be used because the routers do not know where they are.
+
+Where are they used? They are used within your own private network.
+
+If you check that. By the way, this weekend there is no homework.
+
+But I will send you a utility set so that you learn a lot about your computer.
+
+What is your Mac address? What is your IP address?
+
+Some what? Some fun tools to play with. It's not a homework, but you will learn a lot of your.
+
+How many of you on the router on your router?
+
+In other words, the router does not belong to the to the apartment manager or whatever.
+
+It's your own router. You will be able to access your router.
+
+Look at what which devices are connected to this router.
+
+You will also be able to figure out if there is an unauthorized user who is what, who is using your Wi-Fi network.
+
+You will see from the address. You will see what I don't have that device in my in my home, which is the bike.
+
+Then you go and look at your neighbor, your neighbor.
+
+It's using your wife. But if you don't have if you are not the owner of the router, it's difficult to do that.
+
+But if you are an owner, you can do that. And I will show you how to do that.
+
+I will send you all the details this weekend. Pleased to offer.
+
+Private IP addresses are not unique.
+
+Your private IP address and or private IP address could be the same.
+
+As long as you are not on the same network.
+
+As long as you. In other words, as long as you are not roommate. You follow me or not?
+
+Your private IP address at home. Your private IP address at home.
+
+As long as you are not roommate. Could be the same.
+
+And most probably it is just. But they cannot leave.
+
+What? They cannot leave. Your private network.
+
+Now watching you might be inquiring about. So if I have a private IP address.
+
+How am I going to communicate with the Google server?
+
+Google server as a public IP address. How?
+
+How about we will study that? Let's not jump to conclusions.
+
+There is a piece of software which stands for what not and not.
+
+This stands for what network address? Translator will translate a private IP address to a public IP address.
+
+What we're saying is that shortly. Let's get back to your other part of the question.
+
+Mac addresses. At 48.
+
+Whitlock. And the way they are. What identified is by what a.
+
+D. E.f. G h uh.
+
+Help me. What? H after h h I.
+
+J. J j k l.
+
+Each one of these. Each one of them is four bits long, and each one of them is represented by X, and that's a model.
+
+Are you familiar with that said? What is hexadecimal?
+
+Hexadecimal? It's what, 0 to 9 and then what? Abcdef.
+
+Each one four bit long. So four bit four bit 888888 48.
+
+And they are separated by color rather than by dot.
+
+Did you get it. So if you check your Mac address at home you will see what you will see.
+
+Something like this. Just an example. Three.
+
+B1. Two four.
+
+Six three. D1.
+
+C5. Just an example. Did you get it?
+
+That's a macadam. It's a flat. It's a flat address.
+
+That's not. Tell me which network you are connected to.
+
+Are you at UIC or something? But if you give me your IP address, not a private one.
+
+Private one doesn't mean anything. If you give me a public IP address, I will be able to tell.
+
+Which network are you connected to? Of course not.
+
+Immediately. I need to watch. Go, go. Okay. I do not memorize this.
+
+Yes, sir. Raise your voice. Raise your voice, please.
+
+That means I can. Identify what?
+
+No. You can identify the one through the ID of the device, but not the actual demand.
+
+It's just a number. You follow me on, not just a number.
+
+Now, the router at home. If you own your, uh.
+
+If you, uh, if you own your router at home, you will see that once you access the router page,
+
+it will identify what type of device you are connecting.
+
+And it's connected to the router, whether it's for example, smartphone or PC or something like that.
+
+Just a number. You follow me on right now.
+
+Please be patient. We are going to discuss it in detail.
+
+Please be patient. Clear out. Good. Now, how do we classify networks?
+
+Let's start with the easy one first. Classification.
+
+Based on the coverage. Based on the coverage.
+
+We have a LAN, which is a local area network.
+
+We have a one wide area network. Depends on the coverage.
+
+Clear here. Limited geographical area.
+
+Wide geographical area. We have others.
+
+Man. No. Woman. Only man. Man.
+
+Metropolitan area network. You look at downtown L.A.
+
+Downtown L.A. is a huge metropolitan area.
+
+You are not going to be able to cover it with a local area network.
+
+Local area network. We are talking about you on a home or what?
+
+Or a classroom and so on and so forth in that business, so on and so forth.
+
+I hear it's bigger, but it's not as big as what a wide area network.
+
+They call it metropolitan area network than personal area network.
+
+These are devices that you wear on your watch on.
+
+For example, your what are you following are not earphone types.
+
+What is referred to as what Bluetooth type devices?
+
+Are you familiar with the Bluetooth Bluetooth device? Oh, it is very small.
+
+And so on and so forth. Home networks. This is what you have at home.
+
+Clear. So it's based on the coverage. More important to me is this one.
+
+But let's start with this one. First one. This one. Classified.
+
+Network is classified as a switch network or a shared or broadcast networks.
+
+Clear. Let's, uh, leave this one till next week.
+
+Let's start with this one. Try to understand it a little bit in detail.
+
+I want you to see. This and look at it and tell me if it's a local area network.
+
+We are talking about an office corridor.
+
+These are two corridors. These are my office.
+
+Your office? His office is opposite it. They are connected on a cable.
+
+This is a cable serving. By the way, this is how local area network started.
+
+Ethernet came. Which came first? Ethernet or Wi-Fi?
+
+Internet came way before white, but clear. This is what they do.
+
+They have PCs originally, by the way. What was the model?
+
+The model was what? Mainframe. What? You do have a super and super computing device.
+
+We referred to it as mainframe. And all the terminals are what?
+
+Dump terminals? Dumb dump terminals.
+
+They cannot do any processing on their own.
+
+They all depend on the mainframe. Now, I'm not sure if you have seen a mainframe, but maybe in the movie and mainframe.
+
+Is it small or big? Huge.
+
+In other words, it's like you cannot carry. The writer.
+
+IBM was the leader of the mainframe computer,
+
+but they realized very quickly that their model is not going to be what is is not going to be sustainable.
+
+People were looking for what smaller but more powerful, faster devices and so on, faster machines and so on.
+
+So. Okay, how about this one? I want to introduce you to a new terminology which is called what backbone.
+
+Where? It's my backbone. This is my backbone. If it breaks if my backbone breaks I go what do I have.
+
+How many local area networks do we have for local area networks?
+
+Yes, but they are interconnected. Via what? Backbone.
+
+Which means what they share. What they share. Information and traffic between each other.
+
+Now, if the backbone fails, if the backbone fails, are they still a standalone networks?
+
+Standalone? In other words, by themselves, do they function by themselves?
+
+Yes they do, but they cannot. What? They cannot share information with each other because they tend not to connect.
+
+Now. Let me stop here for just a second. Do you see this one?
+
+This is called ring topology. A ring ring ring and the nodes are connected to the ring.
+
+This is a what about apology dress?
+
+We refer to it as a what a bust apology, but we'll talk about the apology shortly.
+
+Clear. So of clear. Chopper. That's a local area network.
+
+Now let's look at a specific local area network.
+
+Because I want to introduce you to another device which is called up.
+
+Notice by the way, up. Around. Let's see what is the difference between them up and or out.
+
+We have a network. How many devices? One. Two.
+
+Three. Four. Five. Six. Seven. Eight. I decided to want to interconnect them to create a network.
+
+This is how I create. I use a device which is called a what?
+
+Up. Uh, hub. Again, that's a premature detail.
+
+Later. Uh, how is that dumb device?
+
+He cannot recognize an IP address.
+
+He cannot recognize a Mac address.
+
+He doesn't know the meaning of an address.
+
+He doesn't know. To him, everything looks like a what?
+
+A zero and a one. Did you follow me?
+
+Did you get it? He doesn't know the IP address. He doesn't understand.
+
+What is the Mac address? He is a purely physical layer device.
+
+So what does that mean? Listen to me. Suppose this one wants to disappear in a circle.
+
+Suppose this one has a document to print. He is going to send a request to the printer.
+
+Clear. Let's see what the Hubble do. Let's see what the Hubble do.
+
+The hub doesn't know. By the way, what does he need?
+
+He need two set of addresses. Let's see. Source IP address.
+
+Destination IP address. What else?
+
+Source. Mac address. Destination Mac address.
+
+They are on the same network. Did you get it?
+
+Did you get it? Uh, hub doesn't understand it.
+
+He doesn't know. He doesn't know where the destination is.
+
+What does the hub do? He forward to this one.
+
+To this one. To this one. To this one. To this one.
+
+To this one. To this one. What is he saying?
+
+Verbally? Verbally? What is the hub is saying?
+
+I don't know where this one is going to. I'm going to want to send it to everybody and let them wait.
+
+Let them decide whether this one is blessing to them or not.
+
+Clear so far. No response. Clean so far.
+
+Okay, forget about the advert for a second. I want you to concentrate on this.
+
+This one receives the bits. Now, remember what I told you a moment ago when you received.
+
+It's. What? Hardware? Two software.
+
+He receives the bits, the zeros and the ones.
+
+He put them back together to create what is referred to as a brain.
+
+Clear the hardware free. In the hardware frame.
+
+Remember, there is a neck guard here.
+
+He will see the destination Mac address, and he will realize that the destination Mac address does not match his own Mac address.
+
+Did you lose me? Yes you did. Let's repeat it one more time.
+
+What did I tell you about the Mac address a moment ago?
+
+On a given network, all the devices connected to that network must have a different Mac address.
+
+They cannot have the same what Mac address. They cannot have the same Mac address.
+
+So one more time. Hub does not understand addresses.
+
+He only understand what zeros and ones.
+
+He received the zeros and ones from here. He sent it to everyone.
+
+Concentrate on this one. He received the base.
+
+He put them together. Those bets. I would show you how.
+
+Just an overview. He will put the base together.
+
+And he will look at the Mac address. Which Mac address?
+
+Destination Mac address. He will see the destination Mac address.
+
+That's not match his own Mac address.
+
+That's not. Which means what? This is not destined to him.
+
+He's an upset. Did you get it? Interrupted.
+
+Means what? No further protection. No further.
+
+Robert ignored. Question.
+
+Question for you. Does he see the IP address?
+
+Does this one see the IP address? No, he doesn't remember which one comes first.
+
+When you are receiving which address comes first?
+
+The Mac address comes first when you are transmitting.
+
+Which comes first? IP address when you are transmitting software to what hardware?
+
+When you are receiving hardware to what software?
+
+So when you are receiving which adverts you will see first, you will see the Mac address.
+
+Once there is no match, this is not for you.
+
+Ignore it. Same thing with this one. Same thing with this one.
+
+And so on and so forth. This one receives a bit the hydrogen one.
+
+He puts it together. Here is a destination Mac address.
+
+What does he see? Not just his own. He knows that that's into it.
+
+He set the frame. He gets the packet. He look at IP addresses and so on and so forth.
+
+So on and so forth. Did you get it? Yes or no?
+
+Oh, well, the router receives a batch. Well, he sent it to.
+
+By the way, where does this one going to go? To the ISP.
+
+To another router. Another router who does not belong to you.
+
+The other router is where the ISP. Well, he sent it to the ISP.
+
+No he wasn't. No, he will not. Clear.
+
+Clear. Question. Premature question.
+
+First of all, did you want to show us how the hub works? Hub will say what?
+
+Whatever I receive, I'm going to send it to all of my ports.
+
+How many ports does he have? One. Two. Three. Four. Five.
+
+Six. Seven. Eight. Eight. Port. How many ports does he send it to?
+
+Seven. He does not send it to the same port where it came.
+
+Did you get it or not? Does not make sense. Please offer now two premature questions for you.
+
+Premature? Their IP addresses.
+
+Everyone have an IP address. Their IP addresses.
+
+Do they have something in common? What is it?
+
+That they have the same net ID? Why?
+
+Because they belong to the same network.
+
+Did you get it? But do they have the same host ID? They don't have the same host right now.
+
+When you see the utilities, I will send you.
+
+I want you to check your IP address, and I want you to check the IP address of your router on the private network.
+
+On the private network. You will see they have to wait the same idea.
+
+Otherwise you are not able to communicate with the router at all.
+
+If you come and tell me that I told I'm not able to access the rest of the world.
+
+Now, I don't know what the problem is. I'm not a magician.
+
+But I will tell you what is the first thing that you need to do? I will call, I tell you what.
+
+Check the IP address of your router. Make sure your router is located on white on the same network as you are.
+
+Otherwise, you are not able to communicate with me. Did you get it?
+
+Did you get it? Nope. Does this have an IP address?
+
+No. Does he have a mac address? No. He has a card, but he does not have a mac address.
+
+He does have electronics. Clear. Oh.
+
+Premature question. Can I remove the router and attach the hub directly to the ISP?
+
+The ISP will give you a phone call very quickly.
+
+They tell you why you are dumping all of your junk on us.
+
+This does not recognize the print network. Uh, um, it's a dumb device.
+
+Now, you might say, where do we use up? You use a hub when you want to interconnect 3 or 4 networks at home.
+
+Uh, by the way, is a cheap device. You can get a hub for five bucks.
+
+Did you follow me on? You cannot connect a hub directly to the whacked directly to the ISP.
+
+Clear so far. No response. Clear up.
+
+Oh, yeah. I want you to see this, and I want you to see this.
+
+What did I do? I had a place up this hub.
+
+What? Did I replace it by a switch?
+
+Now, you might tell me, how does this switch differ up?
+
+And how does it differ than a router? Of course.
+
+Premature question. We'll study it in detail, but for the time being a switch can recognize Mac addresses, but he cannot recognize what IP addresses.
+
+He cannot. So in other words, think about the switch at sitting way between the hub and the what.
+
+The router hub does not recognize any address router recognize both.
+
+Did I mention that I don't think I mentioned that router.
+
+Recognize what Mac addresses and what.
+
+IP addresses, most of them. Here I can ask a switch.
+
+Recognize only what Mac addresses.
+
+Inside the switch there is a database. Every device.
+
+Remember, by the way, a question, by the way. How many networks do we have here?
+
+One network. This is another one. What? Is there something common in the IP addresses?
+
+What is it? I know that I is the same. Okay, keep that in mind.
+
+This which nodes the Mac addresses of every one of these.
+
+So when he is sending to this one.
+
+The hub. Oh, I said the hub. I'm sorry. This which will establish a physical connection.
+
+To that host only. Which means what?
+
+All of these devices will not receive.
+
+The bits will not receive the bits. Did you get?
+
+No. It's fine. Did you get it? He will not. They will not receive the bet.
+
+Only the destination. What received the pitch? Is that better or worse than up?
+
+Much better. Why? You are wasting the resources of these devices if the bits are not destined to them.
+
+If the message is not centered. Clear.
+
+Okay, now, one more premature question. Replace this hub by a switch.
+
+You follow me so far? Can I connect the switch directly to the ISP?
+
+The answer to that is what? No I cannot. Watch The Wire.
+
+There is. There is no distinguishing between this network and this network, this which cannot distinguish between them,
+
+because this which cannot distinguish between what IP addresses.
+
+He does not understand what an IP address is. He only knows what is a mac address.
+
+So what is the problem? Suppose he wants to broadcast a message to all the devices in this network.
+
+If you replace the router and you connect the switch directly to the ISP, that switch will send the broadcast to the ISP.
+
+Did you get it? You get a phone call from the ISP.
+
+Hey, what are you doing? You cannot connect the switch to us.
+
+Clear why, which does not recognize what IP addresses.
+
+He only recognize what addresses. We need a router.
+
+Why a router is able to distinguish between different networks.
+
+Latest of. No worries. Fine. It's over.
+
+Oh. Premature. Premature question. I want you to see this.
+
+R stands for what router. And these are a.
+
+Be. See. Answer the following question.
+
+How many networks do you see? Three networks.
+
+And a router. Every port constitute a what?
+
+And network. This again premature. We will study it later.
+
+Every port of a router constitute a what?
+
+A separate network. Uh, you lost me here.
+
+Let's not go any further because you are losing here.
+
+We'll get to that later. Let's not to worry about Metropolitan area Network.
+
+Different local area networks connected via perplexity network.
+
+Mayors office. Federal buildings, health systems, immigration offices and so on.
+
+So far. What is this wide area network covers?
+
+What? Not sure. Only networks can go to Europe and so on.
+
+So for all of these, by the way. On what? Under what?
+
+Under the ocean fibers. They extend fibers under the Atlantic Ocean or the Pacific Ocean and so on.
+
+And so you follow me on. But it's a wide yet and clear.
+
+How about this one? This your home network? I ran out of time.
+
+Okay, let's let's start a little bit. What do we have?
+
+This is you and your roommate. This is Mom and Pop.
+
+All people. They are not going to carry what I smartphones.
+
+I they can barely see the screen. They are on a desktop.
+
+Answer me the following question. Premature question.
+
+How many networks do you see inside? Inside your home.
+
+This is your home. How many networks do you see? Three networks.
+
+One of them is a white fi. That's a shared port.
+
+That's a dedicated port. Do you see this one? Every dedicated port constitutes a network.
+
+That's a network. That's a network. That's a network.
+
+Which means what? Can this one send the message to this one?
+
+Yes he can. But it has to go through a white has to go through the router.
+
+Did you get it or not? Did you get it or not? Okay, I.
+
+I explained to you this shortly. That router has a firewall.
+
+Firewall is a security device that prevents outside penetration into your private network.
+
+It's a private network I cannot access in addition to the firewall it has and not what is in fact, network address translator.
+
+Translating a what private IP addresses into public IP address.
+
+This. Answer me the following question. Before I run out of time, is this a public IP address or a private IP address?
+
+This interface, by the way. How many IP addresses does the router has?
+
+Look at this diagram and tell me, how many IP addresses does he have for IP addresses?
+
+Why? How many interfaces he has for interfaces for every interface.
+
+You need an IP address. Clear. Clear.
+
+Private. Private. Private. Public.
+
+Why? Why is this one public? It's going to connect to the public network.
+
+I ran out of time. Next time, we'll continue with the. I'm.
+
+I know I'm jumping all over. All over the place, but are you following me?
+
+Are you following me so far? Huh? Okay, good.
+
+I will see you next week. Please. When I send you the tools, please dedicate some time to.
+
+You will learn a little bit about your machine. Oh.
+
