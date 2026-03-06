@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useTopicData } from './hooks/useTopicData';
 import TopicGraph from './components/TopicGraph';
 import NodeDetail from './components/NodeDetail';
@@ -9,32 +9,95 @@ export default function App() {
     useTopicData();
 
   const [lens, setLens] = useState('emphasis');
-  const [depthOffset, setDepthOffset] = useState(1);
+  const [focusPath, setFocusPath] = useState([]);
   const [selectedNode, setSelectedNode] = useState(null);
   const [detailData, setDetailData] = useState(null);
   const [detailLoading, setDetailLoading] = useState(false);
   const [highlightIds, setHighlightIds] = useState(new Set());
 
-  const handleNodeClick = useCallback(
-    async (node) => {
-      if (!node) {
-        setSelectedNode(null);
-        setDetailData(null);
-        return;
-      }
-      setSelectedNode(node);
-      setDetailLoading(true);
-      try {
-        const full = await fetchTopicDetail(node.original_id || node.id);
-        setDetailData(full);
-      } catch {
-        setDetailData(node);
-      } finally {
-        setDetailLoading(false);
+  // Build a node lookup for breadcrumb labels
+  const nodeMap = graphData
+    ? new Map(graphData.nodes.map((n) => [n.id, n]))
+    : new Map();
+
+  const handleNavigate = useCallback(
+    async (nodeId) => {
+      setFocusPath((prev) => [...prev, nodeId]);
+      // Auto-show detail for the focused node
+      const node = nodeMap.get(nodeId);
+      if (node) {
+        setSelectedNode(node);
+        setDetailLoading(true);
+        try {
+          const full = await fetchTopicDetail(node.original_id || node.id);
+          setDetailData(full);
+        } catch {
+          setDetailData(node);
+        } finally {
+          setDetailLoading(false);
+        }
       }
     },
-    [fetchTopicDetail],
+    [fetchTopicDetail, nodeMap],
   );
+
+  const handleBack = useCallback(() => {
+    setFocusPath((prev) => {
+      if (prev.length === 0) return prev;
+      const next = prev.slice(0, -1);
+      // If going back to overview, close detail panel
+      if (next.length === 0) {
+        setSelectedNode(null);
+        setDetailData(null);
+      }
+      return next;
+    });
+  }, []);
+
+  const handleBreadcrumbJump = useCallback(
+    async (index) => {
+      if (index < 0) {
+        // Jump to overview
+        setFocusPath([]);
+        setSelectedNode(null);
+        setDetailData(null);
+      } else {
+        const next = focusPath.slice(0, index + 1);
+        setFocusPath(next);
+        // Auto-show detail for the node we jumped to
+        const nodeId = next[next.length - 1];
+        const node = nodeMap.get(nodeId);
+        if (node) {
+          setSelectedNode(node);
+          setDetailLoading(true);
+          try {
+            const full = await fetchTopicDetail(node.original_id || node.id);
+            setDetailData(full);
+          } catch {
+            setDetailData(node);
+          } finally {
+            setDetailLoading(false);
+          }
+        }
+      }
+    },
+    [focusPath, fetchTopicDetail, nodeMap],
+  );
+
+  // When focusPath changes to a non-empty value, auto-fetch detail for the focused node
+  useEffect(() => {
+    if (focusPath.length === 0) return;
+    const nodeId = focusPath[focusPath.length - 1];
+    const node = nodeMap.get(nodeId);
+    if (node && (!selectedNode || selectedNode.id !== nodeId)) {
+      setSelectedNode(node);
+      setDetailLoading(true);
+      fetchTopicDetail(node.original_id || node.id)
+        .then((full) => setDetailData(full))
+        .catch(() => setDetailData(node))
+        .finally(() => setDetailLoading(false));
+    }
+  }, [focusPath]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleClose = useCallback(() => {
     setSelectedNode(null);
@@ -83,12 +146,11 @@ export default function App() {
     );
   }
 
-  const visibleCount = graphData
-    ? graphData.nodes.filter((n) => {
-        const maxD = Math.floor(1 * 0.8) + depthOffset;
-        return n.depth <= maxD;
-      }).length
-    : 0;
+  // Build breadcrumb labels from focusPath
+  const breadcrumbs = focusPath.map((id) => {
+    const node = nodeMap.get(id);
+    return { id, label: node ? node.topic : id };
+  });
 
   return (
     <div className="canvas">
@@ -100,18 +162,31 @@ export default function App() {
       <Toolbar
         lens={lens}
         onLensChange={setLens}
-        depthOffset={depthOffset}
-        onDepthChange={setDepthOffset}
+        breadcrumbs={breadcrumbs}
+        onBreadcrumbJump={handleBreadcrumbJump}
         onSearch={handleSearch}
       />
 
       <TopicGraph
         data={graphData}
         lens={lens}
-        depthOffset={depthOffset}
+        focusPath={focusPath}
         highlightIds={highlightIds}
-        onNodeClick={handleNodeClick}
+        onNavigate={handleNavigate}
+        onBack={handleBack}
       />
+
+      {focusPath.length > 0 && (
+        <button className="back-button" onClick={handleBack}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12" />
+            <polyline points="12 19 5 12 12 5" />
+          </svg>
+          {focusPath.length === 1
+            ? 'Back to Overview'
+            : `Back to ${nodeMap.get(focusPath[focusPath.length - 2])?.topic || 'parent'}`}
+        </button>
+      )}
 
       <Legend lens={lens} />
 

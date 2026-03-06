@@ -164,46 +164,54 @@ body,
   color: var(--text-primary);
 }
 
-/* Depth control */
+/* Breadcrumb navigation */
 
-.depth-control {
+.breadcrumb-nav {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 0;
   font-size: 11px;
   color: var(--text-secondary);
-}
-
-.depth-control label {
+  max-width: 340px;
+  overflow: hidden;
   white-space: nowrap;
 }
 
-.depth-control button {
-  width: 22px;
-  height: 22px;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--text-secondary);
-  font-size: 13px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.15s;
-}
-
-.depth-control button:hover {
-  background: var(--surface-raised);
+.breadcrumb-current {
   color: var(--text-primary);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.depth-control .depth-value {
-  font-family: var(--font-mono);
-  min-width: 16px;
-  text-align: center;
+.breadcrumb-link {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 400;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.15s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}
+
+.breadcrumb-link:hover {
   color: var(--accent-warm);
-  font-weight: 500;
+}
+
+.breadcrumb-segment {
+  display: inline-flex;
+  align-items: center;
+}
+
+.breadcrumb-sep {
+  color: var(--text-muted);
+  margin: 0 6px;
+  flex-shrink: 0;
 }
 
 /* Search */
@@ -604,6 +612,45 @@ body,
   flex-direction: column;
   gap: 6px;
   overflow: hidden;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Back button (floating on canvas)                                   */
+/* ------------------------------------------------------------------ */
+
+.back-button {
+  position: absolute;
+  top: 76px;
+  left: 24px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--surface-overlay);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.back-button:hover {
+  background: var(--surface-raised);
+  color: var(--text-primary);
+  border-color: var(--accent-warm);
+}
+
+.back-button svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
 /* ------------------------------------------------------------------ */

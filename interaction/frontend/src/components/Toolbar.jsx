@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-export default function Toolbar({ lens, onLensChange, depthOffset, onDepthChange, onSearch }) {
+export default function Toolbar({ lens, onLensChange, breadcrumbs, onBreadcrumbJump, onSearch }) {
   const [query, setQuery] = useState('');
 
   const handleInput = useCallback(
@@ -32,12 +32,35 @@ export default function Toolbar({ lens, onLensChange, depthOffset, onDepthChange
 
       <div className="divider" />
 
-      {/* Depth control */}
-      <div className="depth-control">
-        <label>Depth</label>
-        <button onClick={() => onDepthChange(Math.max(0, depthOffset - 1))}>-</button>
-        <span className="depth-value">{depthOffset}</span>
-        <button onClick={() => onDepthChange(Math.min(4, depthOffset + 1))}>+</button>
+      {/* Breadcrumb navigation */}
+      <div className="breadcrumb-nav">
+        {breadcrumbs.length === 0 ? (
+          <span className="breadcrumb-current">Overview</span>
+        ) : (
+          <>
+            <button
+              className="breadcrumb-link"
+              onClick={() => onBreadcrumbJump(-1)}
+            >
+              Overview
+            </button>
+            {breadcrumbs.map((crumb, i) => (
+              <span key={crumb.id} className="breadcrumb-segment">
+                <span className="breadcrumb-sep">/</span>
+                {i === breadcrumbs.length - 1 ? (
+                  <span className="breadcrumb-current">{crumb.label}</span>
+                ) : (
+                  <button
+                    className="breadcrumb-link"
+                    onClick={() => onBreadcrumbJump(i)}
+                  >
+                    {crumb.label}
+                  </button>
+                )}
+              </span>
+            ))}
+          </>
+        )}
       </div>
 
       <div className="divider" />
