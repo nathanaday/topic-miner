@@ -9,3 +9,6 @@ topic_map.md
 topic_map_checklist.md
 map_output/
 bad_json_*.txt
+**/node_modules
+node_modules
+interaction/frontend/node_modules
