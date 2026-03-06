@@ -35,6 +35,12 @@ def load_completed() -> set[str]:
         return {line.strip() for line in f if line.strip()}
 
 
+def find_cached_parts(doc_id: str, completed: set[str]) -> list[str]:
+    """Find all completed entries that are parts of this doc_id."""
+    prefix = doc_id + "_part"
+    return sorted([c for c in completed if c.startswith(prefix)])
+
+
 def mark_completed(doc_id: str):
     with open(CHECKPOINT_LOG, "a") as f:
         f.write(doc_id + "\n")
@@ -50,6 +56,13 @@ def load_map_result(doc_id: str) -> dict:
     path = os.path.join(CHECKPOINT_DIR, f"{doc_id}.json")
     with open(path, "r") as f:
         return json.load(f)
+
+
+def save_manifest(documents: list[dict]):
+    manifest_path = os.path.join(CHECKPOINT_DIR, "manifest.txt")
+    with open(manifest_path, "w") as f:
+        for doc in documents:
+            f.write(f"{doc['doc_id']}  {doc['material_type']:12s}  {doc['filename']}\n")
 
 
 def build_map_prompt(doc: dict) -> tuple[str, str]:
@@ -144,7 +157,22 @@ async def extract_topics_async(doc: dict, client: anthropic.AsyncAnthropic,
 
 async def map_document(doc: dict, client: anthropic.AsyncAnthropic,
                        model: str, max_tokens: int,
-                       semaphore: asyncio.Semaphore) -> list[dict]:
+                       semaphore: asyncio.Semaphore,
+                       completed: set[str]) -> list[dict]:
+    doc_id = doc["doc_id"]
+
+    # Check if this exact doc_id is cached
+    if doc_id in completed:
+        logger.info("  Cached:  %s [%s]", doc["filename"], doc_id)
+        return [load_map_result(doc_id)]
+
+    # Check if parts of this doc_id are cached
+    cached_parts = find_cached_parts(doc_id, completed)
+    if cached_parts:
+        logger.info("  Cached:  %s [%s] (%d parts)", doc["filename"], doc_id, len(cached_parts))
+        return [load_map_result(part_id) for part_id in cached_parts]
+
+    # Not cached -- call the API
     results = await extract_topics_async(doc, client, model, max_tokens, semaphore)
 
     if results is not None:
@@ -155,7 +183,7 @@ async def map_document(doc: dict, client: anthropic.AsyncAnthropic,
 
     all_results = []
     for part in parts:
-        part_results = await map_document(part, client, model, max_tokens, semaphore)
+        part_results = await map_document(part, client, model, max_tokens, semaphore, completed)
         all_results.extend(part_results)
     return all_results
 
@@ -166,30 +194,21 @@ async def run_map_phase(documents: list[dict], config: dict) -> list[dict]:
     concurrency = config["llm"]["concurrency"]
 
     init_checkpoint_dir()
+    save_manifest(documents)
     completed = load_completed()
 
-    cached_results = []
-    docs_to_process = []
-    for doc in documents:
-        if doc["doc_id"] in completed:
-            logger.info("  Cached:  %s [%s]", doc["filename"], doc["doc_id"])
-            cached_results.append(load_map_result(doc["doc_id"]))
-        else:
-            docs_to_process.append(doc)
-
     if completed:
-        logger.info("Resuming: %d cached, %d remaining", len(cached_results), len(docs_to_process))
+        logger.info("Found %d cached results in %s", len(completed), CHECKPOINT_DIR)
 
     async_client = anthropic.AsyncAnthropic(api_key=config["api_key"])
     semaphore = asyncio.Semaphore(concurrency)
 
     tasks = [
-        map_document(doc, async_client, model, max_tokens, semaphore)
-        for doc in docs_to_process
+        map_document(doc, async_client, model, max_tokens, semaphore, completed)
+        for doc in documents
     ]
     nested_results = await asyncio.gather(*tasks)
 
-    new_results = [r for batch in nested_results for r in batch]
-    all_results = cached_results + new_results
+    all_results = [r for batch in nested_results for r in batch]
     logger.info("Phase 1 complete: %d topic trees from %d documents", len(all_results), len(documents))
     return all_results

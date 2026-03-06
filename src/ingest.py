@@ -1,5 +1,5 @@
+import hashlib
 import os
-import re
 from pathlib import Path
 
 import anthropic
@@ -8,6 +8,12 @@ from .prompts import CLASSIFY_PROMPT
 
 
 SUPPORTED_EXTENSIONS = {".md", ".txt", ".text", ".markdown"}
+
+
+def file_doc_id(input_dir: str, filepath: str) -> str:
+    rel_path = os.path.relpath(filepath, input_dir)
+    short_hash = hashlib.md5(rel_path.encode()).hexdigest()[:8]
+    return f"doc_{short_hash}"
 
 
 def classify_file(filepath: str, directory_rules: dict, file_overrides: dict,
@@ -53,14 +59,6 @@ def discover_files(input_dir: str) -> list[str]:
     return sorted(files)
 
 
-def add_line_numbers(content: str) -> str:
-    lines = content.split("\n")
-    numbered = []
-    for i, line in enumerate(lines, 1):
-        numbered.append(f"{i}: {line}")
-    return "\n".join(numbered)
-
-
 def chunk_document(lines: list[str], chunk_size: int = 6000,
                    overlap: int = 200) -> list[tuple[int, int]]:
     if len(lines) <= chunk_size:
@@ -84,11 +82,9 @@ def ingest(input_dir: str, config: dict, client: anthropic.Anthropic) -> list[di
 
     filepaths = discover_files(input_dir)
     documents = []
-    doc_counter = 0
 
     for filepath in filepaths:
-        doc_counter += 1
-        doc_id = f"doc_{doc_counter:03d}"
+        doc_id = file_doc_id(input_dir, filepath)
 
         with open(filepath, "r", encoding="utf-8", errors="replace") as f:
             content = f.read()
