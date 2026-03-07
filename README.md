@@ -45,12 +45,22 @@ The pipeline borrows the map-reduce pattern from distributed computing to break 
 
 No single LLM call can process an entire course at once -- the combined materials exceed any context window. But even if they could fit, a monolithic call would produce worse results. The map-reduce structure provides:
 
-- **Scalability** -- Adding more documents adds more map calls, not more complexity per call.
-- **Parallelism** -- All map calls are independent and run concurrently.
-- **Resilience** -- A failed call only affects one document. Completed maps are checkpointed to disk and skipped on retry.
-- **Traceability** -- Every topic node carries source references back to exact line ranges in the original material, surviving through all merges.
+- Adding more documents adds more map calls, not more complexity per call.
+- All map calls are independent and run concurrently.
+- A failed call only affects one document. Completed maps are checkpointed to disk and skipped on retry.
+- Every topic node carries source references back to exact line ranges in the original material, surviving through all merges.
+
+## Visualization Interface
+
+This repository has a built in visualizer! Run it locally on the results of your topic map, and track your mastery of each topic.
+
+
 
 ## Usage
+
+>[!warning] API usage costs
+> Until I find more opportunities to save context at the MAP and MERGE steps, this is a very LLM intensive process. Thousands of pages of documents will be continuously analyzed and merged. The total API cost is on the order of $20-40 for a large course. Test on very small batches first before comitting to the entire course repo.
+
 
 ```bash
 # Set up
@@ -78,3 +88,4 @@ Edit `material_config.yaml` to set course name, directory-to-material-type mappi
 
 The topic_map.json contains duplicate subtopic IDs (same node appears under multiple parents). Only 1158 of 4149 nodes have unique IDs. 80% of links (3270/4099) target duplicate IDs
 
+On analysis, the issue is related to multiple merge stages duplicating entire trees under one parent, instead of merging them. For now, after a topic mining execution, run the script `tools/TopicMapAnalysis/dedup_topic_map.py`, which will procedurally merge duplicate topic ideas and combine until no duplicates remain. There is not yet an automated solution to doing this in the merge/enrich phases but I'll look into it.
