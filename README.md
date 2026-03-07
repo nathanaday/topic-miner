@@ -6,7 +6,7 @@ A map-reduce LLM pipeline that mines topics from a variety of course materials, 
 
 Course materials are scattered across dozens of files -- lecture transcripts, textbook chapters, homework sets, past exams, discussion notes, personal notes -- each covering overlapping topics in different formats and levels of detail. Manually cross-referencing all of these to figure out *what matters most* is tedious and error-prone, especially under time pressure before an exam. A topic can always slip through the cracks when studying, and only in hindsight does the student realize it was burried in a lecture note.
 
-#### Map Reduce Design with LLM
+## Map Reduce Design
 
 ```
                     INGEST
@@ -59,7 +59,8 @@ The full topic map does not fit into any LLM context window, so the merge and en
 
 This repository has a built in visualizer! Run it locally on the results of your topic map, and track your mastery of each topic.
 
->[!TIP] See the `/interaction` directory for details
+>[!TIP]
+>See the `/interaction` directory for details
 >https://github.com/nathanaday/topic-miner/tree/main/interaction
 
 <img width="1840" height="1114" alt="Screenshot 2026-03-07 at 10 52 53 AM" src="https://github.com/user-attachments/assets/3015720b-8665-447e-b858-bca300abe93e" />
@@ -70,7 +71,8 @@ This repository has a built in visualizer! Run it locally on the results of your
 
 ## Usage
 
->[!WARNING] API usage costs
+>[!WARNING]
+> **API usage costs**
 > Until I find more opportunities to save context at the MAP and MERGE steps, this is a very LLM intensive process. Thousands of pages of documents will be continuously analyzed and merged. The total API cost is on the order of $20-40 for a large course. Test on very small batches first before comitting to the entire course repo.
 
 
