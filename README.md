@@ -2,13 +2,11 @@
 
 A map-reduce LLM pipeline that mines topics from a variety of course materials, eventually producing a single, consolidated topic map.
 
-## The Problem
+## Background
 
-Course materials are scattered across dozens of files -- lecture transcripts, textbook chapters, homework sets, past exams, discussion notes, personal notes -- each covering overlapping topics in different formats and levels of detail. Manually cross-referencing all of these to figure out *what matters most* is tedious and error-prone, especially under time pressure before an exam. A topic can always slip through the cracks when studying, and only in indsight does the student realize it was burried in a lecture note.
+Course materials are scattered across dozens of files -- lecture transcripts, textbook chapters, homework sets, past exams, discussion notes, personal notes -- each covering overlapping topics in different formats and levels of detail. Manually cross-referencing all of these to figure out *what matters most* is tedious and error-prone, especially under time pressure before an exam. A topic can always slip through the cracks when studying, and only in hindsight does the student realize it was burried in a lecture note.
 
-## The Approach
-
-The pipeline borrows the map-reduce pattern from distributed computing to break this into manageable LLM calls:
+#### Map Reduce Design with LLM
 
 ```
                     INGEST
@@ -41,7 +39,7 @@ The pipeline borrows the map-reduce pattern from distributed computing to break 
 
 **Enrich** -- The final tree is scored. Each node gets a composite priority score (0-100) based on weighted signals: past exam appearances, instructor emphasis, homework coverage, cross-document frequency, discussion reinforcement, and student self-flags. Concept-level nodes get study notes and mastery checklists.
 
-## Why Map-Reduce
+### Advantages
 
 No single LLM call can process an entire course at once -- the combined materials exceed any context window. But even if they could fit, a monolithic call would produce worse results. The map-reduce structure provides:
 
@@ -50,15 +48,29 @@ No single LLM call can process an entire course at once -- the combined material
 - A failed call only affects one document. Completed maps are checkpointed to disk and skipped on retry.
 - Every topic node carries source references back to exact line ranges in the original material, surviving through all merges.
 
+
+### Drawbacks
+
+The full topic map does not fit into any LLM context window, so the merge and enrichment phase is prone to duplicating topic trees and not detecting that they have been duplicated. Creating an intelligent merge stage is the clearest next improvement.
+
+---
+
 ## Visualization Interface
 
 This repository has a built in visualizer! Run it locally on the results of your topic map, and track your mastery of each topic.
 
+>[!TIP] See the `/interaction` directory for details
+>https://github.com/nathanaday/topic-miner/tree/main/interaction
 
+<img width="1840" height="1114" alt="Screenshot 2026-03-07 at 10 52 53 AM" src="https://github.com/user-attachments/assets/3015720b-8665-447e-b858-bca300abe93e" />
+
+
+
+---
 
 ## Usage
 
->[!warning] API usage costs
+>[!WARNING] API usage costs
 > Until I find more opportunities to save context at the MAP and MERGE steps, this is a very LLM intensive process. Thousands of pages of documents will be continuously analyzed and merged. The total API cost is on the order of $20-40 for a large course. Test on very small batches first before comitting to the entire course repo.
 
 
