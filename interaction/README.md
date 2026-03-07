@@ -2,6 +2,20 @@
 
 Interactive web app for exploring and studying a topic map produced by the pipeline. Provides a D3 force-directed graph view, topic search, drill-down into subtopics, and mastery tracking.
 
+### Gallery
+
+
+
+https://github.com/user-attachments/assets/f47b008a-2ba5-41e2-8ac0-3620fbd67916
+
+<img width="1840" height="1114" alt="Screenshot 2026-03-07 at 10 52 53 AM" src="https://github.com/user-attachments/assets/b62ed75a-0af2-48c6-be2b-9b318cfb5398" />
+
+
+<img width="1840" height="1114" alt="Screenshot 2026-03-07 at 10 53 08 AM" src="https://github.com/user-attachments/assets/3712b205-7f02-464f-8905-9484a1324d85" />
+
+
+---
+
 ## Prerequisites
 
 - Python 3.10+
