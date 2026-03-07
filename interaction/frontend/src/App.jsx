@@ -10,7 +10,8 @@ import ProjectDialog from './components/ProjectDialog';
 export default function App() {
   const {
     graphData, metadata, loading, error,
-    fetchTopicDetail, updateMastery, searchTopics, reload,
+    fetchTopicDetail, updateMastery, searchTopics,
+    generateStudySession, launchClaude, reload,
   } = useTopicData();
 
   const {
@@ -319,6 +320,8 @@ export default function App() {
         loading={detailLoading}
         onClose={handleClose}
         onMasteryUpdate={handleMasteryUpdate}
+        onStudyThis={generateStudySession}
+        onLaunchClaude={launchClaude}
       />
 
       {showProjectDialog && (

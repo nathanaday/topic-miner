@@ -3,6 +3,7 @@
 import json
 import os
 import shutil
+import subprocess
 import uuid as _uuid
 from datetime import datetime, timezone
 from pathlib import Path
@@ -99,6 +100,197 @@ def _summary(node: dict) -> dict:
 def _clean(node: dict) -> dict:
     """Return node dict without internal underscore keys."""
     return {k: v for k, v in node.items() if not k.startswith("_")}
+
+
+# ---------------------------------------------------------------------------
+# Study session helpers
+# ---------------------------------------------------------------------------
+
+def _collect_learning_outcomes(node: dict) -> list[str]:
+    outcomes = list(node.get("mastery_checklist") or [])
+    for child in node.get("subtopics", []):
+        outcomes.extend(_collect_learning_outcomes(child))
+    return outcomes
+
+
+def _collect_source_refs(node: dict) -> list[dict]:
+    refs = list(node.get("source_refs") or [])
+    for child in node.get("subtopics", []):
+        refs.extend(_collect_source_refs(child))
+    seen = set()
+    unique = []
+    for ref in refs:
+        doc_id = ref.get("doc_id", "")
+        if doc_id not in seen:
+            seen.add(doc_id)
+            unique.append(ref)
+    return unique
+
+
+def _resolve_source_path(source_base_path: str, ref: dict) -> str:
+    return str(Path(source_base_path) / ref.get("material_type", "") / ref.get("filename", ""))
+
+
+_STUDY_SESSION_TEMPLATE = """\
+# Study Session: {topic_name}
+
+---
+
+## Tutor Persona
+
+You are a patient, encouraging study tutor. Your job is to help the student
+deeply understand the topic below through active conversation, not passive
+explanation.
+
+### Core Approach
+
+Your primary method is Socratic questioning. You do NOT give lectures or
+lengthy explanations unprompted. Instead, you lead the student to demonstrate
+and build understanding through their own words. Your goal is to surface what
+the student knows, identify gaps, and guide them to fill those gaps
+themselves.
+
+### Conversation Flow
+
+Follow this general rhythm throughout the session:
+
+1. Begin by asking the student what they already know about the topic.
+   Something like: "Before we dive in, tell me what you already know about
+   {topic_name}. Even a rough sense is fine."
+
+2. Based on their response, identify which learning outcomes they seem
+   comfortable with and which need work. Do not announce this assessment
+   out loud. Use it to guide your questions.
+
+3. Work through the learning outcomes by asking the student to explain
+   concepts in their own words. Use prompts like:
+   - "Walk me through how [process] works, step by step."
+   - "Describe in your own words what happens during [stage]."
+   - "If you had to explain [concept] to someone who has never taken this
+     class, what would you say?"
+   - "Why does [thing] happen? What would go wrong if it didn't?"
+   - "How does [concept A] connect to [concept B]?"
+
+4. When the student gives a correct explanation, affirm it briefly and move
+   on. When they are partially correct, ask a follow-up that targets the
+   gap: "You're on the right track with [correct part]. Now, what happens
+   next?" or "That's close -- what role does [missing element] play in that
+   step?"
+
+5. When the student is stuck, do not immediately explain. Instead, give a
+   small hint or reframe the question. Only provide a direct explanation as
+   a last resort, and keep it brief. Then immediately follow up with a
+   question that checks whether they understood.
+
+6. Periodically check in on the student's confidence. Ask things like:
+   "How are you feeling about this so far?" or "Do you want to keep going
+   on this area or move to something new?"
+
+### Practice Questions
+{practice_section}
+### Tone
+
+Be warm but not patronizing. Treat the student as capable. Avoid saying
+things like "Great job!" after every response -- instead, show that you
+are listening by engaging substantively with what they said. If they
+make an error, treat it as interesting rather than wrong: "That's a common
+way to think about it, but there's a catch -- what happens when..."
+
+### What NOT To Do
+
+- Do not dump a wall of text explaining the entire topic.
+- Do not present all learning outcomes as a checklist to work through.
+- Do not ask yes/no questions when you can ask open-ended ones.
+- Do not offer practice questions if none exist in the source materials.
+- Do not move on from a concept until the student has articulated
+  understanding of it themselves.
+
+---
+
+## Topic
+
+**{topic_name}**
+
+{description}
+{study_note_section}
+## Learning Outcomes
+
+The student should be able to:
+
+{learning_outcomes}
+
+---
+
+## Source Materials
+
+Read the following files before beginning the session. These are the
+authoritative references for this topic. Base all of your questions and
+any explanations on the content in these documents.
+
+{source_files}
+
+---
+
+## Begin
+
+Read all source materials listed above, then open the session by greeting
+the student and asking what they already know about {topic_name}. Do not
+summarize the topic yourself. Start with a question.
+"""
+
+
+def _render_study_session(
+    topic_name: str,
+    description: str,
+    study_note: str,
+    outcomes: list[str],
+    source_entries: list[tuple[str, str]],
+    has_exam: bool,
+    has_homework: bool,
+) -> str:
+    outcome_lines = "\n".join(f"- {o}" for o in outcomes) if outcomes else "- (No specific outcomes listed)"
+
+    source_lines = []
+    for path, material_type in source_entries:
+        source_lines.append(f"- `{path}`\n  {material_type}")
+    source_text = "\n\n".join(source_lines) if source_lines else "- (No source files referenced)"
+
+    study_note_section = f"\n{study_note}\n\n" if study_note else "\n"
+
+    practice_parts = []
+    if has_exam or has_homework:
+        practice_parts.append(
+            "Exam and homework questions should be offered, NOT forced. After the student\n"
+            "has worked through a concept and demonstrated reasonable understanding,\n"
+            "offer a practice question if one is available:\n"
+        )
+        if has_exam:
+            practice_parts.append('- "There\'s an exam-style question on this in the materials. Want to try it?"')
+        if has_homework:
+            practice_parts.append('- "I have a homework problem that tests exactly this. Want to give it a shot?"')
+        practice_parts.append(
+            "\nIf the student accepts, present the question, let them answer, then discuss\n"
+            "their response. If they decline, move on.\n\n"
+            "IMPORTANT: Only offer exam or homework questions if they actually exist in\n"
+            "the source materials listed below. Do not fabricate practice questions.\n"
+        )
+        practice_parts.append(f"- Exam questions available: {'YES' if has_exam else 'NO'}")
+        practice_parts.append(f"- Homework questions available: {'YES' if has_homework else 'NO'}")
+    else:
+        practice_parts.append(
+            "No exam or homework questions are available in the source materials for\n"
+            "this topic. Do not fabricate practice questions."
+        )
+    practice_section = "\n" + "\n".join(practice_parts) + "\n"
+
+    return _STUDY_SESSION_TEMPLATE.format(
+        topic_name=topic_name,
+        description=description or "(No description available)",
+        study_note_section=study_note_section,
+        learning_outcomes=outcome_lines,
+        source_files=source_text,
+        practice_section=practice_section,
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -380,3 +572,72 @@ def graph():
 @app.get("/api/export")
 def export_full():
     return _topic_map
+
+
+# ---------------------------------------------------------------------------
+# Study session endpoints
+# ---------------------------------------------------------------------------
+
+@app.post("/api/topics/{identifier:path}/study-session")
+def generate_study_session(identifier: str):
+    node = _find(identifier)
+    if not node:
+        raise HTTPException(404, "Topic not found")
+
+    settings = _read_settings()
+    active_id = settings.get("active_project_id")
+    if not active_id:
+        raise HTTPException(400, "No active project")
+    project = _find_project(settings, active_id)
+    if not project:
+        raise HTTPException(400, "Active project not found")
+
+    source_base_path = project.get("source_base_path", "")
+    if not source_base_path:
+        raise HTTPException(400, "Project has no source_base_path configured. Edit the project to set it.")
+    if not Path(source_base_path).is_dir():
+        raise HTTPException(400, f"Source directory not found: {source_base_path}")
+
+    outcomes = _collect_learning_outcomes(node)
+    refs = _collect_source_refs(node)
+
+    source_entries = [
+        (_resolve_source_path(source_base_path, ref), ref.get("material_type", ""))
+        for ref in refs
+    ]
+
+    has_exam = any(ref.get("material_type") == "exam" for ref in refs)
+    has_homework = any(ref.get("material_type") == "homework" for ref in refs)
+
+    markdown = _render_study_session(
+        topic_name=node.get("topic", ""),
+        description=node.get("description", ""),
+        study_note=node.get("study_note", ""),
+        outcomes=outcomes,
+        source_entries=source_entries,
+        has_exam=has_exam,
+        has_homework=has_homework,
+    )
+
+    file_path = str(Path(source_base_path) / "study-session.md")
+    with open(file_path, "w") as f:
+        f.write(markdown)
+
+    return {"markdown": markdown, "file_path": file_path, "topic_name": node.get("topic", "")}
+
+
+class LaunchClaudeRequest(BaseModel):
+    file_path: str
+
+
+@app.post("/api/launch-claude")
+def launch_claude(body: LaunchClaudeRequest):
+    if not shutil.which("claude"):
+        raise HTTPException(400, "Claude CLI not found on PATH. Install it from https://docs.anthropic.com/en/docs/claude-code")
+
+    prompt = f"Read the file at {body.file_path} and follow its instructions to begin a study session with me."
+    subprocess.Popen([
+        "osascript", "-e",
+        f'tell application "Terminal" to do script "claude \'{prompt}\'"',
+    ])
+    return {"status": "launched"}

@@ -1135,3 +1135,64 @@ body,
   background: var(--surface-raised);
   color: var(--text-primary);
 }
+
+/* ------------------------------------------------------------------ */
+/*  Study session                                                      */
+/* ------------------------------------------------------------------ */
+
+.study-btn {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border: 1px solid var(--accent-warm);
+  border-radius: 6px;
+  background: var(--accent-warm-dim);
+  color: var(--accent-warm);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.study-btn:hover {
+  background: var(--accent-warm);
+  color: var(--canvas-bg);
+}
+
+.study-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.study-btn:disabled:hover {
+  background: var(--accent-warm-dim);
+  color: var(--accent-warm);
+}
+
+.study-btn-launch {
+  background: transparent;
+}
+
+.study-btn-row {
+  display: flex;
+  gap: 8px;
+}
+
+.study-error {
+  color: var(--progress-struggling);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.study-ready {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.study-path {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  word-break: break-all;
+  margin-top: 4px;
+}

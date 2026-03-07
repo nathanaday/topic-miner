@@ -1,8 +1,20 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
-export default function NodeDetail({ open, data, loading, onClose, onMasteryUpdate }) {
+export default function NodeDetail({ open, data, loading, onClose, onMasteryUpdate, onStudyThis, onLaunchClaude }) {
   const [mastery, setMastery] = useState(null);
   const [saving, setSaving] = useState(false);
+  const [studyLoading, setStudyLoading] = useState(false);
+  const [studyResult, setStudyResult] = useState(null);
+  const [studyError, setStudyError] = useState(null);
+  const [copied, setCopied] = useState(false);
+
+  // Reset study state when selected node changes
+  useEffect(() => {
+    setStudyResult(null);
+    setStudyError(null);
+    setStudyLoading(false);
+    setCopied(false);
+  }, [data?.id]);
 
   // Sync mastery slider with incoming data
   const currentMastery = mastery ?? data?.student_mastery_score ?? 0;
@@ -17,6 +29,40 @@ export default function NodeDetail({ open, data, loading, onClose, onMasteryUpda
       setMastery(null);
     }
   }, [data, currentMastery, onMasteryUpdate]);
+
+  const handleStudyThis = useCallback(async () => {
+    if (!data?.id) return;
+    setStudyLoading(true);
+    setStudyError(null);
+    try {
+      const result = await onStudyThis(data.original_id || data.id);
+      setStudyResult(result);
+    } catch (err) {
+      setStudyError(err.message);
+    } finally {
+      setStudyLoading(false);
+    }
+  }, [data, onStudyThis]);
+
+  const handleCopyToClipboard = useCallback(async () => {
+    if (!studyResult) return;
+    try {
+      await navigator.clipboard.writeText(studyResult.markdown);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setStudyError('Failed to copy to clipboard');
+    }
+  }, [studyResult]);
+
+  const handleLaunchClaude = useCallback(async () => {
+    if (!studyResult) return;
+    try {
+      await onLaunchClaude(studyResult.file_path);
+    } catch (err) {
+      setStudyError(err.message);
+    }
+  }, [studyResult, onLaunchClaude]);
 
   return (
     <div className={`detail-panel ${open ? 'open' : ''}`}>
@@ -110,6 +156,35 @@ export default function NodeDetail({ open, data, loading, onClose, onMasteryUpda
                   </button>
                 </div>
               </div>
+            </div>
+
+            {/* Study session */}
+            <div className="detail-section">
+              <h3>Study Session</h3>
+              {!studyResult && (
+                <button
+                  className="study-btn"
+                  onClick={handleStudyThis}
+                  disabled={studyLoading}
+                >
+                  {studyLoading ? 'Generating...' : 'Study This'}
+                </button>
+              )}
+              {studyError && <p className="study-error">{studyError}</p>}
+              {studyResult && (
+                <>
+                  <p className="study-ready">Session ready: {studyResult.topic_name}</p>
+                  <div className="study-btn-row">
+                    <button className="study-btn" onClick={handleCopyToClipboard}>
+                      {copied ? 'Copied!' : 'Copy to Clipboard'}
+                    </button>
+                    <button className="study-btn study-btn-launch" onClick={handleLaunchClaude}>
+                      Launch Claude
+                    </button>
+                  </div>
+                  <span className="study-path">{studyResult.file_path}</span>
+                </>
+              )}
             </div>
 
             {/* Source references */}

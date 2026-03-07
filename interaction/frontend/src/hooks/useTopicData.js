@@ -74,6 +74,30 @@ export function useTopicData() {
     return res.json();
   }, []);
 
+  const generateStudySession = useCallback(async (id) => {
+    const res = await fetch(`${API}/topics/${encodeURIComponent(id)}/study-session`, {
+      method: 'POST',
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.detail || 'Failed to generate study session');
+    }
+    return res.json();
+  }, []);
+
+  const launchClaude = useCallback(async (filePath) => {
+    const res = await fetch(`${API}/launch-claude`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ file_path: filePath }),
+    });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.detail || 'Failed to launch Claude');
+    }
+    return res.json();
+  }, []);
+
   return {
     graphData,
     metadata,
@@ -82,6 +106,8 @@ export function useTopicData() {
     fetchTopicDetail,
     updateMastery,
     searchTopics,
+    generateStudySession,
+    launchClaude,
     reload,
   };
 }
