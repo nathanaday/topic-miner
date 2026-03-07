@@ -64,6 +64,15 @@ export function useTopicData() {
       body: JSON.stringify({ mastery_score: score }),
     });
     if (!res.ok) throw new Error('Failed to update mastery');
+    setGraphData((prev) => {
+      if (!prev) return prev;
+      return {
+        ...prev,
+        nodes: prev.nodes.map((n) =>
+          n.original_id === id ? { ...n, student_mastery_score: score } : n,
+        ),
+      };
+    });
     return res.json();
   }, []);
 

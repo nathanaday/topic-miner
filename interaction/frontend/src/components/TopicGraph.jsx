@@ -584,8 +584,15 @@ export default function TopicGraph({ data, lens, focusPath, highlightIds, onNavi
       return;
     }
     if (!svgRef.current || !data) return;
-    d3.select(svgRef.current)
-      .selectAll('.node-circle')
+    // Sync latest scores into D3-bound node data before recoloring
+    const scoreMap = new Map(data.nodes.map((n) => [n.id, n.student_mastery_score]));
+    const circles = d3.select(svgRef.current).selectAll('.node-circle');
+    circles.each(function (d) {
+      if (scoreMap.has(d.id)) {
+        d.student_mastery_score = scoreMap.get(d.id);
+      }
+    });
+    circles
       .transition('lens')
       .duration(350)
       .attr('fill', (d) => nodeColor(d, lens))
