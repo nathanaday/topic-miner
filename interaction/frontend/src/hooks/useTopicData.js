@@ -7,11 +7,14 @@ export function useTopicData() {
   const [metadata, setMetadata] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [reloadKey, setReloadKey] = useState(0);
 
   useEffect(() => {
     let cancelled = false;
 
     async function load() {
+      setLoading(true);
+      setError(null);
       try {
         const [graphRes, metaRes] = await Promise.all([
           fetch(`${API}/graph`),
@@ -40,6 +43,12 @@ export function useTopicData() {
 
     load();
     return () => { cancelled = true; };
+  }, [reloadKey]);
+
+  const reload = useCallback(() => {
+    setGraphData(null);
+    setMetadata(null);
+    setReloadKey((k) => k + 1);
   }, []);
 
   const fetchTopicDetail = useCallback(async (id) => {
@@ -73,5 +82,6 @@ export function useTopicData() {
     fetchTopicDetail,
     updateMastery,
     searchTopics,
+    reload,
   };
 }

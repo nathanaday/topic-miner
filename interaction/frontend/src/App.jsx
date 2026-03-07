@@ -1,12 +1,23 @@
 import { useState, useCallback, useEffect } from 'react';
 import { useTopicData } from './hooks/useTopicData';
+import { useProjects } from './hooks/useProjects';
 import TopicGraph from './components/TopicGraph';
 import NodeDetail from './components/NodeDetail';
 import Toolbar from './components/Toolbar';
+import ProjectSidebar from './components/ProjectSidebar';
+import ProjectDialog from './components/ProjectDialog';
 
 export default function App() {
-  const { graphData, metadata, loading, error, fetchTopicDetail, updateMastery, searchTopics } =
-    useTopicData();
+  const {
+    graphData, metadata, loading, error,
+    fetchTopicDetail, updateMastery, searchTopics, reload,
+  } = useTopicData();
+
+  const {
+    projects, activeProjectId, loading: projectsLoading,
+    createProject, switchProject, updateProject, deleteProject, exportProject,
+    refreshProjects,
+  } = useProjects();
 
   const [lens, setLens] = useState('emphasis');
   const [focusPath, setFocusPath] = useState([]);
@@ -15,15 +26,32 @@ export default function App() {
   const [detailLoading, setDetailLoading] = useState(false);
   const [highlightIds, setHighlightIds] = useState(new Set());
 
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [showProjectDialog, setShowProjectDialog] = useState(false);
+  const [projectDialogMode, setProjectDialogMode] = useState('create');
+  const [editingProject, setEditingProject] = useState(null);
+  const [dialogSubmitting, setDialogSubmitting] = useState(false);
+
+  const activeProject = projects.find((p) => p.id === activeProjectId) || null;
+  const hasProjects = projects.length > 0;
+  const isFirstTime = !projectsLoading && !hasProjects;
+
   // Build a node lookup for breadcrumb labels
   const nodeMap = graphData
     ? new Map(graphData.nodes.map((n) => [n.id, n]))
     : new Map();
 
+  // Reset graph state when switching projects
+  const resetGraphState = useCallback(() => {
+    setFocusPath([]);
+    setSelectedNode(null);
+    setDetailData(null);
+    setHighlightIds(new Set());
+  }, []);
+
   const handleNavigate = useCallback(
     async (nodeId) => {
       setFocusPath((prev) => [...prev, nodeId]);
-      // Auto-show detail for the focused node
       const node = nodeMap.get(nodeId);
       if (node) {
         setSelectedNode(node);
@@ -45,7 +73,6 @@ export default function App() {
     setFocusPath((prev) => {
       if (prev.length === 0) return prev;
       const next = prev.slice(0, -1);
-      // If going back to overview, close detail panel
       if (next.length === 0) {
         setSelectedNode(null);
         setDetailData(null);
@@ -57,14 +84,12 @@ export default function App() {
   const handleBreadcrumbJump = useCallback(
     async (index) => {
       if (index < 0) {
-        // Jump to overview
         setFocusPath([]);
         setSelectedNode(null);
         setDetailData(null);
       } else {
         const next = focusPath.slice(0, index + 1);
         setFocusPath(next);
-        // Auto-show detail for the node we jumped to
         const nodeId = next[next.length - 1];
         const node = nodeMap.get(nodeId);
         if (node) {
@@ -84,7 +109,6 @@ export default function App() {
     [focusPath, fetchTopicDetail, nodeMap],
   );
 
-  // When focusPath changes to a non-empty value, auto-fetch detail for the focused node
   useEffect(() => {
     if (focusPath.length === 0) return;
     const nodeId = focusPath[focusPath.length - 1];
@@ -126,6 +150,90 @@ export default function App() {
     [searchTopics],
   );
 
+  // Project handlers
+  const handleProjectSwitch = useCallback(async (id) => {
+    await switchProject(id);
+    resetGraphState();
+    reload();
+    setSidebarOpen(false);
+  }, [switchProject, resetGraphState, reload]);
+
+  const handleProjectCreate = useCallback(async (formData) => {
+    setDialogSubmitting(true);
+    try {
+      await createProject(formData);
+      resetGraphState();
+      reload();
+      setShowProjectDialog(false);
+    } finally {
+      setDialogSubmitting(false);
+    }
+  }, [createProject, resetGraphState, reload]);
+
+  const handleProjectEdit = useCallback(async (formData) => {
+    if (!editingProject) return;
+    setDialogSubmitting(true);
+    try {
+      await updateProject(editingProject.id, {
+        name: formData.get('name'),
+        source_base_path: formData.get('source_base_path'),
+      });
+      setShowProjectDialog(false);
+      setEditingProject(null);
+    } finally {
+      setDialogSubmitting(false);
+    }
+  }, [editingProject, updateProject]);
+
+  const handleProjectDelete = useCallback(async (id) => {
+    await deleteProject(id);
+    resetGraphState();
+    reload();
+  }, [deleteProject, resetGraphState, reload]);
+
+  const openNewDialog = useCallback(() => {
+    setProjectDialogMode('create');
+    setEditingProject(null);
+    setShowProjectDialog(true);
+  }, []);
+
+  const openEditDialog = useCallback((project) => {
+    setProjectDialogMode('edit');
+    setEditingProject(project);
+    setShowProjectDialog(true);
+  }, []);
+
+  // First-time setup: show project creation
+  if (isFirstTime) {
+    return (
+      <div className="canvas">
+        <div className="brand">
+          <h1>Topic Map</h1>
+          <span>Welcome</span>
+        </div>
+        <ProjectDialog
+          open={true}
+          mode="create"
+          project={null}
+          onClose={null}
+          onSubmit={handleProjectCreate}
+          submitting={dialogSubmitting}
+        />
+      </div>
+    );
+  }
+
+  // Still loading projects
+  if (projectsLoading) {
+    return (
+      <div className="canvas" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <p style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontSize: 13 }}>
+          Loading...
+        </p>
+      </div>
+    );
+  }
+
   if (loading) {
     return (
       <div className="canvas" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -146,7 +254,6 @@ export default function App() {
     );
   }
 
-  // Build breadcrumb labels from focusPath
   const breadcrumbs = focusPath.map((id) => {
     const node = nodeMap.get(id);
     return { id, label: node ? node.topic : id };
@@ -154,9 +261,21 @@ export default function App() {
 
   return (
     <div className="canvas">
+      <ProjectSidebar
+        open={sidebarOpen}
+        onToggle={() => setSidebarOpen((v) => !v)}
+        projects={projects}
+        activeProjectId={activeProjectId}
+        onSwitch={handleProjectSwitch}
+        onNew={openNewDialog}
+        onEdit={openEditDialog}
+        onDelete={handleProjectDelete}
+        onExport={exportProject}
+      />
+
       <div className="brand">
         <h1>Topic Map</h1>
-        <span>{metadata?.course_name || ''}</span>
+        <span>{activeProject?.name || metadata?.course_name || ''}</span>
       </div>
 
       <Toolbar
@@ -201,6 +320,17 @@ export default function App() {
         onClose={handleClose}
         onMasteryUpdate={handleMasteryUpdate}
       />
+
+      {showProjectDialog && (
+        <ProjectDialog
+          open={true}
+          mode={projectDialogMode}
+          project={editingProject}
+          onClose={() => { setShowProjectDialog(false); setEditingProject(null); }}
+          onSubmit={projectDialogMode === 'create' ? handleProjectCreate : handleProjectEdit}
+          submitting={dialogSubmitting}
+        />
+      )}
     </div>
   );
 }
