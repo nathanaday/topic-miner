@@ -152,7 +152,7 @@ export default function NodeDetail({ open, data, loading, onClose, onMasteryUpda
 // ---------------------------------------------------------------------------
 
 function CollapsibleSection({ title, children }) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   return (
     <div className="detail-section">
