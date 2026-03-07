@@ -5,9 +5,12 @@ import os
 import shutil
 from pathlib import Path
 
+from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+
+load_dotenv(Path(__file__).resolve().parent / ".env")
 
 app = FastAPI(title="Topic Map API")
 
@@ -92,8 +95,12 @@ def _startup():
     path = os.environ.get(
         "TOPIC_MAP_PATH",
         str(Path(__file__).resolve().parent.parent.parent
-            / "_previous_results" / "week1-week8" / "topic_map.json"),
+            / "topic_map.json"),
     )
+    
+    if not os.path.exists(path):
+        raise RuntimeError(f"topic map not found at {path}")
+    
     _load(path)
 
 
